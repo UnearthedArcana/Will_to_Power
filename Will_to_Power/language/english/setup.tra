@@ -1,0 +1,384 @@
+@1   = ~skipping component~
+@2   = ~skipping non-EE component~
+@3   = ~skipping overhaul components~
+@4   = ~skipping tweak components~
+@5   = ~skipping new kit components~
+@6   = ~...~
+@7   = ~ ~
+@15   = ~Save vs. Spells bonus~
+@16   = ~Save vs. Death bonus~
+@17   = ~Save vs. Breath bonus~
+@18   = ~Save vs. Wands bonus~
+@19   = ~Save vs. Petrify bonus~
+@33  = ~- Focus access to the spheres of: ~
+@34  = ~- Major access to the spheres of: ~
+@35  = ~- Minor access to the spheres of: ~
+@36  = ~Advantages:~
+@37  = ~Abilities:~
+@38  = ~Disadvantages:~
+@39  = ~Restrictions:~
+@40  = ~Shapeshift Natural Form~
+@97  = ~Pick a different power~
+@20097  = ~Pick a different power~
+@98  = ~Choose this power~
+@20098  = ~Choose this power~
+@99  = ~Choose a psionic power~
+@20099  = ~Choose an ability~
+@96  = ~Use this ability to learn a new psionic power~
+@20100  = ~Use this ability to learn a new power~
+@100   = ~Install Psionics System~
+@200   = ~Add Psionicist rogue kit~
+@300   = ~Add Soulblade warrior kit~
+@400   = ~Add Psypher monk kit~
+//
+//
+@201  = ~psionicist~
+@202  = ~Psionicist~
+@203  = ~PSIONICIST: the Psionicist is someone who (mostly) turns away from larcenous pursuits, and focuses on education and meditation to fully harness the power of the mind and the body. Psionicists are generally very well-educated and very healthy, treating their body as a temple. Through study and discipline, they can learn to use psychic abilities from any psionic discipline.
+
+Abilities:
+- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Insightful Strike. The Psionicist can proceed to learn an additional power with each new level of experience, from any psionic discipline.
+- Gains hit point on every even level, up to level 20.
+
+Restrictions:
+- May only distribute 12 skill points per level into thief skills.
+- May not Pick Pockets or Set Traps.
+- May not be Chaotic.
+~
+@301  = ~soulblade~
+@302  = ~Soulblade~
+@303  = ~SOULBLADE: this warrior uses meditation to harness psychic powers in order to enhance <PRO_HISHER> martial abilities. Often training with Psionicists or Psyphers, the Soulblade can use a select few psionic abilities, generally those which fortify <PRO_HISHER> body or mind against attacks.
+
+Abilities:
+- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Insightful Strike. The Soulblade can proceed to learn an additional power at every odd level of experience, from any psionic discipline.
+
+Restrictions:
+- Gains hit dice as a priest (d8) instead of a warrior.
+- Limited to medium armors.
+- Limited to Mastery (+++) with melee weapons.
+- Limited to Proficiency (+) with ranged weapons.
+- May not be Chaotic.
+~
+@401  = ~psypher~
+@402  = ~Psypher~
+@403  = ~PSYPHER: the Psypher is ... Through study and discipline, they can learn to use psychic abilities from any psionic discipline.
+
+Abilities:
+- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline rush, and Insightful Strike. The Psypher can proceed to learn an additional power with each new level of experience, from any psionic discipline.
+- Gains one extra hit point on every even level, up to level 20.
+
+Restrictions:
+- May not be Chaotic.
+- Does not become resistant to magic.
+- Cannot Lay On Hands or use any other traditional Monk abilities.
+~
+//
+@1001  = ~Telepathy~
+@1002  = ~Telepathy: this feat confers the 'Mind Thrust' ability, and allows for learning more psionic abilities within the Telepathy discipline.~
+@2001  = ~Telekinesis~
+@2002  = ~Telekinesis: this feat confers the 'Project Force' ability, and allows for learning more psionic abilities within the Telekinesis discipline.~
+@3001  = ~Pyrokinesis~
+@3002  = ~Pyrokinesis: this feat confers the 'Static Discharge' ability, and allows for learning more psionic abilities within the Telepathy discipline.~
+@4001  = ~Biokinesis~
+@4002  = ~Biokinesis: this feat confers the 'Adrenaline Rush' ability, and allows for learning more psionic abilities within the Biokinesis discipline.~
+@5001  = ~Clairsentience~
+@5002  = ~Clairsentience: this feat confers the 'Insightful Strike' ability, and allows for learning more psionic abilities within the Clairsentience discipline.~
+//
+@1011  = ~Mind Thrust~
+@1012  = ~Mind Thrust: this ability violently shuts down the target's synaptic activity for a very brief period, causing the target to fall unconscious for 1 round and be groggy and slow for 1 further round, unless they make a saving throw.
+
+The cost is 4 hit points.~
+@1031  = ~Id Insinuation~
+@1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to go mad with fear for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
+
+The cost is 6 hit points.~
+@1034  = ~Contingency: activate Id Insinuation at attacker, when hit~
+@1041  = ~Mind Ward~
+@1042  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled 
+
+The cost to maintain this protection is 4 hit points.~
+@1043  = ~Cancel Mind Ward~
+@1051  = ~Ego Repair~
+@1052  = ~Ego Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind.
+
+The cost is 6 hit points.~
+@1054  = ~Contingency: activate Ego Repair when helpless~
+@1071  = ~Mental Domination~
+@1072  = ~Mental Domination: this ability allows a psionicist to take over the mind of a humanoid for up to 10 rounds. The target is dominated for 3 rounds unless they make a saving throw; for 7 rounds after that, the target can save once each round to try to break the domination. At 6th level the save is rolled with a -1 penalty, and at 12th level the penalty increases to -2.
+
+The cost is 9 hit points.~
+@1081  = ~Intellect Fortress~
+@1082  = ~Intellect Fortress: the psion erects a powerful mental defense against all mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, Confusion, Feeblemind, Stun, and Maze effects.
+
+The cost to maintain this protection is 9 hit points.~
+@1083  = ~Cancel Intellect Fortress~
+@1091  = ~Psychic Crush~
+@1092  = ~Psychic Crush: this ability initiates a powerful mental attack, stunning a target creature for 3 rounds and doing 4d3 psychic (stunning) damage unless the target makes a saving throw with a -2 penalty (which avoids the stun effect and halves the damage). At 12th level the save penalty increases to -3 and the damage increases to 4d4, and at 18th level the save penalty increases to -4 and the damage increases to 4d6.
+
+The cost is 9 hit points.~
+@1111  = ~Tower of Iron Will~
+@1112  = ~Tower of Iron Will: this ability is similar to Intellect Fortress, protecting against any mind-affecting magic or psionics. However, in this case the psion can extend that protection to all allies within 15 feet. 
+
+This is a maintainable power; it increases the psion's fatigue, and while in use, it causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@1113  = ~Cancel Tower of Iron Will~
+//
+@2011  = ~Project Force~
+@2012  = ~Project Force: this ability blasts a target with powerful but unfocused telekinetic energy, causing 2d3 stunning damage and, upon a failed saving throw, knocking the target back 5 feet. Additionally, this ability has a 50% chance to break open locks. At 6th level the damage is 2d4 and the save is rolled with a -1 penalty; at 12th level the damage is 2d6 and the save is rolled with a -2 penalty.
+
+The cost is 4 hit points.~
+@2014  = ~Contingency: activate Project Force at attacker, when hit~
+@2031  = ~Immobilize~
+@2032  = ~Immobilize: the target of this power is held frozen in place, unable to move or act, upon a failed saving throw. On the second round and each round thereafter, up to ten rounds, an immobilized target may attempt another save to escape the effect. Even if a save is made, the target is very briefly Slowed while fighting off the telekinetic control. At levels 6 and 12, the target's saving throw is rolled with a -1 and -2 penalty, respectively.
+
+The cost is 6 hit points.~
+@2041  = ~Inertial Barrier~
+@2042  = ~Inertial Barrier: this ability creates a movable barrier inches from the psion's skin, which has several protective effects: it provides a +2 bonus to AC and 40% damage resistance against crushing and missile attacks; a +1 AC bonus and 20% damage resistance against slashing attacks; 25% resistance to fire, acid, and magic damage; and immunity to the Magic Missile spell.
+
+The cost to maintain the Barrier is 6 hit points.~
+@2043  = ~Cancel Inertial Barrier~
+@2051  = ~Psychic Knife~
+@2052  = ~Psychic Knife: the psion can focus telekinetic energy into a razor-sharp blade emanating from <PRO_HISHER> hand. This force can be wielded like a sword, as if the rogue had Mastery (+++) in its use, doing 1d4 slashing damage and 1d4 magic damage.  At 12th level, the blade is wielded as if with Grandmastery.
+
+The cost to maintain the Psychic Knife is 6 hit points.~
+@2053  = ~Cancel Psychic Knife~
+@2071  = ~Repulsion~
+@2072  = ~Repulsion: this ability creates an unfocused surge of telekinetic force which throws anyone nearby away from the psion (except allies, who can be shielded from the effect), unless they make a saving throw vs. Breath. While the ability is maintained, this surge of force builds and is released once per round.  
+
+The cost to maintain the repulsion effect is 9 hit points.~
+@2073  = ~Cancel Repulsion~
+@2081  = ~Free Action~
+@2082  = ~Free Action: this ability allows the psion to break free of any bonds; and to avoid being caught or held by any effect that affects <PRO_HISHER> mobility. Such spells or events will fail to affect the psion as long as this ability is maintained.
+
+The cost to maintain free Action is 9 hit points.~
+@2083  = ~Cancel Free Action~
+@2084  = ~Contingency: activate Free Action when helpless~
+@2091  = ~Mass Immobilize~
+@2092  = ~Mass Immobilize: all enemies within 20' of the psion are held frozen in place, unable to move or act, upon a failed saving throw. On the second round and each round thereafter, up to ten rounds, each immobilized target may attempt another save to escape the effect. Even if a save is made, the target is very briefly Slowed while fighting off the telekinetic control. At levels 6 and 12, the target's saving throw is rolled with a -1 and -2 penalty, respectively.
+
+The cost is 9 hit points.~
+@2094  = ~Contingency: activate Mass Immobilize at 50% hit points~
+@2111  = ~Seismic Vibration~
+@2112  = ~Seismic Vibration: this ability causes a strong tremor to affect the ground nearby. All enemies in the vicinity take damage over the course of three rounds, and must make a saving throw or fall down in the first round.
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+//
+@3011  = ~Static Discharge~
+@3012  = ~Static Discharge: this ability is similar to the Shocking Grasp wizard spell. The psion collects static electricity in his hand, and then uses it to attack an enemy. The enemy takes 2d4+1 points of damage, and must make a saving throw or be stunned for 1 round. At 6th level the damage is 3d4+2 and the save is rolled with a -1 penalty; at 12th level the damage is 4d4+3 and the save penalty increases to -2.
+
+The cost is 4 hit points.~
+@3031  = ~Molecular Agitation~
+@3032  = ~Molecular Agitation: this ability causes the molecules on the edge of the psion's weapon to to become so excited that they can ignite material with which they make contact. The functional result is that all successful melee attacks made by the psion do 1d6 points of heat damage in addition to the normal weapon damage.
+
+The cost to maintain the ability is 6 hit points.~
+@3033  = ~Cancel Molecular Agitation~
+@3041  = ~Energy Dispersion~
+@3042  = ~Energy Dispersion: while this ability is maintained, the psion instinctively absorbs and deflects harmful energies. <PRO_HISHER> resistance to energy-based damage (fire, cold, electricity, and magic damage) is set to 60%.
+
+The cost to maintain the barrier is 6 hit points.~
+@3043  = ~Cancel Energy Dispersion~
+@3051  = ~Psychic Combustion~
+@3052  = ~Psychic Combustion: this ability allows the psion to spontaneously create a brief but powerful fire in any location. The flames do 3d4+3 fire damage to all enemies within 5 feet of the point of combustion. At 6th level the damage increases to 4d4+4, and at 12th level the damage increases to 5d4+5.
+
+The cost is 6 hit points.~
+@3071  = ~Solar Flash~
+@3072  = ~Solar Flash: this ability creates an intense ray of radiant energy in a 20-ft. radius around the psion. All enemies within the area of effect take 2d4 points of heat damage and must save vs. petrification with a -1 penalty or be blinded for 4 rounds.  At 12th level the saving throw penalty increases to -2, and at 18th level it increases to -3. Undead that are hit by the solar flare take double damage.
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@3074  = ~Contingency: activate Solar Flash at 50% hit points~
+@3081  = ~Freezing Precipitation~
+@3082  = ~Freezing Precipitation: this ability removes heat energy from an area at a prodigious rate.  Snow and ice will precipitate out of the air and beings in the area of effect will suffer 2d4 points of damage per round from the cold, for four rounds. Additionally, beings in the area of effect must make a saving throw vs. Breath Weapon each round they remain in the area or have their movement rate halved for that round. 
+  
+The cost is 9 hit points.~
+@3091  = ~Generate Lightning~
+@3092  = ~Generate Lightning: after taking a few moments to collect static energy from the surrounding area, the rogue can discharge it as violent lightning energy. The lightning strikes a chosen target and arcs to any other enemies within 10 feet (the psion has some measure of control over the energy and can protect <PRO_HISHER> companions). The discharge does 2d6 lightning damage, which is halved upon a successful saving throw. At 6th level the damage is 3d6 and the save is rolled with a -1 penalty. At 12th level the damage is 4d6 and the save is rolled with a -2 penalty.
+
+The cost is 9 hit points.~
+@3094  = ~Contingency: activate Generate Lightning at attacker, at 50% hit points~
+@3111  = ~Energy Storm~
+@3112  = ~Energy Storm: this ability fills the vicinity with a churning storm of fire and electricity. For three rounds, enemies in the storm take 1d10 fire damage and 1d10 electrical damage (save at -3 penalty for half). Further, the radiant effects inside the storm require enemies to make a save vs. petrification at a -3 penalty each round or be blinded for 4 rounds.
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+//
+@4011  = ~Adrenaline Rush~
+@4012  = ~Adrenaline Rush: this ability temporarily boosts the psion's strength by 2 points and increasing <PRO_HISHER> movement and attack speed, for 3 rounds. Afterward, the psion becomes tired and weakened (-4 to STR) for 2 rounds. At 6th level the Strength bonus is increased to +3 and lasts 4 rounds; and at 12th level it is increased to +4 and lasts 5 rounds.
+
+The cost is 4 hit points, and the ability may not be used again until the weakness has worn off.~
+@4031  = ~Body Purification~
+@4032  = ~Body Purification: This ability removes all toxins from the body, both natural and magical in nature. It immediately neutralizes any poison and will also cure any diseases that the psion might be suffering from, as well as blindness and deafness.
+
+The cost is 6 hit points.~
+@4034  = ~Contingency: activate Body Purification if poisoned~
+@4041  = ~Bioregeneration~
+@4042  = ~Bioregeneration: this ability triggers powerful healing responses in the psion's immune system, resulting in the regeneration of 1 hit point per round. This is a maintainable power; the psion can all such healing to fully take its course; however, the psion must concentrate on the power, and may not engage in physical combat while the power is maintained. At 6th level the psion regenerates 3 hit points every 2 rounds, and at 12th level the psion regenerates 3 hit points per round.
+
+The cost to maintain the regeneration is 6 hit points.~
+@4043  = ~Cancel Bioregeneration~
+@4044  = ~Contingency: activate Bioregeneration at 50% hit points~
+@4051  = ~Chemical Simulation~
+@4052  = ~Chemical Simulation: this ability allows the psion to secrete a toxic liquid and direct it at a nearby enemy. This attack does 2d3 poison damage, plus 1 point per round for 5 rounds (the initial damage is halved and the ongoing damage is avoided if the target makes a save vs. Poison.  At 6th level the damage increases to 2d4, +2/round; and at 12th level it increases to 2d6, +3/round.
+
+The cost is 6 hit points.~
+@4071  = ~Absorb Infliction~
+@4072  = ~Absorb Infliction: this ability allow the psion to sacrifice his own bodily health in order to heal an ally. If the psion's current hit points are greater than the ally's, then the difference between the two values will be subtracted form the psion and added to the ally. Additionally, the ally may be cured of inflictions such as poison, disease, blindness and deafness. The psion takes on such ailments, and immediately performs a Body Purification, purging them from <PRO_HISHER> own body.
+
+The cost is 9 hit points, and the strain of such healing increases the psion's level of fatigue.~
+@4081  = ~Camouflage~
+@4082  = ~Camouflage: this ability makes the psion's body blend into the nearby environment like a chameleon. The effect is similar to the Improved Invisibility spell, although it does not actually involve invisibility: the psion has a -4 bonus to AC, a +40% bonus to stealth, and cannot easily be targeted by spellcasters.
+
+The cost to maintain the Camouflage is 9 hit points.~
+@4083  = ~Cancel Camouflage~
+@4091  = ~Carapace~
+@4092  = ~Carapace: this ability causes the rogue's skin to harden into a fast-regenerating, strong but brittle shell. This provides a -2 bonus to AC, and harmlessly absorbs 1 physical attack each round.
+
+The cost to maintain the Carapace is is 9 hit points.~
+@4093  = ~Cancel Carapace~
+@4094  = ~Contingency: activate Carapace when hit~
+@4111  = ~Feral Transformation~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@4112  = ~Feral Transformation:  ~
+@4113  = ~Cancel Feral Transformation~
+//
+@5011  = ~Object Reading~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@5012  = ~Object Reading: ~
+@5031  = ~Insightful Strike~
+@5032  = ~Insightful Strike: while maintained, the next attack made by the psion will automatically be a critical hit.
+
+The cost to maintain this ability is is 4 hit points.~
+@5033  = ~Cancel Insightful Strike~
+@5034  = ~Contingency: activate Insightful Strike when hit~
+@5041  = ~Precognitive Luck~
+@5042  = ~Precognitive Luck: while this ability is maintained, the psion's foresight and intuition give <PRO_HIMHER> 1-point bonus to Luck, which results in a 5% bonus to to-hit rolls, saving throws, rogue skills, and melee damage.
+
+The cost to maintain this ability is 6 hit points.~
+@5043  = ~Cancel Precognitive Luck~
+@5051  = ~Clairvoyant Sight~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@5052  = ~Clairvoyant Sight: ~
+@5071  = ~Contingent Eventuality~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@5072  = ~Contingent Eventuality: ... Only one of these contingencies can be active at any time; setting a new contingency will cancel the current one.
+
+The following abilities can be triggered on a contingent basis, as long as the psion can use the underlying power.
+
+Contingency: activate Id Insinuation at attacker, when hit
+Contingency: activate Ego Repair when helpless
+Contingency: activate Project Force at attacker, when hit
+Contingency: activate Free Action when helpless
+Contingency: activate Mass Immobilize at 50% hit points
+Contingency: activate Solar Flash at 50% hit points
+Contingency: activate Generate Lightning at attacker, at 50% hit points
+Contingency: activate Body Purification if poisoned
+Contingency: activate Bioregeneration at 50% hit points
+Contingency: activate Carapace when hit
+Contingency: activate Insightful Strike when hit
+
+The cost is 9 hit points.~
+@5081  = ~Life Detection~
+@5082  = ~Life Detection: this ability allows the psion to detect intelligent thought around them. This makes invisible creatures visible to and targetable by the psion, but not by anyone else (unless they have their own means of seeing through invisibility). Note, this *does* function against undead, golems, and similar constructs; even those animated beings have rudimentary cognition sufficient to impart motor control.
+
+The cost to maintain this ability is 9 hit points.~
+@5083  = ~Cancel Life Detection~
+@5091  = ~Danger Sense~
+@5092  = ~Danger Sense: while this ability is maintained, the psion has a 2-point bonus to Armor Class, a 20% bonus to the Find Traps skill, and cannot be backstabbed. Further, if the psion is targeted by certain spell effects that can be dodged, <PRO_HESHE> may attempt a saving throw vs. Breath Weapon to avoid the spell altogether.
+
+The cost to maintain this ability is is 9 hit points.~
+@5093  = ~Cancel Danger Sense~
+@5111  = ~Clairvoyant Channeling~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@5112  = ~Clairvoyant Channeling: 
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@5113  = ~Cancel Contingent Eventuality~
+//
+@9011  = ~Ultrablast~
+@9012  = ~Ultrablast: this is a massive, omnidirectional psionic blast which savagely attacks the minds of the psion's enemies. All such enemies within 20 feet must saving throw with a -3 penalty or be stunned for three rounds. 
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9021  = ~Energy Construct~
+@9022  = ~Energy Construct: 
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9031  = ~Fission~
+@9032  = ~Fission: this ability creates a fully functioning, fully cognizant clone of the psion. The clone has roughly half of the psion's experience and vitality, and operates according to the psion's will (since they are in fact the same person). Maintaining the clone's corporeal integrity involves a supreme act of will; the clone disintegrates after 1 turn.
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9041  = ~Atomic Disruption~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@9042  = ~Atomic Disruption: ~
+@9051  = ~Exoskeleton~
+@9052  = ~Exoskeleton: this power allows the psion to wrap <PRO_HISHER> body with layers of telekinetic force, creating a near-impenetrable shell of pure will. Visually, <PRO_HISHER> body seems to be encased in a dull, metallic sheen. While 
+
+Maintaining this ability costs a 20-point temporary reduction in max hit points; upone releasing the exoskeleton, the psion's fatigue is increased.~
+@9053  = ~Cancel Exoskeleton~
+@9061  = ~Elemental Composition~
+@9062  = ~Elemental Composition: this power allows the psion to infuse his very body with elemental energy into a form  wrap <PRO_HISHER> body with layers of telekinetic force, creating a near-impenetrable shell of pure will. Visually, <PRO_HISHER> body seems to be encased in a dull, metallic sheen. While 
+
+Maintaining this ability costs a 20-point temporary reduction in max hit points; upone releasing the exoskeleton, the psion's fatigue is increased.~
+@9063  = ~Cancel Elemental Composition~
+@9066  = ~Lightning Composition~
+@9067  = ~Fire Compisition~
+@9068  = ~Ice Composition~
+@9071  = ~Project Mind~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@9072  = ~Project Mind: 
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9081  = ~Dimensional Anchor~
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@9082  = ~Dimensional Anchor: 
+
+Maintaining this ability costs a 20-point temporary reduction in max hit points; upone releasing the exoskeleton, the psion's fatigue is increased.~
+@9083  = ~Cancel Dimensional Anchor~
+@9091  = ~Stasis Field~
+@9092  = ~Stasis Field: this ability freezes all beings in the vicinity, at a molecular level. For twelve seconds the psion alone may move and interact with the frozen world. The stasis field prevents the psion from physically damaging anything during this time, but <PRO_HESHE> may initiate psionic abilities or magical powers, the effects of which will take place once the stasis ends. Beware: beings with near-godlike powers or characteristics may be immune to the effects of a stasis field.
+
+Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9101  = ~Body Control~
+@9102  = ~Body Control: this ability represents the ultimate control over one's own biological processes. The psion can make <PRO_HIMHER>self 85 immune to environmental damage such as acid, fire, cold, lightning, poison; or 65% immune to physical damage such as crushing, slashing, or piercing/missile. While the ability is maintained, the psion can change immunity at will to match whatever adverse conditions <PRO_HESHE> is currently facing.
+
+This ability increases the psion's fatigue, and while in use it causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+@9103  = ~Cancel Body Control~
+@91001  = ~Acid Immunity~
+@91002  = ~Cold Immunity~
+@91003  = ~Electric Immunity~
+@91004  = ~Fire Immunity~
+@91005  = ~Crushing Immunity~
+@91006  = ~Slashing Immunity~
+@91007  = ~Piercing/Missile Immunity~
+@91008  = ~Poison Immunity~
+//
+@9991  = ~Monstrous Evolution~
+@9992  = ~Monstrous Evolution: this ability causes the psion's body to rapidly grow into a hideously powerful, hulking form. The monstrous form has an AC of -5, a THAC0 of 2 and attacks twice per round with powerful fists. These attacks do 3d6 crushing damage plus 2d4 poison damage. In this form the psion is immune to entanglement, web and hold effects, and to all poisons.
+
+Upon resuming <PRO_HISHER> natural form, the psion becomes fatigued and suffers a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+//
+@10001  = ~Choosing this ability will enable you to choose another psionic ability. In addition, if you have learned at least four abilities in any of the four psionic disciplines, you will be able to learn one of two HLA-level powers from that discipline. The eight HLA-level psionic abilities are:
+
+- Telepathy: Ultrablast. Causes all nearby enemies to make a saving throw or be stunned.
+- Telepathy: Tower of Iron Will. This acts like the Intellect Fortress power, but protects all nearby allies while it is maintained.
+- Telekinesis: Earthquake. This acts like the priest spell of the same name.
+- Telekinesis: Stasis Field. This acts like the wizard spell Time Stop, but the psion cannot physically attack while the stasis field is active.
+- Pyrokinesis: Solar Flash. This acts like the priest spell Sunray, but will not automatically kill undead creatures.
+- Pyrokinesis: Energy Storm. This acts like the priest spell Storm of Vengeance, but with no acid or poison damage.
+- Biokinesis: Monstrous Evolution. This ability transforms the psion into a hulking beast, similar in appearance to a Shambling Mound.
+- Biokinesis: Fission. This acts like the wizard spell Simulacrum.
+
+Unlike lesser psionic powers, these abilities may be used once per day. In each case, using the ability increases the psion's fatigue and causes a temporary reduction of 25 max hit points. Note: you may only learn one of the two ultimate powers in each discipline.~
+//
