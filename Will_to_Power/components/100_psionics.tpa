@@ -249,6 +249,8 @@ COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrz6.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 24 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 30 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 36 END
+//__________________________________________________________________________________
+
 
 //add available spellstates__________________________________________________________
 //
@@ -291,8 +293,17 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	  END
 	END
 BUT_ONLY
-
 //__________________________________________________________________________________
+
+
+//PSIONIC ABILITY FILES_____________________________________________________________
+//
+COPY ~will_to_power/data/d5ps100.bam~ ~override~
+COPY ~will_to_power/data/d5ps200.bam~ ~override~
+COPY ~will_to_power/data/d5ps300.bam~ ~override~
+COPY ~will_to_power/data/d5ps400.bam~ ~override~
+COPY ~will_to_power/data/d5ps500.bam~ ~override~
+COPY ~will_to_power/data/d5ps900.bam~ ~override~
 
 COPY ~will_to_power/data/d5ps101.bam~ ~override~
 COPY ~will_to_power/data/d5ps101.spl~ ~override~   //  					mind thrust
