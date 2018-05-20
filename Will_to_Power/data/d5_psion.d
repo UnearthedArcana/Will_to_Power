@@ -86,142 +86,142 @@ IF ~~ THEN BEGIN d5_psion_111 // tower of iron will
 END
 IF ~~ THEN BEGIN d5_psion_203 // immobilize
  SAY @2032
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_203","LOCALS",1)~ DO ~ApplySpellRES("D5PX203",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_203","LOCALS",1)~ DO ~ApplySpellRES("D5PX203",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_204 // inertial barrier
  SAY @2042
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_204","LOCALS",1)~ DO ~ApplySpellRES("D5PX204",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_204","LOCALS",1)~ DO ~ApplySpellRES("D5PX204",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_205 // psychic knife
  SAY @2052
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_205","LOCALS",1)~ DO ~ApplySpellRES("D5PX205",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_205","LOCALS",1)~ DO ~ApplySpellRES("D5PX205",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_207 // repulsion
  SAY @2072
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_207","LOCALS",1)~ DO ~ApplySpellRES("D5PX207",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_207","LOCALS",1)~ DO ~ApplySpellRES("D5PX207",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_208 // free action
  SAY @2082
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_208","LOCALS",1)~ DO ~ApplySpellRES("D5PX208",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_208","LOCALS",1)~ DO ~ApplySpellRES("D5PX208",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_209 // mass immobilize
  SAY @2092
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_209","LOCALS",1)~ DO ~ApplySpellRES("D5PX209",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_209","LOCALS",1)~ DO ~ApplySpellRES("D5PX209",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_211 // seismic manipulation
  SAY @2112
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_211","LOCALS",1)~ DO ~ApplySpellRES("D5PX211",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_211","LOCALS",1)~ DO ~ApplySpellRES("D5PX211",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_303 // molecular agitation
  SAY @3032
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_303","LOCALS",1)~ DO ~ApplySpellRES("D5PX303",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_303","LOCALS",1)~ DO ~ApplySpellRES("D5PX303",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_304 // energy dispersion
  SAY @3042
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_304","LOCALS",1)~ DO ~ApplySpellRES("D5PX304",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_304","LOCALS",1)~ DO ~ApplySpellRES("D5PX304",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_305 // psychic combustion
  SAY @3052
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_305","LOCALS",1)~ DO ~ApplySpellRES("D5PX305",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_305","LOCALS",1)~ DO ~ApplySpellRES("D5PX305",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_307 // solar flash
  SAY @3072
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_307","LOCALS",1)~ DO ~ApplySpellRES("D5PX307",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_307","LOCALS",1)~ DO ~ApplySpellRES("D5PX307",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_308 // freezing precipitation
  SAY @3082
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_308","LOCALS",1)~ DO ~ApplySpellRES("D5PX308",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_308","LOCALS",1)~ DO ~ApplySpellRES("D5PX308",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_309 // generate lightning
  SAY @3092
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_309","LOCALS",1)~ DO ~ApplySpellRES("D5PX309",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_309","LOCALS",1)~ DO ~ApplySpellRES("D5PX309",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_311 // energy storm
  SAY @3112
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_311","LOCALS",1)~ DO ~ApplySpellRES("D5PX311",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_311","LOCALS",1)~ DO ~ApplySpellRES("D5PX311",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_403 // body purification
  SAY @4032
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_403","LOCALS",1)~ DO ~ApplySpellRES("D5PX403",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_403","LOCALS",1)~ DO ~ApplySpellRES("D5PX403",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_404 // bioregeneration
  SAY @4042
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_404","LOCALS",1)~ DO ~ApplySpellRES("D5PX404",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_404","LOCALS",1)~ DO ~ApplySpellRES("D5PX404",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_405 // chemical simulation
  SAY @4052
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_405","LOCALS",1)~ DO ~ApplySpellRES("D5PX405",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_405","LOCALS",1)~ DO ~ApplySpellRES("D5PX405",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_407 // absorb infliction
  SAY @4072
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_407","LOCALS",1)~ DO ~ApplySpellRES("D5PX407",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_407","LOCALS",1)~ DO ~ApplySpellRES("D5PX407",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_408 // camouflage
  SAY @4082
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_408","LOCALS",1)~ DO ~ApplySpellRES("D5PX408",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_408","LOCALS",1)~ DO ~ApplySpellRES("D5PX408",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_409 // carapace
  SAY @4092
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_409","LOCALS",1)~ DO ~ApplySpellRES("D5PX409",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_409","LOCALS",1)~ DO ~ApplySpellRES("D5PX409",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_411 // bestial transformation
  SAY @4112
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_411","LOCALS",1)~ DO ~ApplySpellRES("D5PX411",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_411","LOCALS",1)~ DO ~ApplySpellRES("D5PX411",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_503 // insightful strike
  SAY @5032
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_503","LOCALS",1)~ DO ~ApplySpellRES("D5PX503",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_503","LOCALS",1)~ DO ~ApplySpellRES("D5PX503",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_504 //  precognitive luck
  SAY @5042
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_504","LOCALS",1)~ DO ~ApplySpellRES("D5PX504",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_504","LOCALS",1)~ DO ~ApplySpellRES("D5PX504",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_505 // clairvoyant sight
  SAY @5052
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_505","LOCALS",1)~ DO ~ApplySpellRES("D5PX505",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_505","LOCALS",1)~ DO ~ApplySpellRES("D5PX505",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_507 // contingent eventuality
  SAY @5072
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_507","LOCALS",1)~ DO ~ApplySpellRES("D5PX507",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_507","LOCALS",1)~ DO ~ApplySpellRES("D5PX507",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_508 // life detection
  SAY @5082
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_508","LOCALS",1)~ DO ~ApplySpellRES("D5PX508",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_508","LOCALS",1)~ DO ~ApplySpellRES("D5PX508",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_509 // danger sense
  SAY @5092
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_509","LOCALS",1)~ DO ~ApplySpellRES("D5PX509",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_509","LOCALS",1)~ DO ~ApplySpellRES("D5PX509",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_511 // clairvoyant channeling
  SAY @5112
- IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_511","LOCALS",1)~ DO ~ApplySpellRES("D5PX511",Myself)~ EXIT 
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_511","LOCALS",1)~ DO ~ApplySpellRES("D5PX511",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_901 // ultrablast

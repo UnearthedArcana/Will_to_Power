@@ -183,7 +183,7 @@ The cost is 6 hit points.~
 @3071  = ~Solar Flash~
 @3072  = ~Solar Flash: this ability creates an intense ray of radiant energy in a 20-ft. radius around the psion. All enemies within the area of effect take 2d4 points of heat damage and must save vs. petrification with a -1 penalty or be blinded for 4 rounds.  At 12th level the saving throw penalty increases to -2, and at 18th level it increases to -3. Undead that are hit by the solar flare take double damage.
 
-Using this ability increases the psion's fatigue and causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
+The cost is 9 hit points.~
 @3074  = ~Contingency: activate Solar Flash at 50% hit points~
 @3081  = ~Freezing Precipitation~
 @3082  = ~Freezing Precipitation: this ability removes heat energy from an area at a prodigious rate.  Snow and ice will precipitate out of the air and beings in the area of effect will suffer 2d4 points of damage per round from the cold, for four rounds. Additionally, beings in the area of effect must make a saving throw vs. Breath Weapon each round they remain in the area or have their movement rate halved for that round. 
@@ -248,7 +248,7 @@ The cost to maintain the Carapace is is 9 hit points.~
 @5031  = ~Insightful Strike~
 @5032  = ~Insightful Strike: while maintained, the next attack made by the psion will automatically be a critical hit.
 
-The cost to maintain this ability is is 4 hit points.~
+The cost to maintain this ability is is 6 hit points.~
 @5033  = ~Cancel Insightful Strike~
 @5034  = ~Contingency: activate Insightful Strike when hit~
 @5041  = ~Precognitive Luck~
