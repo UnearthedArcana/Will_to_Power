@@ -369,13 +369,13 @@ COPY ~will_to_power/data/d5ps104.spl~ ~override/d5pw104.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR range = 30 STR_VAR icon = ~d5ps104~ END
 	LPF DELETE_EFFECT INT_VAR match_probability2 = 0 END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5ps104~ END
-CREATE EFF ~d5pt10~
+CREATE EFF ~d5py10~
 	WRITE_LONG 0x10 171
 	WRITE_LONG 0x14 1
 	WRITE_SHORT 0x2c 100
 	WRITE_ASCII 0x30 ~d5pw10~ #8
 	WRITE_LONG 0x90 1
-	WRITE_ASCII 0x94 ~d5pt10~ #8
+	WRITE_ASCII 0x94 ~d5py10~ #8
 
 COPY ~will_to_power/data/d5ps105.bam~ ~override~
 COPY ~will_to_power/data/d5ps105.spl~ ~override~   //  				ego repair
@@ -1273,32 +1273,39 @@ COPY ~will_to_power/data/d5ps507.spl~ ~override~   // 				contingent eventuality
 	SAY UNIDENTIFIED_DESC @5072
 	WRITE_ASCII 0x3a ~d5ps507~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR speed = 2 STR_VAR icon = ~d5ps507~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter1 = 10 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5ps507~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psst9~ END
 ACTION_FOR_EACH contingent IN ~1C3~ ~1C5~ ~2C7~ ~2C8~ ~2C9~ ~3C7~ ~3C9~ ~4C3~ ~4C4~ ~4C9~ ~5C3~ BEGIN
-  CREATE EFF ~d5pc%contingent%~
+  CREATE EFF ~d5ps%contingent%~
 	WRITE_LONG 0x10 171
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x24 0
 	WRITE_LONG 0x28 1
 	WRITE_SHORT 0x2c 100
-	WRITE_EVALUATED_ASCII 0x30 ~D5PC%contingent%~ #8
+	WRITE_EVALUATED_ASCII 0x30 ~D5PS%contingent%~ #8
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5PC%contingent%~ #8
+	WRITE_EVALUATED_ASCII 0x94 ~D5PS%contingent%~ #8
 END
-// ...
+COPY ~will_to_power/data/d5ps507.eff~ ~override~
+COPY ~will_to_power/data/d5ps507.cre~ ~override~
+COMPILE ~will_to_power/data/d5ps507.baf~
+COMPILE ~will_to_power/data/d5ps507.d~
+
 COPY ~will_to_power/data/d5ps1c3.spl~ ~override~
 	SAY NAME1 @1034
 	SAY UNIDENTIFIED_DESC @1034
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 COPY ~will_to_power/data/d5ps1c5.spl~ ~override~
 	SAY NAME1 @1054
 	SAY UNIDENTIFIED_DESC @1054
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps2c1.spl~ ~override~
@@ -1306,7 +1313,7 @@ COPY ~will_to_power/data/d5ps2c1.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @2014
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps2c8.spl~ ~override~
@@ -1314,7 +1321,7 @@ COPY ~will_to_power/data/d5ps2c8.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @2084
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps2c9.spl~ ~override~
@@ -1322,7 +1329,7 @@ COPY ~will_to_power/data/d5ps2c9.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @2094
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps3c7.spl~ ~override~
@@ -1330,7 +1337,7 @@ COPY ~will_to_power/data/d5ps3c7.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @3074
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps3c9.spl~ ~override~
@@ -1338,7 +1345,7 @@ COPY ~will_to_power/data/d5ps3c9.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @3094
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps4c3.spl~ ~override~
@@ -1346,7 +1353,7 @@ COPY ~will_to_power/data/d5ps4c3.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @4034
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps4c4.spl~ ~override~
@@ -1354,7 +1361,7 @@ COPY ~will_to_power/data/d5ps4c4.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @4044
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps4c9.spl~ ~override~
@@ -1362,7 +1369,7 @@ COPY ~will_to_power/data/d5ps4c9.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @4094
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps5c3.spl~ ~override~
@@ -1370,7 +1377,7 @@ COPY ~will_to_power/data/d5ps5c3.spl~ ~override~
 	SAY UNIDENTIFIED_DESC @5034
 	PATCH_FOR_EACH eventuality IN ~d5ps1c3~ ~d5ps1c5~ ~d5ps2c1~ ~d5ps2c8~ ~d5ps2c9~ ~d5ps3c7~ ~d5ps3c9~ ~d5ps4c3~ ~d5ps4c4~ ~d5ps4c9~ ~d5ps5c3~ BEGIN
 	  PATCH_IF NOT (~%eventuality%~ STRING_EQUAL_CASE ~%SOURCE_RES%~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~%SOURCE_RES%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	  END
 	END
 COPY ~will_to_power/data/d5ps507.spl~ ~override/d5pw507.spl~
@@ -1379,7 +1386,7 @@ COPY ~will_to_power/data/d5ps507.spl~ ~override/d5pw507.spl~
 	WRITE_ASCII 0x3a ~d5ps507~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR range = 30 STR_VAR icon = ~d5ps507~ END
 	LPF DELETE_EFFECT INT_VAR match_probability2 = 0 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5ps511~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5ps507~ END
 
 COPY ~will_to_power/data/d5ps508.bam~ ~override~
 COPY ~will_to_power/data/d5ps508.spl~ ~override~   //  				life detection
@@ -1408,14 +1415,9 @@ COPY ~will_to_power/data/d5ps508.spl~ ~override/d5pw508.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5ps508~ END
 
 // add sanctuary to invisibility to make life detection work
+INCLUDE ~%MOD_FOLDER%/lib/d5_insanctibility.tpa~
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_insanctibility.d5~ BEGIN
-  COPY ~will_to_power/lib/markers/d5_insanctibility.d5~ ~override~
-  COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
-	SNPRINT 3 ~spl_prefix~ ~%SOURCE_RES%~
-	PATCH_IF NOT (~%spl_prefix%~ STRING_EQUAL_CASE ~#bo~) BEGIN
-	  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 20 match_parameter2 = 1 opcode = 153 parameter2 = 1 STR_VAR resource = ~~ END
-	END
-  BUT_ONLY
+  LAM D5_INSANCTIBILITY
 END
 
 COPY ~will_to_power/data/d5ps509.bam~ ~override~
@@ -1445,7 +1447,10 @@ COPY ~will_to_power/data/d5ps509.spl~ ~override/d5pw509.spl~
 
 // process spells to make evasion work
 OUTER_SET optional_evade = 1
-INCLUDE ~will_to_power/lib/spell_evasion.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/spell_evasion/spell_evasion.tpa~
+ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN 
+  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = EVAL ~%evadable_spell%~ evade_prefix = ~d5ev~ END
+END
 
 COPY ~will_to_power/data/d5ps511.bam~ ~override~
 COPY ~will_to_power/data/d5ps511.spl~ ~override~    	// 			clairvoyant channeling
@@ -1914,9 +1919,18 @@ END
 COPY ~will_to_power/data/d5ps000.spl~ ~override~
 
 COPY ~will_to_power/data/d5ps000.itm~ ~override~
+//COPY ~will_to_power/data/d5ps900.itm~ ~override/d5ps000.itm~
 //	LPF ALTER_ITEM_HEADER INT_VAR target = 7 END
-//	LPF ALTER_EFFECT INT_VAR multi_match = 1 header = 1 match_opcode = 177 timing = 1 STR_VAR match_resource = ~d5pt101~ END
-	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw101~ END
+//	LPF ALTER_EFFECT INT_VAR multi_match = 1 header = 1 match_opcode = 177 timing = 1 STR_VAR match_resource = ~d5py101~ END
+  PATCH_FOR_EACH ind IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
+   PATCH_FOR_EACH abil IN ~01~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pw%ind%%abil%~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~d5pv%ind%%abil%~ BEGIN
+	  LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pv%ind%%abil%~ END
+	END
+   END
+  END
+/*
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw103~ END
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw104~ END
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw105~ END
@@ -1955,51 +1969,139 @@ COPY ~will_to_power/data/d5ps000.itm~ ~override~
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw508~ END
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw509~ END
 	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw511~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw901~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw902~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw903~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw904~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw905~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw906~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw907~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw908~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw909~ END
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pw910~ END
+*/
 	LPF DELETE_EFFECT INT_VAR header = 0 match_opcode = 172 END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT101~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT103~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT104~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT105~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT107~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT108~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT109~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT111~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT201~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT203~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT204~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT205~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT207~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT208~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT209~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT211~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT301~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT303~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT304~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT305~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT307~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT308~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT309~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT311~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT401~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT403~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT404~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT405~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT407~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT408~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT409~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT411~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT503~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT504~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT505~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT507~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT508~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT509~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PT511~ END
-	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  PATCH_FOR_EACH abil IN ~01~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY1%abil%~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY2%abil%~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY3%abil%~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY4%abil%~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY5%abil%~ END
+  END
+  PATCH_FOR_EACH hla IN ~01~ ~02~ ~03~ ~04~ ~05~ ~06~ ~07~ ~08~ ~09~ ~10~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY9%hla%~ END
+  END
+/*
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY103~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY104~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY105~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY107~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY108~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY109~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY111~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY201~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY203~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY204~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY205~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY207~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY208~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY209~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY211~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY301~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY303~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY304~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY305~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY307~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY308~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY309~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY311~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY401~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY403~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY404~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY405~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY407~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY408~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY409~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY411~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY503~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY504~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY505~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY507~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY508~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY509~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY511~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY901~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY902~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY903~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY904~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY905~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY906~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY907~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY908~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY909~ END
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = ~D5PY910~ END
+*/
+  LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+
+COPY ~will_to_power/data/d5ps5900.itm~ ~override/d5ps500.itm~
+  LPF DELETE_EFFECT INT_VAR match_opcode = 335 END
+//	LPF ALTER_ITEM_HEADER INT_VAR target = 7 END
+//	LPF ALTER_EFFECT INT_VAR multi_match = 1 header = 1 match_opcode = 177 timing = 1 STR_VAR match_resource = ~d5py101~ END
+  PATCH_FOR_EACH ind IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
+   PATCH_FOR_EACH abil IN ~01~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pw%ind%%abil%~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~d5pv%ind%%abil%~ BEGIN
+	  LPF ADD_ITEM_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pv%ind%%abil%~ END
+	END
+   END
+  END
+  LPF DELETE_EFFECT INT_VAR header = 0 match_opcode = 172 END
+  PATCH_FOR_EACH abil IN ~01~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+   PATCH_IF FILE_EXISTS_IN_GAME ~d5pv1%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PU1%abil%~ END
+   END
+   PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5pv1%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY1%abil%~ END
+   END
+   PATCH_IF FILE_EXISTS_IN_GAME ~d5pv2%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PU2%abil%~ END
+   END
+   PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5pv2%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY2%abil%~ END
+   END
+   PATCH_IF FILE_EXISTS_IN_GAME ~d5pv3%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PU3%abil%~ END
+   END
+   PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5pv3%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY3%abil%~ END
+   END
+   PATCH_IF FILE_EXISTS_IN_GAME ~d5pv4%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PU4%abil%~ END
+   END
+   PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5pv4%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY4%abil%~ END
+   END
+   PATCH_IF FILE_EXISTS_IN_GAME ~d5pv5%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PU5%abil%~ END
+   END
+   PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5pv5%abil%~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY5%abil%~ END
+   END
+  END
+  PATCH_FOR_EACH hla IN ~01~ ~02~ ~03~ ~04~ ~05~ ~06~ ~07~ ~08~ ~09~ ~10~ BEGIN
+	LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 177 target = 1 parameter2 = 2 timing = 0 STR_VAR resource = EVAL ~D5PY9%hla%~ END
+  END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 2 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 3 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 4 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 5 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 6 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
+  LPF ADD_ITEM_EFFECT INT_VAR header = 7 opcode = 214 target = 1 parameter2 = 1 timing = 1 END
 
 /*
 COPY ~will_to_power/data/d5ps500.itm~ ~override~
@@ -2145,6 +2247,9 @@ COPY ~will_to_power/data/d5ps5900.itm~ ~override~
 
 //LEARN NEW ABILITIES_______________________________________________________________
 //
+// d5py = add ability at time of use (EFF with 171)
+// d5pz = cannot use ("unlearn" at level 1 - 206 vs. d5py)
+// d5px = learn ability (cancel d5pz)
 COPY ~will_to_power/data/d5pz000.spl~ ~override~
 	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 146 STR_VAR resource = ~d5pz104~ END
 	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 146 STR_VAR resource = ~d5pz105~ END
@@ -2191,21 +2296,37 @@ COPY ~will_to_power/data/d5pz000.spl~ ~override~
 	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 146 STR_VAR resource = ~d5pz909~ END
 	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 146 STR_VAR resource = ~d5pz910~ END
 
-ACTION_FOR_EACH ind IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
+ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
  ACTION_FOR_EACH abil IN ~01~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
-  CREATE EFF ~d5pt%ind%%abil%~
+  CREATE EFF ~d5py%disc%%abil%~
 	WRITE_LONG 0x10 171
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x24 0
 	WRITE_LONG 0x28 1
 	WRITE_SHORT 0x2c 100
-	WRITE_EVALUATED_ASCII 0x30 ~d5pw%ind%%abil%~ #8
+	WRITE_EVALUATED_ASCII 0x30 ~d5pw%disc%%abil%~ #8
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5PT%ind%%abil%~ #8
-  COPY ~will_to_power/data/d5_base.spl~ ~override/d5pz%ind%%abil%.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~D5PT%ind%%abil%~ END
-  COPY ~will_to_power/data/d5_base.spl~ ~override/d5px%ind%%abil%.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pz%ind%%abil%~ END
+	WRITE_EVALUATED_ASCII 0x94 ~D5PY%disc%%abil%~ #8
+  COPY ~will_to_power/data/d5_base.spl~ ~override/d5pz%disc%%abil%.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~D5PY%disc%%abil%~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~d5pv%disc%%abil%.spl~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~D5PU%disc%%abil%~ END
+	END
+  COPY ~will_to_power/data/d5_base.spl~ ~override/d5px%disc%%abil%.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pz%disc%%abil%~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5pz%disc%%abil%~ END
+// handle long-range versions
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5pv%disc%%abil%.spl~ BEGIN
+	CREATE EFF ~d5pu%disc%%abil%~
+	 WRITE_LONG 0x10 171
+	 WRITE_LONG 0x14 1
+	 WRITE_LONG 0x24 0
+	 WRITE_LONG 0x28 1
+	 WRITE_SHORT 0x2c 100
+	 WRITE_EVALUATED_ASCII 0x30 ~d5pv%disc%%abil%~ #8
+	 WRITE_LONG 0x90 1
+	 WRITE_EVALUATED_ASCII 0x94 ~D5PU%disc%%abil%~ #8
+  END
  END
 END
 // handle contingencies
@@ -2216,10 +2337,13 @@ ACTION_FOR_EACH base_abil IN ~103~ ~105~ ~207~ ~208~ ~209~ ~307~ ~309~ ~403~ ~40
   COPY_EXISTING ~d5pz%base_abil%.spl~ ~override~
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 206 STR_VAR match_resource = EVAL ~%base_abil%~ resource = EVAL ~%contingent_abil%~ END
   BUT_ONLY
+  COPY_EXISTING ~d5px%base_abil%.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 309 target = 1 parameter1 = 1 parameter2 = 0 timing = 9 STR_VAR resource = EVAL ~D5PS%disc%%abil%~ END
+  BUT_ONLY
 END
 //
 ACTION_FOR_EACH hla IN ~01~ ~02~ ~03~ ~04~ ~05~ ~06~ ~07~ ~08~ ~09~ ~10~ BEGIN
-  CREATE EFF ~d5pt9%hla%~
+  CREATE EFF ~d5py9%hla%~
 	WRITE_LONG 0x10 171
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x24 0
@@ -2227,12 +2351,13 @@ ACTION_FOR_EACH hla IN ~01~ ~02~ ~03~ ~04~ ~05~ ~06~ ~07~ ~08~ ~09~ ~10~ BEGIN
 	WRITE_SHORT 0x2c 100
 	WRITE_EVALUATED_ASCII 0x30 ~d5pw9%hla%~ #8
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5PT9%hla%~ #8
+	WRITE_EVALUATED_ASCII 0x94 ~D5PY9%hla%~ #8
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5pz9%hla%.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~D5PT9%hla%~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~D5PY9%hla%~ END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5px9%hla%.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pz9%hla%~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 parameter2 = %metapsionic_state% timing = 9 special = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5pz9%hla%~ END
+//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 parameter2 = %metapsionic_state% timing = 9 special = 1 END
 END
 //__________________________________________________________________________________
 

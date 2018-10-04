@@ -222,13 +222,13 @@ The cost is 6 hit points.~
 @4072  = ~Absorb Infliction: this ability allow the psion to sacrifice his own bodily health in order to heal an ally. If the psion's current hit points are greater than the ally's, then the difference between the two values will be subtracted form the psion and added to the ally. Additionally, the ally may be cured of inflictions such as poison, disease, blindness and deafness. The psion takes on such ailments, and immediately performs a Body Purification, purging them from <PRO_HISHER> own body.
 
 The cost is 9 hit points, and the strain of such healing increases the psion's level of fatigue.~
-@4081  = ~Camouflage~
-@4082  = ~Camouflage: this ability makes the psion's body blend into the nearby environment like a chameleon. The effect is similar to the Improved Invisibility spell, although it does not actually involve invisibility: the psion has a -4 bonus to AC, a +40% bonus to stealth, and cannot easily be targeted by spellcasters.
+@4081  = ~Visual Camouflage~
+@4082  = ~Visual Camouflage: this ability makes the psion's body blend into the nearby environment like a chameleon. The effect is similar to the Improved Invisibility spell, although it does not actually involve invisibility: the psion has a -4 bonus to AC, a +40% bonus to stealth, and cannot easily be targeted by spellcasters.
 
 The cost to maintain the Camouflage is 9 hit points.~
 @4083  = ~Cancel Camouflage~
-@4091  = ~Carapace~
-@4092  = ~Carapace: this ability causes the rogue's skin to harden into a fast-regenerating, strong but brittle shell. This provides a -2 bonus to AC, and harmlessly absorbs 1 physical attack each round.
+@4091  = ~Dermal Carapace~
+@4092  = ~Dermal Carapace: this ability causes the rogue's skin to harden into a fast-regenerating, strong but brittle shell. This provides a -2 bonus to AC, and harmlessly absorbs 1 physical attack each round.
 
 The cost to maintain the Carapace is is 9 hit points.~
 @4093  = ~Cancel Carapace~
@@ -282,6 +282,20 @@ Contingency: activate Carapace when hit
 Contingency: activate Insightful Strike when hit
 
 The cost is 9 hit points.~
+@50701  = ~Select a contingent ability:~
+@50702  = ~Select a different contingent ability.~
+@50703  = ~Make this ability contingent.~
+@50704  = ~Activate Id Insinuation at attacker, when hit~
+@50705  = ~Activate Ego Repair when helpless~
+@50706  = ~Activate Project Force at attacker, when hit~
+@50707  = ~Activate Free Action when helpless~
+@50708  = ~Activate Solar Flash at 50% hit points~
+@50709  = ~Activate Generate Lightning at attacker, at 50% hit points~
+@50710  = ~Activate Body Purification if poisoned~
+@50711  = ~Activate Bioregeneration at 50% hit points~
+@50712  = ~Activate Bioregeneration at 50% hit points~
+@50713  = ~Activate Carapace when hit~
+@50714  = ~Activate Insightful Strike when hit~
 @5081  = ~Life Detection~
 @5082  = ~Life Detection: this ability allows the psion to detect intelligent thought around them. This makes invisible creatures visible to and targetable by the psion, but not by anyone else (unless they have their own means of seeing through invisibility). Note, this *does* function against undead, golems, and similar constructs; even those animated beings have rudimentary cognition sufficient to impart motor control.
 
