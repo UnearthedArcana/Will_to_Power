@@ -37,8 +37,8 @@
 @203  = ~PSIONICIST: the Psionicist is someone who (mostly) turns away from larcenous pursuits, and focuses on education and meditation to fully harness the power of the mind and the body. Psionicists are generally very well-educated and very healthy, treating their body as a temple. Through study and discipline, they can learn to use psychic abilities from any psionic discipline.
 
 Abilities:
-- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Insightful Strike. The Psionicist can proceed to learn an additional power with each new level of experience, from any psionic discipline.
-- Gains hit point on every even level, up to level 20.
+- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psionicist can proceed to learn an additional power with each new level of experience, from any psionic discipline.
+- Gains one extra hit point on every even level, up to level 20.
 
 Restrictions:
 - May only distribute 12 skill points per level into thief skills.
@@ -50,7 +50,7 @@ Restrictions:
 @303  = ~SOULBLADE: this warrior uses meditation to harness psychic powers in order to enhance <PRO_HISHER> martial abilities. Often training with Psionicists or Psyphers, the Soulblade can use a select few psionic abilities, generally those which fortify <PRO_HISHER> body or mind against attacks.
 
 Abilities:
-- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Insightful Strike. The Soulblade can proceed to learn an additional power at every odd level of experience, from any psionic discipline.
+- Begins with access to the first power in all five psionic disciplines: Mind Thrust, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Soulblade can proceed to learn an additional power at every odd level of experience, from any psionic discipline.
 
 Restrictions:
 - Gains hit dice as a priest (d8) instead of a warrior.
@@ -69,7 +69,7 @@ Abilities:
 
 Restrictions:
 - May not be Chaotic.
-- Does not become resistant to magic.
+- Does not become innately resistant to magic.
 - Cannot Lay On Hands or use any other traditional Monk abilities.
 ~
 //
@@ -89,12 +89,12 @@ Restrictions:
 
 The cost is 4 hit points.~
 @1031  = ~Id Insinuation~
-@1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to go mad with fear for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
+@1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
 
 The cost is 6 hit points.~
 @1034  = ~Contingency: activate Id Insinuation at attacker, when hit~
 @1041  = ~Mind Ward~
-@1042  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled 
+@1042  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
 
 The cost to maintain this protection is 4 hit points.~
 @1043  = ~Cancel Mind Ward~
@@ -142,7 +142,7 @@ The cost to maintain the Barrier is 6 hit points.~
 The cost to maintain the Psychic Knife is 6 hit points.~
 @2053  = ~Cancel Psychic Knife~
 @2071  = ~Repulsion~
-@2072  = ~Repulsion: this ability creates an unfocused surge of telekinetic force which throws anyone nearby away from the psion (except allies, who can be shielded from the effect), unless they make a saving throw vs. Breath. While the ability is maintained, this surge of force builds and is released once per round.  
+@2072  = ~Repulsion: this ability creates an unfocused surge of telekinetic force which throws anyone nearby away from the psion (except allies, who can be shielded from the effect), unless they make a saving throw vs. Breath. While the ability is maintained, this surge of force builds and is released once per 3 seconds.  
 
 The cost to maintain the repulsion effect is 9 hit points.~
 @2073  = ~Cancel Repulsion~
@@ -251,20 +251,20 @@ The cost to maintain the Carapace is is 9 hit points.~
 The cost to maintain this ability is is 6 hit points.~
 @5033  = ~Cancel Insightful Strike~
 @5034  = ~Contingency: activate Insightful Strike when hit~
-@5041  = ~Precognitive Luck~
-@5042  = ~Precognitive Luck: while this ability is maintained, the psion's foresight and intuition give <PRO_HIMHER> 1-point bonus to Luck, which results in a 5% bonus to to-hit rolls, saving throws, rogue skills, and melee damage.
+@5041  = ~Instinctive Luck~
+@5042  = ~Instinctive Luck: while this ability is maintained, the psion's foresight and intuition give <PRO_HIMHER> 1-point bonus to Luck, which results in a 5% bonus to to-hit rolls, saving throws, rogue skills, and melee damage, as well as a 10% bonus to skill checks.
 
 The cost to maintain this ability is 6 hit points.~
 @5043  = ~Cancel Precognitive Luck~
-@5051  = ~Clairvoyant Sight~
-//////////////////////////////////////
-//////////////////////////////////////
-//////////////////////////////////////
-@5052  = ~Clairvoyant Sight: ~
-@5071  = ~Contingent Eventuality~
-//////////////////////////////////////
-//////////////////////////////////////
-//////////////////////////////////////
+@5051  = ~Sensory Dissociation~
+@5052  = ~Sensory Dissociation: upon activate this ability, the psion is able to view a distant area.  After using the ability, click on a section of the map that you want to view. For five rounds, the psion can spy on that area, noting creatures and fortifications.
+
+The cost is 6 hit points.~
+@5071  = ~Precognition~
+@5072  = ~Precognition: this ability gives the psion a vague glimpse into dangers and challenges that <PRO_HESHE> and <PRO_HISHER> allies may face in the immediate future. The Psion and all allies within range of easy communication can benefit from this information, receiving a 1-point/10% bonus to thac0, AC, saving throws, and skill checks for the next two turns.
+
+The cost is 9 hit points.~
+/*
 @5072  = ~Contingent Eventuality: ... Only one of these contingencies can be active at any time; setting a new contingency will cancel the current one.
 
 The following abilities can be triggered on a contingent basis, as long as the psion can use the underlying power.
@@ -296,13 +296,14 @@ The cost is 9 hit points.~
 @50712  = ~Activate Bioregeneration at 50% hit points~
 @50713  = ~Activate Carapace when hit~
 @50714  = ~Activate Insightful Strike when hit~
+*/
 @5081  = ~Life Detection~
-@5082  = ~Life Detection: this ability allows the psion to detect intelligent thought around them. This makes invisible creatures visible to and targetable by the psion, but not by anyone else (unless they have their own means of seeing through invisibility). Note, this *does* function against undead, golems, and similar constructs; even those animated beings have rudimentary cognition sufficient to impart motor control.
+@5082  = ~Life Detection: this ability allows the psion to detect intelligent thought around them. This makes invisible creatures visible to and targetable by the psion, but not by anyone else (unless they have their own means of seeing through invisibility). Note, this *does* function against undead, golems, and similar constructs; even those animated beings have rudimentary cognition sufficient to impart motor control - and it is that cognitive process which can be detected.
 
 The cost to maintain this ability is 9 hit points.~
 @5083  = ~Cancel Life Detection~
 @5091  = ~Danger Sense~
-@5092  = ~Danger Sense: while this ability is maintained, the psion has a 2-point bonus to Armor Class, a 20% bonus to the Find Traps skill, and cannot be backstabbed. Further, if the psion is targeted by certain spell effects that can be dodged, <PRO_HESHE> may attempt a saving throw vs. Breath Weapon to avoid the spell altogether.
+@5092  = ~Danger Sense: while this ability is maintained, the psion has a 3-point bonus to Armor Class, a 25% bonus to the Find Traps skill, and cannot be backstabbed. Further, if the psion encounters certain magical and environmental effects that can be dodged, <PRO_HESHE> may attempt a saving throw vs. Breath Weapon to avoid the effect altogether.
 
 The cost to maintain this ability is is 9 hit points.~
 @5093  = ~Cancel Danger Sense~
