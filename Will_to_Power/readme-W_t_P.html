@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Beta 0.7 </strong><br />
+  <p><strong> Beta 0.8 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X</p>
 </div>
@@ -50,10 +50,10 @@
       </ul>
     <p><strong><em>The WtP Psionic Powers</em></strong></p>
 	  <ul>
-	    <li> <b>Telepathy - Mind Thrust:</b> this ability violently shuts down the target's synaptic activity for a very brief period, causing the target to fall unconscious for 1 round and be groggy and slow for 1 further round, unless they make a saving throw. The cost is 4 hit points.</li>
-	    <li> <b>Telepathy - Id Insinuation:</b> this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3. The cost is 6 hit points.</li>
 	    <li> <b>Telepathy - Mind Ward:</b> the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled. The cost to maintain this protection is 4 hit points.</li>
-	    <li> <b>Telepathy - Ego Repair</b> this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind. The cost is 6 hit points.</li>
+	    <li> <b>Telepathy - Id Insinuation:</b> this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3. The cost is 6 hit points.</li>
+	    <li> <b>Telepathy - Ego Whip:</b> this ability induces lethargy and despair in the target, resulting in a 2-point penalty to saving throws for one turn. If the target fails a save, they also suffer a 2-point penalty to thac0 and weapon speed, and a 1-point penalty to Luck and casting time. The cost is 6 hit points.</li>
+	    <li> <b>Telepathy - Cerebral Repair</b> this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind. The cost is 6 hit points.</li>
 	    <li> <b>Telepathy - Mental Domination:</b> this ability allows a psionicist to take over the mind of a humanoid for up to 10 rounds. The target is dominated for 3 rounds unless they make a saving throw; for 7 rounds after that, the target can save once each round to try to break the domination. At 6th level the save is rolled with a -1 penalty, and at 12th level the penalty increases to -2. The cost is 9 hit points.</li>
 	    <li> <b>Telepathy - Intellect Fortress:</b> the psion erects a powerful mental defense against all mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, Confusion, Feeblemind, Stun, and Maze effects. The cost to maintain this protection is 9 hit points.</li>
 	    <li> <b>Telepathy - Psychic Crush:</b> this ability initiates a powerful mental attack, stunning a target creature for 3 rounds and doing 4d3 psychic (stunning) damage unless the target makes a saving throw with a -2 penalty (which avoids the stun effect and halves the damage). At 12th level the save penalty increases to -3 and the damage increases to 4d4, and at 18th level the save penalty increases to -4 and the damage increases to 4d6. The cost is 9 hit points.</li><br />

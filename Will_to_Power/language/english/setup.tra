@@ -84,22 +84,20 @@ Restrictions:
 @5001  = ~Clairsentience~
 @5002  = ~Clairsentience: this feat confers the 'Insightful Strike' ability, and allows for learning more psionic abilities within the Clairsentience discipline.~
 //
-@1011  = ~Mind Thrust~
-@1012  = ~Mind Thrust: this ability violently shuts down the target's synaptic activity for a very brief period, causing the target to fall unconscious for 1 round and be groggy and slow for 1 further round, unless they make a saving throw.
+@1011  = ~Mind Ward~
+@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
 
-The cost is 4 hit points.~
+The cost to maintain this protection is 4 hit points.~
+@1013  = ~Cancel Mind Ward~
 @1031  = ~Id Insinuation~
-@1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 3 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
+@1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 4 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
 
 The cost is 6 hit points.~
 @1034  = ~Contingency: activate Id Insinuation at attacker, when hit~
-@1041  = ~Mind Ward~
-@1042  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
-
-The cost to maintain this protection is 4 hit points.~
-@1043  = ~Cancel Mind Ward~
-@1051  = ~Ego Repair~
-@1052  = ~Ego Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind.
+@1041  = ~Ego Whip~
+@1042  = ~Ego Whip: this ability induces lethargy and despair in the target, resulting in a 2-point penalty to saving throws for one turn. If the target fails a save, they also suffer a 2-point penalty to thac0 and weapon speed, and a 1-point penalty to Luck and casting time. The cost is 6 hit points.~
+@1051  = ~Cerebral Repair~
+@1052  = ~Cerebral Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind.
 
 The cost is 6 hit points.~
 @1054  = ~Contingency: activate Ego Repair when helpless~
