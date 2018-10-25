@@ -205,10 +205,10 @@ APPEND ~splprot.2da~ ~D5_STATE_POISON%TAB%0x111%TAB%0x4000%TAB%8~
 APPEND ~splprot.2da~ ~D5_STATE_DISEASE%TAB%0x111%TAB%0x80000%TAB%8~
 
 COPY_EXISTING ~splprot.2da~ ~override~
-	COUNT_2DA_COLS cols // amount of columns
-	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
-	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
-	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	COUNT_2DA_COLS cols 
+	READ_2DA_ENTRIES_NOW rows cols 
+	FOR (row = 1; row < rows; ++row) BEGIN 
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
 	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STATE_POISON~ BEGIN
 	    SET state_poison = %row%
 	  END
@@ -1407,7 +1407,7 @@ COPY ~will_to_power/data/d5ps509.spl~ ~override/d5pw509.spl~
 OUTER_SET optional_evade = 1
 INCLUDE ~%MOD_FOLDER%/lib/spell_evasion/spell_evasion.tpa~
 ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN 
-  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = EVAL ~%evadable_spell%~ evade_prefix = ~d5ev~ END
+  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = EVAL ~%evadable_spell%~ evade_prefix = ~D5EV~ END
 END
 
 COPY ~will_to_power/data/d5ps511.bam~ ~override~
