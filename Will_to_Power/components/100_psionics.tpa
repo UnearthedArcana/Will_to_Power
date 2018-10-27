@@ -2239,7 +2239,7 @@ COMPILE ~will_to_power/data/d5_psi.baf~
 
 OUTER_FOR (ind = 2; ind < 50; ++ind) BEGIN
   COPY_EXISTING ~d5psi1.spl~ ~override/d5psi%ind%.spl~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = EVAL ~d5psi%ind%~ END
 END
 //__________________________________________________________________________________
 
