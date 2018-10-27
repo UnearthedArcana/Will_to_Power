@@ -1356,8 +1356,8 @@ COPY ~will_to_power/data/d5ps508.spl~ ~override~   //  				life detection
 COPY ~will_to_power/data/d5ps508b.spl~ ~override~
 COPY ~will_to_power/data/d5ps508.eff~ ~override~
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5ps5x8.spl~
-	SAY NAME1 @1043
-	SAY UNIDENTIFIED_DESC @1043
+	SAY NAME1 @5083
+	SAY UNIDENTIFIED_DESC @5083
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps5x8~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ps508~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5ps5x8~ END
