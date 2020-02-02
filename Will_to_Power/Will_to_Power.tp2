@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.8.2~
+VERSION ~0.12.0~	//	actually call it 0.9
 
 ALWAYS
 
@@ -27,45 +27,46 @@ LANGUAGE
   ~will_to_power/language/english/setup.tra~
 
 
-
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						  	PSIONICIST (ROGUE)
+//						  	PSIONICIST (ROGUE/PSION)
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
 BEGIN @200
 DESIGNATED 200
 REQUIRE_PREDICATE (ENGINE_IS ~bgee bg2ee eet iwdee~) @4
-//REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ @5
 
-//ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_psionics.d5~ BEGIN
-  INCLUDE ~will_to_power/components/100_psionics.tpa~
-//END
+INCLUDE ~will_to_power/components/100_psionics.tpa~
+  LAF psionics_system END
+
+INCLUDE ~will_to_power/lib/qd_multiclass.tpa~
 
 INCLUDE ~will_to_power/components/200_psionicist.tpa~
+  LAF psionicist_kit END
+  
 //__________________________________________________________________________________
 
 
-
+/*
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						  	SOULBLADE (WARRIOR)
+//						  	SOULBLADE (FIGHTER/PSION)
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
 BEGIN @300
 DESIGNATED 300
 REQUIRE_PREDICATE (ENGINE_IS ~bgee bg2ee eet iwdee~) @4
-//REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ @5
 
-//ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_psionics.d5~ BEGIN
-  INCLUDE ~will_to_power/components/100_psionics.tpa~
-//END
+INCLUDE ~will_to_power/components/100_psionics.tpa~
+  LPF psionics_system END
 
 INCLUDE ~will_to_power/components/300_soulblade.tpa~
+  LPF soulblade_kit END
+
 //__________________________________________________________________________________
 
 
@@ -88,5 +89,5 @@ REQUIRE_PREDICATE (ENGINE_IS ~bgee bg2ee eet iwdee~) @4
 
 INCLUDE ~will_to_power/components/400_psypher.tpa~
 //__________________________________________________________________________________
-
+*/
 

@@ -87,38 +87,50 @@ Restrictions:
 @1011  = ~Mind Ward~
 @1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
 
-The cost to maintain this protection is 4 hit points.~
+The cost to maintain this protection is 6 points.~
 @1013  = ~Cancel Mind Ward~
+@1021  = ~Sensory Synchronization~
+@1022  = ~Sensory Synchronization: the psion connects the minds of a group of allies, enabling them to work very efficiently together and anticipate each others actions and the perceived actions of enemies.  This give each affected ally a -2 Armor Class bonus.  At 6th level this increases to a -3 bonus, and at 12th level the affected allies also do more damage in melee and take less damage from spells targeting them.
+
+The cost to maintain this effect is 6 points.~
+@1023  = ~Cancel Sensory Synchronization~
 @1031  = ~Id Insinuation~
 @1032  = ~Id Insinuation: this ability attacks the target's subconscious, causing the target to either go mad with fear, or go berserk and attack the nearest being, for 4 rounds unless they make a save with a -1 penalty. At 6th level the save penalty increases to -2, and at 12th level it increases to -3.
 
-The cost is 6 hit points.~
+The cost is 6 points.~
 @1034  = ~Contingency: activate Id Insinuation at attacker, when hit~
 @1041  = ~Ego Whip~
 @1042  = ~Ego Whip: this ability induces lethargy and despair in the target, resulting in a 2-point penalty to saving throws for one turn. If the target fails a save, they also suffer a 2-point penalty to thac0 and weapon speed, and a 1-point penalty to Luck and casting time. The cost is 6 hit points.~
 @1051  = ~Cerebral Repair~
 @1052  = ~Cerebral Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind.
 
-The cost is 6 hit points.~
+The cost is 6 points.~
 @1054  = ~Contingency: activate Ego Repair when helpless~
 @1071  = ~Mental Domination~
 @1072  = ~Mental Domination: this ability allows a psionicist to take over the mind of a humanoid for up to 10 rounds. The target is dominated for 3 rounds unless they make a saving throw; for 7 rounds after that, the target can save once each round to try to break the domination. At 6th level the save is rolled with a -1 penalty, and at 12th level the penalty increases to -2.
 
-The cost is 9 hit points.~
+The cost is 10 points.~
 @1081  = ~Intellect Fortress~
 @1082  = ~Intellect Fortress: the psion erects a powerful mental defense against all mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, Confusion, Feeblemind, Stun, and Maze effects.
 
-The cost to maintain this protection is 9 hit points.~
+The cost to maintain this protection is 10 points.~
 @1083  = ~Cancel Intellect Fortress~
 @1091  = ~Psychic Crush~
-@1092  = ~Psychic Crush: this ability initiates a powerful mental attack, stunning a target creature for 3 rounds and doing 4d3 psychic (stunning) damage unless the target makes a saving throw with a -2 penalty (which avoids the stun effect and halves the damage). At 12th level the save penalty increases to -3 and the damage increases to 4d4, and at 18th level the save penalty increases to -4 and the damage increases to 4d6.
+@1092  = ~Psychic Crush: this ability initiates a powerful mental attack, stunning a target creature for 3 rounds and doing 4d3 psychic (stunning) damage unless the target makes a saving throw with a -2 penalty (which avoids the stun effect and halves the damage). At 12th level the save penalty increases to -3 and the damage increases to 4d4, and at 18th level the save penalty increases to -4 and the damage increases to 4d6. In addition, there is a 50% chance that this ability will remove the protection of Chaotic Commands, Mind Blank, Exaltation, and similar spells.
 
-The cost is 9 hit points.~
+The cost is 10 points.~
+@1111  = ~Synaptic Static~
+@1112  = ~Synaptic Static: this ability  
+
+The cost to maintain this power is 20 points; additional, its use increases the psion's fatigue.~
+@1113  = ~Cancel Tower of Iron Will~
+/*
 @1111  = ~Tower of Iron Will~
 @1112  = ~Tower of Iron Will: this ability is similar to Intellect Fortress, protecting against any mind-affecting magic or psionics. However, in this case the psion can extend that protection to all allies within 15 feet. 
 
 This is a maintainable power; it increases the psion's fatigue, and while in use, it causes a 20-point temporary reduction in <PRO_HISHER> max hit points.~
 @1113  = ~Cancel Tower of Iron Will~
+*/
 //
 @2011  = ~Project Force~
 @2012  = ~Project Force: this ability blasts a target with powerful but unfocused telekinetic energy, causing 2d3 stunning damage and, upon a failed saving throw, knocking the target back 5 feet. Additionally, this ability has a 50% chance to break open locks. At 6th level the damage is 2d4 and the save is rolled with a -1 penalty; at 12th level the damage is 2d6 and the save is rolled with a -2 penalty.
