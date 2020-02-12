@@ -1,0 +1,131 @@
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//					LET MULTICLASS CLERICS USE MORE WEAPONS
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_FUNCTION multi_clerics_usability BEGIN
+
+
+// 1. first, make an array of all weapons and ammo
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+	READ_BYTE 0x31 prof
+	PATCH_IF (prof = 89) || (prof = 90) || (prof = 91) || (prof = 92) || (prof = 93) || (prof = 94) || (prof = 95) || (prof = 96) || (prof = 97) || (prof = 98) || (prof = 99) || (prof = 100) || (prof = 101) || (prof = 102) || (prof = 103) || (prof = 104) || (prof = 105) || (prof = 106) || (prof = 107) || (prof = 111) || (prof = 112) || (prof = 113) || (prof = 114) || (prof = 115) BEGIN
+	  SPRINT $all_weapons_profs(~%SOURCE_RES%~) ~%prof%~
+	END
+  END
+BUT_ONLY
+
+
+// 2. then, patch items on the list
+// -- if usable by thief, make usable by cleric/thief
+// -- if usable by fighter, make usable by fighter/cleric
+// -- if usable by ranger, make usable by ranger/cleric
+// -- if usable by mage, make usable by cleric/mage
+
+ACTION_PHP_EACH all_weapons_profs AS weap => prof BEGIN
+  COPY_EXISTING ~%weap%.itm~ ~override~
+  	READ_BYTE 0x1f class_2
+	READ_BYTE 0x20 class_3
+	PATCH_IF ((%class_3% BOR 0b10111111) = 0b10111111) BEGIN 		// if usable by thieves...
+	  WRITE_BYTE 0x1f (%class_2% BAND 0b11111101) 					// make usable by cleric/thieves
+	END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~%weap%.itm~ ~override~
+  	READ_BYTE 0x1f class_2
+	READ_BYTE 0x20 class_3
+	PATCH_IF ((%class_2% BOR 0b11110111) = 0b11110111) BEGIN 		// if usable by fighters...
+	  WRITE_BYTE 0x1f (%class_2% BAND 0b00111111) 					// make usable by fighter/clerics
+	END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~%weap%.itm~ ~override~
+  	READ_BYTE 0x1f class_2
+	READ_BYTE 0x20 class_3
+	PATCH_IF ((%class_3% BOR 0b11011111) = 0b11011111) BEGIN 		// if usable by rangers...
+	  WRITE_BYTE 0x1f (%class_2% BAND 0b11111011) 					// make usable by ranger/clerics
+	END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~%weap%.itm~ ~override~
+  	READ_BYTE 0x1f class_2
+	READ_BYTE 0x20 class_3
+	PATCH_IF ((%class_3% BOR 0b11111011) = 0b11111011) BEGIN 		// if usable by mages...
+	  WRITE_BYTE 0x1f (%class_2% BAND 0b11111110) 					// make usable by cleric/mages
+	END
+  IF_EXISTS BUT_ONLY
+//  PRINT ~%weap%~
+END
+
+
+// 3. then, change weapprof entries for psionic kits ONLY
+// -- for thief/psion, add thief and cleric columns
+// -- for fighter/psion, match paladin column
+// -- for ranger/psion, match ranger column
+// -- for mage/psion, add mage column?
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols
+  FOR (col = 1; col < (cols - 1); ++col) BEGIN
+	READ_2DA_ENTRY 0 col (cols - 1) kit_name
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_PSION~) BEGIN
+	  SET psionicist_prof_col = col + 1
+	END
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_PSION_MENU~) BEGIN
+	  SET psionicist_menu_prof_col = col + 1
+	END
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_SOULBLADE~) BEGIN
+	  SET soulblade_prof_col = col + 1
+	END
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_SOULBLADE_MENU~) BEGIN
+	  SET soulblade_menu_prof_col = col + 1
+	END
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_PSYPHER~) BEGIN
+	  SET psypher_prof_col = col + 1
+	END
+	PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D5_PSYPHER_MENU~) BEGIN
+	  SET psypher_menu_prof_col = col + 1
+	END
+  END
+BUT_ONLY
+
+// Ma = 4
+// Th = 7
+// Ba = 8
+// Pa = 9
+// Rn = 11
+// FC = 13
+// MT = 16
+// CM = 17
+// CT = 18
+// CR = 21
+
+// CT -> Th
+LAF match_weapprof_if_higher INT_VAR col_to_change = 18 match_col = 7 END
+ACTION_IF (IS_AN_INT %psionicist_prof_col%) BEGIN
+  LAF match_weapprof_if_higher INT_VAR col_to_change = psionicist_prof_col match_col = 7 END
+  LAF match_weapprof_if_higher INT_VAR col_to_change = psionicist_menu_prof_col match_col = 7 END
+END
+
+// FC -> Pa
+LAF match_weapprof_exact INT_VAR col_to_change = 13 match_col = 9 END
+ACTION_IF (IS_AN_INT %soulblade_prof_col%) BEGIN
+  LAF match_weapprof_exact INT_VAR col_to_change = soulblade_prof_col match_col = 9 END
+  LAF match_weapprof_exact INT_VAR col_to_change = soulblade_menu_prof_col match_col = 9 END
+END
+
+// RC -> Rn
+LAF match_weapprof_exact INT_VAR col_to_change = 21 match_col = 11 END
+ACTION_IF (IS_AN_INT %psypher_prof_col%) BEGIN
+  LAF match_weapprof_exact INT_VAR col_to_change = psypher_prof_col match_col = 11 END
+  LAF match_weapprof_exact INT_VAR col_to_change = psypher_menu_prof_col match_col = 11 END
+END
+
+// CM -> Ba
+LAF match_weapprof_if_higher INT_VAR col_to_change = 17 match_col = 4 END
+
+END 	//	end define function
+//____________________________________________________________________________________
+

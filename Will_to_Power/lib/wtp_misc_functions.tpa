@@ -1,0 +1,357 @@
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// spell_to_innate                                  \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+// converts spell to innate and lowers casting time by two
+
+DEFINE_PATCH_MACRO ~spell_to_innate~ BEGIN
+
+  READ_LONG  0x64 abil_off ELSE 0
+  READ_SHORT 0x68 abil_num ELSE 0
+  READ_ASCII (abil_off + 0x04) bam (8) // reads the bam filename from ability
+  WRITE_SHORT 0x1C 4                         // sets spell type to innate (4)
+  WRITE_LONG  0x34 1                         // sets spell level to 1 to avoid scripting issues
+  WRITE_ASCIIE 0x3A "%bam%" #8      // writes the bam filename from abilities to spell icon
+  FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+    WRITE_SHORT (abil_off + 0x02 + (0x28 * index)) 4 // changes ability icon location to innate (4)
+    READ_SHORT  (abil_off + 0x12 + (0x28 * index)) speed // reads casting speed
+    PATCH_IF (speed > 3) BEGIN
+      WRITE_SHORT  (abil_off + 0x12 + (0x28 * index)) (speed - 2) // reduces casting speed
+    END ELSE BEGIN
+      WRITE_SHORT  (abil_off + 0x12 + (0x28 * index)) 0 // makes instant
+    END
+  END
+
+END
+
+
+//__________________________________________________________________________________
+
+
+
+//REMOVE BLANK LINES MACRO_____________________________________________________________
+//
+DEFINE_PATCH_MACRO ~remove_blank_lines~ BEGIN
+	SET "size" = (SOURCE_SIZE - 1)
+	READ_BYTE ("%size%") "eof"
+	WHILE ((%size% > 0) AND (("%eof%" = 0x0a) OR ("%eof%" = 0x0d))) BEGIN // removes any empty lines at the end of the file
+		DELETE_BYTES "%size%" 0x01
+		SET "size" = ("%size%" - 1)
+		READ_BYTE ("%size%") "eof"
+	END
+END
+//__________________________________________________________________________________
+
+
+
+//JOINABLE NPCS ARRAY MACRO__________________________________________________________
+//
+DEFINE_ACTION_MACRO JOINABLE_NPC_ARRAYS BEGIN
+	//PDIALOG.2DA exists in all games
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY JOINABLE_NPC_ARRAY_2da BEGIN ~PDIALOG~ => ~~ END
+	//Check PDIALOG.2DA file variants referenced in CAMPAIGN.2DA
+	ACTION_IF FILE_EXISTS_IN_GAME ~CAMPAIGN.2DA~ BEGIN
+		COPY_EXISTING ~CAMPAIGN.2DA~ ~CAMPAIGN.2DA~
+			COUNT_2DA_ROWS 32 "cntrow"
+			FOR (i = 0; i < cntrow; i = i + 1) BEGIN
+				READ_2DA_ENTRY i 11 32 file
+				TO_UPPER file
+				DEFINE_ASSOCIATIVE_ARRAY JOINABLE_NPC_ARRAY_2da BEGIN ~%file%~ => ~~ END
+			END
+		BUT_ONLY
+	END
+	//Generate array with joinable NPC DV
+	ACTION_PHP_EACH JOINABLE_NPC_ARRAY_2da AS file => ~~ BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~%file%.2da~ BEGIN
+			COPY_EXISTING ~%file%.2da~ ~override~
+				COUNT_2DA_ROWS 3 "cntrow"
+				FOR (i = 1; i < cntrow; i = i + 1) BEGIN
+					READ_2DA_ENTRY i 0 3 "dv"
+					TO_UPPER dv
+					DEFINE_ASSOCIATIVE_ARRAY JOINABLE_NPC_ARRAY_dv BEGIN ~%dv%~ => ~~ END
+				END
+			BUT_ONLY
+		END
+	END
+	//Generate array with joinable NPC cre files
+	COPY_EXISTING_REGEXP GLOB ~.+\.CRE~ ~override~
+		READ_ASCII DEATHVAR "dv" (32) NULL
+		TO_UPPER dv
+		PATCH_IF VARIABLE_IS_SET $JOINABLE_NPC_ARRAY_dv(~%dv%~) BEGIN
+			DEFINE_ASSOCIATIVE_ARRAY JOINABLE_NPC_ARRAY BEGIN ~%SOURCE_FILE%~ => ~%dv%~ END
+		END
+		PATCH_IF NOT VARIABLE_IS_SET $JOINABLE_NPC_ARRAY_dv(~%dv%~) BEGIN
+			DEFINE_ASSOCIATIVE_ARRAY NON_JOINABLE_NPC_ARRAY BEGIN ~%SOURCE_FILE%~ => ~%dv%~ END
+		END
+	BUT_ONLY
+END
+//__________________________________________________________________________________
+
+
+
+//ADD SPELLSTATE MACRO______________________________________________________________
+//
+DEFINE_ACTION_FUNCTION d5_resolve_state INT_VAR index=0 delete=0 STR_VAR new_state_id = ~blah~ RET new_state_ind BEGIN
+ OUTER_SET min_new=118
+ COPY_EXISTING ~splstate.ids~ override
+  new_state_ind=0
+  found=0
+  READ_2DA_ENTRIES_NOW stats 2
+  FOR (row=0;row<stats;row+=1) BEGIN
+    READ_2DA_ENTRY_FORMER stats row 0 ind
+    READ_2DA_ENTRY_FORMER stats row 1 str
+    SET $stat("%row%") = ind
+    PATCH_IF index BEGIN
+      PATCH_IF ind=index BEGIN
+        REMOVE_2DA_ROW row 2
+        found=1
+        PATCH_IF delete=0 BEGIN
+          INSERT_2DA_ROW row 2 ~%index% %new_state_id%~
+        END
+        row=stats
+      END
+    END ELSE BEGIN
+      PATCH_IF ~%str%~ STRING_EQUAL_CASE ~%new_state_id%~ BEGIN
+        new_state_ind=ind
+        found=1
+     /* row=stats */ // don't stop looking, the same ID may be assigned to a greater index, which takes priority when compiling
+      END
+    END
+  END
+  PATCH_IF found=0 BEGIN
+    new_state_ind=min_new
+    PHP_EACH stat AS row => ind BEGIN
+      PATCH_IF found=0 && (row+1 < stats) BEGIN // not at the end of file
+        next_row = row+1
+        next_ind = EVAL $stat("%next_row%")
+        PATCH_IF index BEGIN
+          PATCH_IF index<next_ind && index>ind BEGIN
+            INSERT_2DA_ROW next_row 2 ~%index% %new_state_id%~
+            found=1
+          END
+        END ELSE BEGIN
+          PATCH_IF new_state_ind<next_ind BEGIN
+            PATCH_IF ind<new_state_ind BEGIN
+              INSERT_2DA_ROW next_row 2 ~%new_state_ind% %new_state_id%~
+              found=1
+            END ELSE BEGIN
+              new_state_ind+=1
+              PATCH_IF new_state_ind<next_ind BEGIN
+                INSERT_2DA_ROW next_row 2 ~%new_state_ind% %new_state_id%~
+                found=1
+              END
+            END
+          END
+        END
+      END ELSE BEGIN // at the end of file
+        PATCH_IF found=0 BEGIN
+          PATCH_IF index BEGIN
+            INSERT_2DA_ROW stats 2 ~%index% %new_state_id%~
+          END ELSE BEGIN
+            PATCH_IF new_state_ind>ind BEGIN
+              INSERT_2DA_ROW stats 2 ~%new_state_ind% %new_state_id%~
+            END ELSE BEGIN
+              new_state_ind+=1
+              INSERT_2DA_ROW stats 2 ~%new_state_ind% %new_state_id%~
+            END
+          END
+        END
+      END
+    END // PHP_EACH
+  END
+END
+//__________________________________________________________________________________
+
+
+
+//MATCH WEAPPROF COLUMN VALUES______________________________________________________
+//
+DEFINE_ACTION_FUNCTION match_weapprof_exact INT_VAR col_to_change = 0 match_col = 0 BEGIN
+  COPY_EXISTING ~weapprof.2da~ ~override~
+    COUNT_2DA_COLS weapprof_cols
+	READ_2DA_ENTRIES_NOW r2en_weapprof weapprof_cols
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 8 match_col prof_89
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 9 match_col prof_90
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 10 match_col prof_91
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 11 match_col prof_92
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 12 match_col prof_93
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 13 match_col prof_94
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 14 match_col prof_95
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 15 match_col prof_96
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 16 match_col prof_97
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 17 match_col prof_115
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 18 match_col prof_98
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 19 match_col prof_99
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 20 match_col prof_100
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 21 match_col prof_101
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 22 match_col prof_102
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 23 match_col prof_103
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 24 match_col prof_104
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 25 match_col prof_105
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 26 match_col prof_106
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 27 match_col prof_107
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 28 match_col prof_111
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 29 match_col prof_112
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 30 match_col prof_113
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 31 match_col prof_114
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 8 col_to_change prof_89
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 9 col_to_change prof_90
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 10 col_to_change prof_91
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 11 col_to_change prof_92
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 12 col_to_change prof_93
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 13 col_to_change prof_94
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 14 col_to_change prof_95
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 15 col_to_change prof_96
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 16 col_to_change prof_97
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 17 col_to_change prof_115
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 18 col_to_change prof_98
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 19 col_to_change prof_99
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 20 col_to_change prof_100
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 21 col_to_change prof_101
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 22 col_to_change prof_102
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 23 col_to_change prof_103
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 24 col_to_change prof_104
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 25 col_to_change prof_105
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 26 col_to_change prof_106
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 27 col_to_change prof_107
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 28 col_to_change prof_111
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 29 col_to_change prof_112
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 30 col_to_change prof_113
+	SET_2DA_ENTRY_LATER ~s2el_weapprof~ 31 col_to_change prof_114
+	SET_2DA_ENTRIES_NOW ~s2el_weapprof~ weapprof_cols
+  BUT_ONLY
+END	//	end function
+
+DEFINE_ACTION_FUNCTION match_weapprof_if_higher INT_VAR col_to_change = 0 match_col = 0 BEGIN
+  COPY_EXISTING ~weapprof.2da~ ~override~
+    COUNT_2DA_COLS weapprof_cols
+	READ_2DA_ENTRIES_NOW r2en_weapprof weapprof_cols
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 8 match_col mc_89
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 9 match_col mc_90
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 10 match_col mc_91
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 11 match_col mc_92
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 12 match_col mc_93
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 13 match_col mc_94
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 14 match_col mc_95
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 15 match_col mc_96
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 16 match_col mc_97
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 17 match_col mc_115
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 18 match_col mc_98
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 19 match_col mc_99
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 20 match_col mc_100
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 21 match_col mc_101
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 22 match_col mc_102
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 23 match_col mc_103
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 24 match_col mc_104
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 25 match_col mc_105
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 26 match_col mc_106
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 27 match_col mc_107
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 28 match_col mc_111
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 29 match_col mc_112
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 30 match_col mc_113
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 31 match_col mc_114
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 8 col_to_change ctc_89
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 9 col_to_change ctc_90
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 10 col_to_change ctc_91
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 11 col_to_change ctc_92
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 12 col_to_change ctc_93
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 13 col_to_change ctc_94
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 14 col_to_change ctc_95
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 15 col_to_change ctc_96
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 16 col_to_change ctc_97
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 17 col_to_change ctc_115
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 18 col_to_change ctc_98
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 19 col_to_change ctc_99
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 20 col_to_change ctc_100
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 21 col_to_change ctc_101
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 22 col_to_change ctc_102
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 23 col_to_change ctc_103
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 24 col_to_change ctc_104
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 25 col_to_change ctc_105
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 26 col_to_change ctc_106
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 27 col_to_change ctc_107
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 28 col_to_change ctc_111
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 29 col_to_change ctc_112
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 30 col_to_change ctc_113
+	READ_2DA_ENTRY_FORMER ~r2en_weapprof~ 31 col_to_change ctc_114
+	PATCH_IF (mc_89 > ctc_89) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 8 col_to_change mc_89
+	END
+	PATCH_IF (mc_90 > ctc_90) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 9 col_to_change mc_90
+	END
+	PATCH_IF (mc_91 > ctc_91) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 10 col_to_change mc_91
+	END
+	PATCH_IF (mc_92 > ctc_92) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 11 col_to_change mc_92
+	END
+	PATCH_IF (mc_93 > ctc_93) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 12 col_to_change mc_93
+	END
+	PATCH_IF (mc_94 > ctc_94) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 13 col_to_change mc_94
+	END
+	PATCH_IF (mc_95 > ctc_95) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 14 col_to_change mc_95
+	END
+	PATCH_IF (mc_96 > ctc_96) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 15 col_to_change mc_96
+	END
+	PATCH_IF (mc_97 > ctc_97) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 16 col_to_change mc_97
+	END
+	PATCH_IF (mc_115 > ctc_115) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 17 col_to_change mc_115
+	END
+	PATCH_IF (mc_98 > ctc_98) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 18 col_to_change mc_98
+	END
+	PATCH_IF (mc_99 > ctc_99) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 19 col_to_change mc_99
+	END
+	PATCH_IF (mc_100 > ctc_100) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 20 col_to_change mc_100
+	END
+	PATCH_IF (mc_101 > ctc_101) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 21 col_to_change mc_101
+	END
+	PATCH_IF (mc_102 > ctc_102) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 22 col_to_change mc_102
+	END
+	PATCH_IF (mc_103 > ctc_103) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 23 col_to_change mc_103
+	END
+	PATCH_IF (mc_104 > ctc_104) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 24 col_to_change mc_104
+	END
+	PATCH_IF (mc_105 > ctc_105) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 25 col_to_change mc_105
+	END
+	PATCH_IF (mc_106 > ctc_106) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 26 col_to_change mc_106
+	END
+	PATCH_IF (mc_107 > ctc_107) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 27 col_to_change mc_107
+	END
+	PATCH_IF (mc_111 > ctc_111) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 28 col_to_change mc_111
+	END
+	PATCH_IF (mc_112 > ctc_112) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 29 col_to_change mc_112
+	END
+	PATCH_IF (mc_113 > ctc_113) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 30 col_to_change mc_113
+	END
+	PATCH_IF (mc_114 > ctc_114) BEGIN
+	  SET_2DA_ENTRY_LATER ~s2el_weapprof~ 31 col_to_change mc_114
+	END
+	SET_2DA_ENTRIES_NOW ~s2el_weapprof~ weapprof_cols
+  BUT_ONLY
+END	//	end function
+//__________________________________________________________________________________
+

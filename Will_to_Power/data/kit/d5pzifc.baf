@@ -1,0 +1,20 @@
+
+IF
+	Class(LastSummonerOf(Myself),FIGHTER)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+	SetNumTimesTalkedTo(1)
+	ChangeClass(LastSummonerOf(Myself),FIGHTER_CLERIC)
+	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+END
+
+IF
+	Class(LastSummonerOf(Myself),FIGHTER_CLERIC)
+	NumTimesTalkedTo(1)
+THEN
+	RESPONSE #100
+	Wait(1)
+	ActionOverride(LastSummonerOf(Myself),AddKit(D5_SOULBLADE))
+	DestroySelf()
+END
