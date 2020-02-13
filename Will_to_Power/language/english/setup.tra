@@ -31,7 +31,8 @@
 @300   = ~Add the Soulblade, fighter/psion~
 @400   = ~Add the Psypher, ranger/psion~
 @500   = ~Add the Ardent, mage/psion~
-@999   = ~Allow Multiclass Clerics to Use More Weapons~
+@900   = ~Dark Sun Mode: Everyone Is a Wild Talent~
+@950   = ~Allow Multiclass Clerics to Use More Weapons~
 //
 @101  = ~Initialize Psionics~
 @102  = ~Initialize Psionics: this ability will enable the use of psionics, making the character a multiclass. Psionic advancement uses the Cleric XP and thac0 tables.~
@@ -42,7 +43,6 @@
 //
 @201  = ~psionicist~
 @202  = ~Psionicist~
-// ***** rewrite this vv
 @203  = ~PSIONICIST: the Psionicist is someone with roguish skills, but who (mostly) turns away from larcenous pursuits, and spends time focusing on education and meditation, to fully harness the power of the mind and the body. Psionicists are generally well-educated and very self-reliant. Through study and discipline, they can learn to use psychic abilities from any psionic discipline.
 
 NOTE: the Psionicist kit is chosen from the single-class thief/rogue menu. Upon starting the game, you must use the "Initialize Psionics" ability which will make you a multiclass thief/psion. Psionic development proceeds according to the Cleric XP and thac0 tables, so the character record sheet will look like a cleric/thief.

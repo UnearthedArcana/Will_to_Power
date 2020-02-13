@@ -34,6 +34,11 @@ COPY ~will_to_power/data/d5ps101.spl~ ~override~    //  			mind ward
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 180 STR_VAR resource = ~d5px101~ END
 // ***** maybe, 326 this ^^ to cast d5pspls1 if !metapsionic, and cast d5psplz1 is metapsionic
 // ...and do it in the level-up and refresh spells too.  Could simplify d5pspls1 this way.
+// ...but... why mess with it when it's working?
+// ...except it's not working for WT powers
+// ...both versions appear, at least when low on PSPs
+// ***** maybe add a CFeffect with 171 and the power?  so if you are interrupted, the number doesn't drop by one.
+	LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5ps101~ END
 COPY ~will_to_power/data/d5ps101.spl~ ~override/d5pr101.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 328 parameter2 = %mind_ward_state% END
 	SAY NAME1 @1011
@@ -51,6 +56,7 @@ COPY ~will_to_power/data/d5ps101.spl~ ~override/d5pr101.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 6 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5pr101~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnt6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5py101~ END
+	LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5pr101~ END
 COPY ~will_to_power/data/d5px101.bam~ ~override~
 // cancel ability when used with PSPs
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px101.spl~
@@ -116,10 +122,12 @@ COPY_EXISTING ~d5ps101.spl~ ~override/d5pw101.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR match_resource = ~d5ps101~ resource = ~d5pw101~ END
 COPY_EXISTING ~d5pr101.spl~ ~override/d5pu101.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR match_resource = ~d5pr101~ resource = ~d5pu101~ END
 
 //__________________________________________________________________________________
 

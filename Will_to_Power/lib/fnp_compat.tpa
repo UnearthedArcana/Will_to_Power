@@ -760,6 +760,7 @@ DEFINE_ACTION_MACRO apply_fnp_usability BEGIN
 	  READ_2DA_ENTRY_FORMER ~r2en_kitlist~ patch_row 0 kit_index
 	  READ_2DA_ENTRY_FORMER ~r2en_kitlist~ patch_row 1 kit_label
 	  READ_2DA_ENTRY_FORMER ~r2en_kitlist~ patch_row 8 kit_class
+	  READ_2DA_ENTRY_FORMER ~r2en_kitlist~ patch_row 9 kit_code
 	  PATCH_IF (%kit_class% = 3 || %kit_class% = 11 || %kit_class% = 21 || %kit_class% = 8 || %kit_class% = 14 || %kit_class% = 15 || %kit_class% = 18 || %kit_class% = 16) BEGIN
 		INNER_ACTION BEGIN
 		  COPY ~faiths_and_powers/kits/misc/d5fnpuse.spl~ ~override/d5_u%kit_index%.spl~
@@ -1165,6 +1166,7 @@ DEFINE_ACTION_MACRO apply_fnp_usability BEGIN
 			  END
 			  COPY_EXISTING ~QD_MC_AP.eff~ ~override/d5_u%kit_index%#.eff~
 				WRITE_EVALUATED_ASCII 0x30 ~d5_u%kit_index%~
+			  LAF QD_ENSURE_QDMC_SPL STR_VAR base_class = EVAL ~%class_letter%~ END
 			  COPY_EXISTING ~QD_MC%class_letter%01.spl~ ~override~ 
 				LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 timing = 9 resist_dispel = 0 power = 0 parameter1 = %kit_code% parameter2 = 9 STR_VAR resource = EVAL ~d5_u%kit_index%#~ END  
 			END 

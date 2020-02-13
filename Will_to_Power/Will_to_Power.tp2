@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.9.2~	
+VERSION ~0.9.3~	
 
 ALWAYS
 
@@ -89,16 +89,33 @@ INCLUDE ~will_to_power/components/400_ranger_psion.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
+//					  DARK SUN MODE: EVERYONE IS A WILD TALENT
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+BEGIN @900
+DESIGNATED 900
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5_psionics.d5~) @4
+
+INCLUDE ~will_to_power/components/900_dark_sun_mode.tpa~
+  LAF dark_sun_mode END
+  
+//__________________________________________________________________________________
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
 //						CHANGE MULTI-CLERIC WEAPON USABILITY
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @999
-DESIGNATED 999
+BEGIN @950
+DESIGNATED 950
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
-FORBID_COMPONENT ~faiths_and_powers.tp2~ ~75~ @4
+//FORBID_COMPONENT ~faiths_and_powers.tp2~ ~75~ @4
 
-INCLUDE ~will_to_power/components/999_weapon_use.tpa~
+INCLUDE ~will_to_power/components/950_weapon_use.tpa~
   LAF multi_clerics_usability END
   
 //__________________________________________________________________________________

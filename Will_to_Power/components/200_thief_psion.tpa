@@ -253,9 +253,11 @@ END
 
 // no need to actually apply spheres - if the sphere system already exists, we'll just side-step it
 
+/* this isn't working...
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 	LAM apply_fnp_usability
 END
+*/
 
 
 //LAF no_cleric_spells STR_VAR clab_table = ~d5psith~ END
@@ -327,6 +329,18 @@ END
 //SCRIPTS ETC.________________________________________________________________________
 //
 EXTEND_TOP ~d5_psi.bcs~ ~will_to_power/data/kit/d5_psith.baf~
+//____________________________________________________________________________________
+
+
+//NO CLERIC STRONGHOLD________________________________________________________________
+//
+COPY_EXISTING ~ar0900.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~\(!Kit(Player1,GODHELM)[ %TAB%%LNL%%MNL%%WNL%]+!Kit(Player1,GODTALOS)\)~ ~\1 !Kit(Player1,D5_PSION)~
+    REPLACE_TEXTUALLY ~\(!Kit(Player1,GODLATHANDER)[ %TAB%%LNL%%MNL%%WNL%]+!Kit(Player1,GODTALOS)\)~ ~\1 !Kit(Player1,D5_PSION)~
+    REPLACE_TEXTUALLY ~\(!Kit(Player1,GODLATHANDER)[ %TAB%%LNL%%MNL%%WNL%]+!Kit(Player1,GODHELM)\)~ ~\1 !Kit(Player1,D5_PSION)~
+  END
+BUT_ONLY
 //____________________________________________________________________________________
 
 
