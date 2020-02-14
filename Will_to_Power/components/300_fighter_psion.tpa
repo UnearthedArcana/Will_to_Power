@@ -309,7 +309,7 @@ COPY_EXISTING ~ar0900.bcs~ ~override~
     REPLACE_TEXTUALLY ~\(!Kit(Player1,GODLATHANDER)[ %TAB%%LNL%%MNL%%WNL%]+!Kit(Player1,GODTALOS)\)~ ~\1 !Kit(Player1,D5_SOULBLADE)~
     REPLACE_TEXTUALLY ~\(!Kit(Player1,GODLATHANDER)[ %TAB%%LNL%%MNL%%WNL%]+!Kit(Player1,GODHELM)\)~ ~\1 !Kit(Player1,D5_SOULBLADE)~
   END
-BUT_ONLY
+IF_EXISTS BUT_ONLY
 //____________________________________________________________________________________
 
 
