@@ -609,20 +609,24 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
 
 //wild talents_______________________________________________________________________
 //
-COPY_EXISTING ~kit.ids~ ~override~
-  COUNT_2DA_ROWS 2 rows
-  FOR (row = 2 ; row < rows ; ++row) BEGIN
-	READ_2DA_ENTRY %row% 1 2 modname
-	READ_2DA_ENTRY %row% 0 2 mod_ids
-	PATCH_IF (~%modname%~ STRING_EQUAL_CASE ~D5_MANA_SORCERER~) BEGIN
-	  SET manasorc_ids = mod_ids
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5_mana.2da~) BEGIN
+  COPY_EXISTING ~kit.ids~ ~override~
+	COUNT_2DA_ROWS 2 rows
+	FOR (row = 2 ; row < rows ; ++row) BEGIN
+	  READ_2DA_ENTRY %row% 1 2 modname
+	  READ_2DA_ENTRY %row% 0 2 mod_ids
+	  PATCH_IF (~%modname%~ STRING_EQUAL_CASE ~D5_MANA_SORCERER~) BEGIN
+		SET manasorc_ids = mod_ids
+	  END
 	END
-  END
-BUT_ONLY
+  BUT_ONLY
+END
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt_.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = ~d5pswt0~ END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %manasorc_ids% parameter2 = %kit_is_row% timing = 9 duration = 0 STR_VAR resource = ~d5pswt_~ END
+  PATCH_IF (FILE_EXISTS_IN_GAME ~d5_mana.2da~) BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %manasorc_ids% parameter2 = %kit_is_row% timing = 9 duration = 0 STR_VAR resource = ~d5pswt_~ END
+  END
 
 COPY ~will_to_power/data/d5pswt0.bam~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt0.spl~
