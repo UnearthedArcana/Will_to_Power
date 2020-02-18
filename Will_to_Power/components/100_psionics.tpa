@@ -520,6 +520,7 @@ ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pv000~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls2~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 2 STR_VAR resource = ~d5pspls1~ END
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%y.spl~
@@ -592,6 +593,12 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
 	  END
 	END
   END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5spm3m~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5spmem~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5pswt0~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5pswt_~ END
+
+COPY ~will_to_power/data/d5_base.spl~ ~override/d5pv000.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01v~ END
 //	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5pv%disc%01~ END
@@ -599,10 +606,7 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01z~ END
 	END
   END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5spm3m~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5spmem~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5pswt0~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5pswt_~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5pv000~ END
 
 //___________________________________________________________________________________
 

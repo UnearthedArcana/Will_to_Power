@@ -190,7 +190,7 @@ COPY ~will_to_power/data/kit/d5pzion.spl~ ~override~
   SAY UNIDENTIFIED_DESC ~initialize psionic abilities~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 location = 4 STR_VAR icon = ~d5ps000~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pzion~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pswt00~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pswt_~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pswt0~ END
 COPY ~will_to_power/data/kit/d5pzion.eff~ ~override~
 COPY ~will_to_power/data/kit/d5pzion.cre~ ~override~
@@ -329,6 +329,14 @@ END
 //SCRIPTS ETC.________________________________________________________________________
 //
 EXTEND_TOP ~d5_psi.bcs~ ~will_to_power/data/kit/d5_psith.baf~
+//____________________________________________________________________________________
+
+
+//NO WILD TALENT______________________________________________________________________
+//
+COPY_EXISTING ~d5pswt_.spl~ ~override~
+  LPF ADD_SPELL_EFFECT INT_VAR insert-point = 0 opcode = 318 target = 1 parameter1 = %psionicist_code% parameter2 = %kit_is_row% timing = 0 duration = 0 STR_VAR resource = ~d5pswt_~ END
+IF_EXISTS BUT_ONLY
 //____________________________________________________________________________________
 
 

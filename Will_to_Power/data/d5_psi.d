@@ -1,6 +1,6 @@
 BEGIN ~D5_PSION~
 
-IF ~Global("D5_FEAT","GLOBAL",1)~ THEN BEGIN d5_psion
+IF ~Global("D5_PSI","GLOBAL",1)~ THEN BEGIN d5_psion
  SAY @99 // ~Choose an ability:~
  IF ~GlobalLT("D5_PSI_102","LOCALS",1)~ THEN REPLY @1021 GOTO d5_psion_102		//	sensory sync
  IF ~GlobalLT("D5_PSI_103","LOCALS",1)~ THEN REPLY @1031 GOTO d5_psion_103		//	id insinuation

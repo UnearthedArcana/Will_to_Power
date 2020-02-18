@@ -3,7 +3,7 @@ IF
 	True()
 THEN
 	RESPONSE #100
-	SetGlobal("D5_FEAT","GLOBAL",0)
+	SetGlobal("D5_PSI","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
 	DestroySelf() 
 END

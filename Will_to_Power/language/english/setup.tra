@@ -30,7 +30,7 @@
 @200   = ~Add the Psionicist, rogue/psion~
 @300   = ~Add the Soulblade, fighter/psion~
 @400   = ~Add the Psypher, ranger/psion~
-@500   = ~Add the Ardent, mage/psion~
+@500   = ~Add the Cerebremancer, mage/psion~
 @900   = ~Dark Sun Mode: Everyone Is a Wild Talent~
 @950   = ~Allow Multiclass Clerics to Use More Weapons~
 //
@@ -83,6 +83,20 @@ Abilities:
 Restrictions:
 - Limited to light armors.
 - Psyphers cannot cast divine spells.
+- May not be Chaotic.
+~
+@501  = ~cerebremancer~
+@502  = ~Cerebremancer~
+@503  = ~CEREBREMANCER: this is someone who pairs the study and meditation required to advance as a psion with skills in the arcane arts. It is rare to combine such difficult disciplines, but the result is potent. Cerebremancers have an affinity for the Enchantment/Charm school of spells, and often focus on the Telepathy psionic discipline.
+
+NOTE: the Cerebremancer kit is chosen from the single-class wizard menu. Upon starting the game, you must use the "Initialize Psionics" ability which will make you a multiclass mage/psion. Psionic development proceeds according to the Cleric XP and thac0 tables, so the character record sheet will look like a cleric/mage.
+
+Abilities:
+- Begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psionicist can proceed to learn two additional powers with each new level of experience.
+- Cerebremancers begin with 15 Psionic Strength Points (PSPs).  They gain 5 more PSPs per level through 20th level, and 2 per level after that.
+
+Restrictions:
+- Has the spell restrictions and spell-learning characteristics of an Enchanter.
 - May not be Chaotic.
 ~
 //
@@ -293,7 +307,7 @@ The cost to maintain this ability is is 6 points.~
 @5042  = ~Instinctive Precognition: while this ability is maintained, the psion's foresight and intuition give <PRO_HIMHER> 1-point bonus to Luck, which results in a 5% bonus to to-hit rolls, saving throws, rogue skills, and melee damage, as well as a 10% bonus to skill checks.
 
 The cost to maintain this ability is 6 points.~
-@5043  = ~Cancel Precognitive Luck~
+@5043  = ~Cancel Instinctive Precognition~
 @5051  = ~..Remote Observation~
 @5052  = ~Remote Observation: upon activate this ability, the psion is able to view a distant area.  After using the ability, click on a section of the map that you want to view. For five rounds, the psion can spy on that area, noting creatures and fortifications.
 

@@ -1,6 +1,6 @@
 
 IF
-	Kit(LastSummonerOf(Myself),D5_PSYPHER)
+	Kit(LastSummonerOf(Myself),D5_CEREBRO)
 	NumTimesTalkedTo(0)
 THEN
 	RESPONSE #100

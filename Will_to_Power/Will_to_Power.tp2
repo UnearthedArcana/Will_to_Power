@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.9.5.1~	
+VERSION ~0.9.6~	
 
 ALWAYS
 
@@ -81,6 +81,27 @@ INCLUDE ~will_to_power/components/100_psionics.tpa~
 
 INCLUDE ~will_to_power/components/400_ranger_psion.tpa~
   LAF psypher_kit END
+  
+//__________________________________________________________________________________
+
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						  	CEREBROMANCER (MAGE/PSION)
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+BEGIN @500
+DESIGNATED 500
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
+
+INCLUDE ~will_to_power/components/100_psionics.tpa~
+  LAF psionics_system END
+
+INCLUDE ~will_to_power/components/500_mage_psion.tpa~
+  LAF cerebremancer_kit END
   
 //__________________________________________________________________________________
 
