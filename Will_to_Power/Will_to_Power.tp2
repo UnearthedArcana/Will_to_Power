@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.9.6~	
+VERSION ~0.9.7~	
 
 ALWAYS
 
@@ -12,6 +12,8 @@ ALWAYS
 	INCLUDE ~will_to_power/lib/fl#add_kit_ee.tpa~
 
 	INCLUDE ~will_to_power/lib/qd_multiclass.tpa~
+
+	INCLUDE ~%MOD_FOLDER%/lib/fnp_compatibility.tpa~
 
 END
 
@@ -134,7 +136,7 @@ INCLUDE ~will_to_power/components/900_dark_sun_mode.tpa~
 BEGIN @950
 DESIGNATED 950
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
-//FORBID_COMPONENT ~faiths_and_powers.tp2~ ~75~ @4
+FORBID_COMPONENT ~faiths_and_powers.tp2~ ~75~ @4
 
 INCLUDE ~will_to_power/components/950_weapon_use.tpa~
   LAF multi_clerics_usability END

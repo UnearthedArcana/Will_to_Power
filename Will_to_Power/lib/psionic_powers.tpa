@@ -120,14 +120,14 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps101z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps101~ END
 COPY_EXISTING ~d5ps101.spl~ ~override/d5pw101.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR match_resource = ~d5ps101~ resource = ~d5pw101~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5ps101~ resource = ~d5pw101~ END
 COPY_EXISTING ~d5pr101.spl~ ~override/d5pu101.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR match_resource = ~d5pr101~ resource = ~d5pu101~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps101s~ resource = ~d5ps101w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps101r~ resource = ~d5ps101u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5pr101~ resource = ~d5pu101~ END
 
 //__________________________________________________________________________________
 
@@ -198,12 +198,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps102z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps102~ END
 COPY_EXISTING ~d5ps102.spl~ ~override/d5pw102.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps102s~ resource = ~d5ps102w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps102r~ resource = ~d5ps102u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps102s~ resource = ~d5ps102w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps102r~ resource = ~d5ps102u~ END
 COPY_EXISTING ~d5pr102.spl~ ~override/d5pu102.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps102s~ resource = ~d5ps102w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps102r~ resource = ~d5ps102u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps102s~ resource = ~d5ps102w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps102r~ resource = ~d5ps102u~ END
 
 //__________________________________________________________________________________
 
@@ -548,7 +548,7 @@ COPY ~will_to_power/data/d5ps108.spl~ ~override~   // 				intellect fortress
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 180 STR_VAR resource = ~d5px108~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 match_parameter2 = 110 parameter1 = %mind_ward_state% STR_VAR resource = ~d5ps101x~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter2 = 110 parameter1 = %mind_ward_state% STR_VAR resource = ~d5ps101x~ END
 COPY ~will_to_power/data/d5ps108.spl~ ~override/d5pr108.spl~
 	SAY NAME1 @1081
 	SAY UNIDENTIFIED_DESC @1082
@@ -564,7 +564,7 @@ COPY ~will_to_power/data/d5ps108.spl~ ~override/d5pr108.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 10 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5pr108~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnt10~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5py108~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 match_parameter2 = 110 parameter1 = %mind_ward_state% STR_VAR resource = ~d5ps101x~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter2 = 110 parameter1 = %mind_ward_state% STR_VAR resource = ~d5ps101x~ END
 COPY ~will_to_power/data/d5px108.bam~ ~override~
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px108.spl~
 	SAY NAME1 @1083
@@ -597,12 +597,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps108z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps108~ END
 COPY_EXISTING ~d5ps108.spl~ ~override/d5pw108.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps108s~ resource = ~d5ps108w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps108r~ resource = ~d5ps108u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps108s~ resource = ~d5ps108w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps108r~ resource = ~d5ps108u~ END
 COPY_EXISTING ~d5pr108.spl~ ~override/d5pu108.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps108s~ resource = ~d5ps108w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps108r~ resource = ~d5ps108u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps108s~ resource = ~d5ps108w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps108r~ resource = ~d5ps108u~ END
 
 //__________________________________________________________________________________
 
@@ -852,7 +852,7 @@ COPY ~will_to_power/data/d5ps202.spl~ ~override~   // 				free-ish action
 	WRITE_LONG 0x34 8
 	WRITE_ASCII 0x3a ~d5ps202~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR speed = 1 location = 2 STR_VAR icon = ~d5ps202~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 328 parameter2 = %hold_evasion_state% END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 328 parameter2 = %hold_evasion_state% END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5px202~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps202s~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps202r~ END
@@ -910,12 +910,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps202z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps202~ END
 COPY_EXISTING ~d5ps202.spl~ ~override/d5pw202.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps202s~ resource = ~d5ps202w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps202r~ resource = ~d5ps202u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps202s~ resource = ~d5ps202w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps202r~ resource = ~d5ps202u~ END
 COPY_EXISTING ~d5pr202.spl~ ~override/d5pu202.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps202s~ resource = ~d5ps202w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps202r~ resource = ~d5ps202u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps202s~ resource = ~d5ps202w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps202r~ resource = ~d5ps202u~ END
 
 // hold evasion: 109 Hold, 175 Hold2, 45 Stun, 210 PW Stun, 157 Web effect, 154 Entangle overlay, 40 Slow
 <<<<<<<< d5/d5holdev.2da
@@ -1109,12 +1109,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps204z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps204~ END
 COPY_EXISTING ~d5ps204.spl~ ~override/d5pw204.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps204s~ resource = ~d5ps204w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps204r~ resource = ~d5ps204u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps204s~ resource = ~d5ps204w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps204r~ resource = ~d5ps204u~ END
 COPY_EXISTING ~d5pr204.spl~ ~override/d5pu204.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps204s~ resource = ~d5ps204w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps204r~ resource = ~d5ps204u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps204s~ resource = ~d5ps204w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps204r~ resource = ~d5ps204u~ END
 
 //__________________________________________________________________________________
 
@@ -1188,12 +1188,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps205z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps205~ END
 COPY_EXISTING ~d5ps205.spl~ ~override/d5pw205.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps205s~ resource = ~d5ps205w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps205r~ resource = ~d5ps205u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps205s~ resource = ~d5ps205w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps205r~ resource = ~d5ps205u~ END
 COPY_EXISTING ~d5pr205.spl~ ~override/d5pu205.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps205s~ resource = ~d5ps205w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps205r~ resource = ~d5ps205u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps205s~ resource = ~d5ps205w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps205r~ resource = ~d5ps205u~ END
 
 //__________________________________________________________________________________
 
@@ -1367,7 +1367,7 @@ COPY_EXISTING ~d5ps211.spl~ ~override/d5pt211.spl~
 COPY_EXISTING ~d5pr211.spl~ ~override/d5pq211.spl~
 	WRITE_BYTE 0x19 (THIS BOR 0b00001000)
 	LPF ALTER_SPELL_HEADER INT_VAR range = 512 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 318 match_parameter1 = 20 STR_VAR resource = ~d5pq211~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 318 match_parameter1 = 20 STR_VAR resource = ~d5pq211~ END
 COPY ~will_to_power/data/d5ps211b.spl~ ~override~
 COPY ~will_to_power/data/d5ps211c.spl~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps211z.spl~
@@ -1463,12 +1463,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps301z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps301~ END
 COPY_EXISTING ~d5ps301.spl~ ~override/d5pw301.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps301s~ resource = ~d5ps301w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps301r~ resource = ~d5ps301u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps301s~ resource = ~d5ps301w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps301r~ resource = ~d5ps301u~ END
 COPY_EXISTING ~d5pr301.spl~ ~override/d5pu301.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps301s~ resource = ~d5ps301w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps301r~ resource = ~d5ps301u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps301s~ resource = ~d5ps301w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps301r~ resource = ~d5ps301u~ END
 
 //__________________________________________________________________________________
 
@@ -1576,12 +1576,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps303z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps303~ END
 COPY_EXISTING ~d5ps303.spl~ ~override/d5pw303.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps303s~ resource = ~d5ps303w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps303r~ resource = ~d5ps303u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps303s~ resource = ~d5ps303w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps303r~ resource = ~d5ps303u~ END
 COPY_EXISTING ~d5pr303.spl~ ~override/d5pu303.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps303s~ resource = ~d5ps303w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps303r~ resource = ~d5ps303u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps303s~ resource = ~d5ps303w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps303r~ resource = ~d5ps303u~ END
 
 //__________________________________________________________________________________
 
@@ -1649,12 +1649,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps304z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps304~ END
 COPY_EXISTING ~d5ps304.spl~ ~override/d5pw304.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps304s~ resource = ~d5ps304w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps304r~ resource = ~d5ps304u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps304s~ resource = ~d5ps304w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps304r~ resource = ~d5ps304u~ END
 COPY_EXISTING ~d5pr304.spl~ ~override/d5pu304.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps304s~ resource = ~d5ps304w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps304r~ resource = ~d5ps304u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps304s~ resource = ~d5ps304w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps304r~ resource = ~d5ps304u~ END
 
 //__________________________________________________________________________________
 
@@ -1780,12 +1780,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps307z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps307~ END
 COPY_EXISTING ~d5ps307.spl~ ~override/d5pw307.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps307s~ resource = ~d5ps307w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps307r~ resource = ~d5ps307u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps307s~ resource = ~d5ps307w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps307r~ resource = ~d5ps307u~ END
 COPY_EXISTING ~d5pr307.spl~ ~override/d5pu307.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps307s~ resource = ~d5ps307w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps307r~ resource = ~d5ps307u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps307s~ resource = ~d5ps307w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps307r~ resource = ~d5ps307u~ END
 
 //__________________________________________________________________________________
 
@@ -1957,8 +1957,8 @@ COPY ~will_to_power/data/d5ps401.spl~ ~override~   //  				adrenaline rush
 	WRITE_LONG 0x34 5
 	WRITE_ASCII 0x3a ~d5ps401~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps401~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 0 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 7 parameter2 = %tracking_less% timing = 9 duration = 0 STR_VAR resource = ~d5psp+1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp-3~ END
@@ -1971,8 +1971,8 @@ COPY ~will_to_power/data/d5ps401.spl~ ~override/d5pr401.spl~
 	WRITE_LONG 0x34 5
 	WRITE_ASCII 0x3a ~d5ps401~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps401~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 44 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 0 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psst6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
@@ -1990,12 +1990,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps401z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps401~ END
 COPY_EXISTING ~d5ps401.spl~ ~override/d5pw401.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps401s~ resource = ~d5ps401w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps401r~ resource = ~d5ps401u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps401s~ resource = ~d5ps401w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps401r~ resource = ~d5ps401u~ END
 COPY_EXISTING ~d5pr401.spl~ ~override/d5pu401.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps401s~ resource = ~d5ps401w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps401r~ resource = ~d5ps401u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps401s~ resource = ~d5ps401w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps401r~ resource = ~d5ps401u~ END
 
 //__________________________________________________________________________________
 
@@ -2007,8 +2007,8 @@ COPY ~will_to_power/data/d5ps402.spl~ ~override~   //  				metabolic acceleratio
 	WRITE_ASCII 0x3a ~d5ps402~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps402~ END
 	LPF DELETE_EFFECT INT_VAR match_opcode = 93 END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 0 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 7 parameter2 = %tracking_less% timing = 9 duration = 0 STR_VAR resource = ~d5psp+1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp-3~ END
@@ -2022,8 +2022,8 @@ COPY ~will_to_power/data/d5ps403.spl~ ~override/d5pr402.spl~
 	WRITE_ASCII 0x3a ~d5ps402~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps402~ END
 	LPF DELETE_EFFECT INT_VAR match_opcode = 93 END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
-	LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404s~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 16 opcode = 206 target = 1 parameter1 = (0 - 1) STR_VAR resource = ~d5ps404r~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 0 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psst6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
@@ -2145,12 +2145,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps404z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps404~ END
 COPY_EXISTING ~d5ps404.spl~ ~override/d5pw404.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps404s~ resource = ~d5ps404w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps404r~ resource = ~d5ps404u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps404s~ resource = ~d5ps404w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps404r~ resource = ~d5ps404u~ END
 COPY_EXISTING ~d5pr404.spl~ ~override/d5pu404.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps404s~ resource = ~d5ps404w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps404r~ resource = ~d5ps404u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps404s~ resource = ~d5ps404w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps404r~ resource = ~d5ps404u~ END
 
 //__________________________________________________________________________________
 
@@ -2303,12 +2303,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps408z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps408~ END
 COPY_EXISTING ~d5ps408.spl~ ~override/d5pw408.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps408s~ resource = ~d5ps408w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps408r~ resource = ~d5ps408u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps408s~ resource = ~d5ps408w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps408r~ resource = ~d5ps408u~ END
 COPY_EXISTING ~d5pr408.spl~ ~override/d5pu408.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps408s~ resource = ~d5ps408w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps408r~ resource = ~d5ps408u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps408s~ resource = ~d5ps408w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps408r~ resource = ~d5ps408u~ END
 
 //__________________________________________________________________________________
 
@@ -2379,12 +2379,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps409z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps409~ END
 COPY_EXISTING ~d5ps409.spl~ ~override/d5pw409.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps409s~ resource = ~d5ps409w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps409r~ resource = ~d5ps409u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409s~ resource = ~d5ps409w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409r~ resource = ~d5ps409u~ END
 COPY_EXISTING ~d5pr409.spl~ ~override/d5pu409.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps409s~ resource = ~d5ps409w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps409r~ resource = ~d5ps409u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409s~ resource = ~d5ps409w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409r~ resource = ~d5ps409u~ END
 
 //__________________________________________________________________________________
 
@@ -2529,7 +2529,7 @@ COPY_EXISTING ~d5pr501.spl~ ~override/d5pu501.spl~
 LAF B3_IDENTIFY_REGISTER INT_VAR uses = 1 STR_VAR resref = ~d5ps501~ END
 LAF B3_IDENTIFY_REGISTER INT_VAR uses = 1 STR_VAR resref = ~d5pr501~ END
 LAF B3_IDENTIFY_REGISTER INT_VAR uses = 1 STR_VAR resref = ~d5pw501~ END
-LAF B3_IDENTIFY_REGISTER INT_VAR uses = 1 STR_VAR resref = ~d5px501~ END
+LAF B3_IDENTIFY_REGISTER INT_VAR uses = 1 STR_VAR resref = ~d5pu501~ END
 
 //__________________________________________________________________________________
 
@@ -2614,8 +2614,8 @@ COPY ~will_to_power/data/d5ps503.spl~ ~override/d5pr503.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 6 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5pr503~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnt6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5py503~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 248 STR_VAR match_resource = ~d5px503~ resource = ~d5py503~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 249 STR_VAR match_resource = ~d5px503~ resource = ~d5py503~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 248 STR_VAR match_resource = ~d5px503~ resource = ~d5py503~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 249 STR_VAR match_resource = ~d5px503~ resource = ~d5py503~ END
 COPY ~will_to_power/data/d5px503.bam~ ~override~
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px503.spl~
 	SAY NAME1 @5033
@@ -2650,12 +2650,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps503z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps503~ END
 COPY_EXISTING ~d5ps503.spl~ ~override/d5pw503.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps503s~ resource = ~d5ps503w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps503r~ resource = ~d5ps503u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps503s~ resource = ~d5ps503w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps503r~ resource = ~d5ps503u~ END
 COPY_EXISTING ~d5pr503.spl~ ~override/d5pu503.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps503s~ resource = ~d5ps503w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps503r~ resource = ~d5ps503u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps503s~ resource = ~d5ps503w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps503r~ resource = ~d5ps503u~ END
 
 //__________________________________________________________________________________
 
@@ -2723,12 +2723,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps504z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps504~ END
 COPY_EXISTING ~d5ps504.spl~ ~override/d5pw504.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps504s~ resource = ~d5ps504w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps504r~ resource = ~d5ps504u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps504s~ resource = ~d5ps504w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps504r~ resource = ~d5ps504u~ END
 COPY_EXISTING ~d5pr504.spl~ ~override/d5pu504.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps504s~ resource = ~d5ps504w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps504r~ resource = ~d5ps504u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps504s~ resource = ~d5ps504w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps504r~ resource = ~d5ps504u~ END
 
 //__________________________________________________________________________________
 
@@ -2840,12 +2840,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps507z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps507~ END
 COPY_EXISTING ~d5ps507.spl~ ~override/d5pw507.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps507s~ resource = ~d5ps507w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps507r~ resource = ~d5ps507u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps507s~ resource = ~d5ps507w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps507r~ resource = ~d5ps507u~ END
 COPY_EXISTING ~d5pr507.spl~ ~override/d5pu507.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps507s~ resource = ~d5ps507w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps507r~ resource = ~d5ps507u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps507s~ resource = ~d5ps507w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps507r~ resource = ~d5ps507u~ END
 
 //__________________________________________________________________________________
 
@@ -2916,12 +2916,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps508z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps508~ END
 COPY_EXISTING ~d5ps508.spl~ ~override/d5pw508.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps508s~ resource = ~d5ps508w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps508r~ resource = ~d5ps508u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps508s~ resource = ~d5ps508w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps508r~ resource = ~d5ps508u~ END
 COPY_EXISTING ~d5pr508.spl~ ~override/d5pu508.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps508s~ resource = ~d5ps508w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps508r~ resource = ~d5ps508u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps508s~ resource = ~d5ps508w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps508r~ resource = ~d5ps508u~ END
 
 // add sanctuary to invisibility to make life detection work
 INCLUDE ~%MOD_FOLDER%/lib/d5_insanctibility.tpa~
@@ -2931,6 +2931,16 @@ END
 
 //__________________________________________________________________________________
 
+COPY_EXISTING ~7eyes.2da~ ~override~
+  COUNT_2DA_ROWS 1 rows
+  FOR (row = 1; row < rows; ++row) BEGIN
+	READ_2DA_ENTRY row 0 1 tag
+	PATCH_IF (~%tag%~ STRING_EQUAL_CASE ~SNARE_ARROW~) BEGIN
+	  SET 7eyes_row = row
+	END
+  END
+BUT_ONLY
+
 COPY ~will_to_power/data/d5ps509.bam~ ~override~
 COPY ~will_to_power/data/d5ps509.spl~ ~override~   // 				danger sense
 	SAY NAME1 @5091
@@ -2938,7 +2948,9 @@ COPY ~will_to_power/data/d5ps509.spl~ ~override~   // 				danger sense
 	WRITE_LONG 0x34 8
 	WRITE_ASCII 0x3a ~d5ps509~ #8
  	LPF ALTER_SPELL_HEADER INT_VAR speed = 1 location = 2 STR_VAR icon = ~d5ps509~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_rows% END
+	PATCH_IF (IS_AN_INT %7eyes_row%) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_row% END
+	END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5px509~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps509s~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps509r~ END
@@ -2955,7 +2967,9 @@ COPY ~will_to_power/data/d5ps509.spl~ ~override/d5pr509.spl~
 	WRITE_LONG 0x34 8
 	WRITE_ASCII 0x3a ~d5ps509~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR speed = 1 location = 2 STR_VAR icon = ~d5ps509~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_rows% END
+	PATCH_IF (IS_AN_INT %7eyes_row%) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_row% END
+	END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps509s~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 1 duration = 0 STR_VAR resource = ~d5ps509r~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 0 END
@@ -2990,7 +3004,7 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py509.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx10~ END
 COPY ~will_to_power/data/d5ps509.eff~ ~override~
 COPY ~will_to_power/data/d5ps509b.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_rows% END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 335 parameter1 = %missile_snaring_state% parameter2 = %7eyes_row% END
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps509z.spl~
 	SAY NAME1 @5091
 	SAY UNIDENTIFIED_DESC @5092
@@ -3000,12 +3014,12 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps509z.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps509~ END
 COPY_EXISTING ~d5ps509.spl~ ~override/d5pw509.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps509s~ resource = ~d5ps509w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps509r~ resource = ~d5ps509u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps509s~ resource = ~d5ps509w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps509r~ resource = ~d5ps509u~ END
 COPY_EXISTING ~d5pr509.spl~ ~override/d5pu509.spl~
 	LPF ALTER_SPELL_HEADER INT_VAR location = 4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps509s~ resource = ~d5ps509w~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 206 STR_VAR match_resource = ~d5ps509r~ resource = ~d5ps509u~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps509s~ resource = ~d5ps509w~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps509r~ resource = ~d5ps509u~ END
 
 // process spells to make evasion work
 ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN 
