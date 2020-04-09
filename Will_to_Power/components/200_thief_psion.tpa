@@ -277,6 +277,7 @@ COPY_EXISTING ~d5psith.2da~ ~override~
   APPEND_FILE ~override/d5_psi.2da~
 IF_EXISTS
 
+APPEND ~d5psith.2da~ ~PSI_PTS     AP_D5PSP5T  AP_D5PSP1A  AP_D5PSP1B  AP_D5PSP1C  AP_D5PSP1D  AP_D5PSP1E  AP_D5PSP1F  AP_D5PSP1G  AP_D5PSP1H  AP_D5PSP1I  AP_D5PSP1J  AP_D5PSP1K  AP_D5PSP1L  AP_D5PSP1M  AP_D5PSP1N  AP_D5PSP1O  AP_D5PSP1P  AP_D5PSP1Q  AP_D5PSP1R  AP_D5PSP1S  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
 
 LAF qd_multiclass
   STR_VAR

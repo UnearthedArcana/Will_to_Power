@@ -177,9 +177,9 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5psncl.spl~
   PHP_EACH cleric_valid_spells AS cl_res => type BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~%cl_res%~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 4 duration = 1 STR_VAR resource = EVAL ~%cl_res%~ END
-// disable turn undead
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 144 target = 1 parameter2 = 6 timing = 9 END
   END
+// disable turn undead
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 144 target = 1 parameter2 = 6 timing = 9 END
 
 APPEND ~d5_psi.2da~ ~NO_SPELLS   AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL ~
 //____________________________________________________________________________________
@@ -450,6 +450,19 @@ BUT_ONLY
 //__________________________________________________________________________________
 
 
+//CLEAR AURA EFF____________________________________________________________________
+//
+CREATE EFF ~d5psaura~
+  WRITE_LONG 0x10 188
+  WRITE_LONG 0x14 1
+  WRITE_LONG 0x18 0
+  WRITE_LONG 0x20 1
+  WRITE_LONG 0x24 0
+  WRITE_LONG 0x28 5
+  WRITE_SHORT 0x2c 100
+//__________________________________________________________________________________
+
+
 //PSIONIC ABILITY FILES_____________________________________________________________
 //
 INCLUDE ~will_to_power/lib/psionic_powers.tpa~
@@ -458,36 +471,36 @@ INCLUDE ~will_to_power/lib/psionic_powers.tpa~
 
 //learning new powers________________________________________________________________
 //
-// d5ps#  = psp spell, 30' range 				(must be 7 chars because 172)
+// d5ps__  = psp spell, 30' range 				(must be 7 chars because 172)
 // ... and icon
-// d5pr#  = hp spell, 30' range 				(must be 7 chars because 172)
-// d5pt#  = psp spell, unlimited range			(must be 7 chars because 172)
-// d5pq#  = hp spell, unlimited range			(must be 7 chars because 172)
-// d5pw#  = psp spell, 30' range, innate loc 	(must be 7 chars because 172)
-// d5pu#  = hp spell, 30' range, innate loc 	(must be 7 chars because 172)
-// d5ps#z = spellbook spell, for display only
-// d5ps#a = subspell, repeated effects
-// d5px#  = cancel and give back PSPs			(must be 7 chars because 172)
+// d5pr__  = hp spell, 30' range 				(must be 7 chars because 172)
+// d5pt__  = psp spell, unlimited range			(must be 7 chars because 172)
+// d5pq__  = hp spell, unlimited range			(must be 7 chars because 172)
+// d5pw__  = psp spell, 30' range, innate loc 	(must be 7 chars because 172)
+// d5pu__  = hp spell, 30' range, innate loc 	(must be 7 chars because 172)
+// d5ps__p = spellbook spell, for display only
+// d5ps__a = subspell, repeated effects
+// d5px__  = cancel and give back PSPs			(must be 7 chars because 172)
 // ... and icon
-// d5py#  = cancel and give back HPs			(must be 7 chars because 172)
-// d5ps#s = add psp ability (in pspls1)
-// d5ps#r = add hp ability (in pspls1)
-// d5ps#t = add psp ability (long-range)
-// d5ps#q = add hp ability (long-range)
-// d5ps#w = add psp WT ability
-// d5ps#u = add hp WT ability
-// d5ps#v = cannot use (206 vs. _q and _r and _s and _t)
-// d5pv#  = learn ability (cancel _v, give _z)	(must be 7 chars because applied by ApplySpellRES)
+// d5py__  = cancel and give back HPs			(must be 7 chars because 172)
+// d5ps__s = add psp ability (in pspls1)
+// d5ps__r = add hp ability (in pspls1)
+// d5ps__t = add psp ability (long-range)
+// d5ps__q = add hp ability (long-range)
+// d5ps__w = add psp WT ability
+// d5ps__u = add hp WT ability
+// d5ps__v = cannot use (206 vs. _q and _r and _s and _t)
+// d5pv__  = learn ability (cancel _v, give _p)	(must be 7 chars because applied by ApplySpellRES)
 
-// d5ps#y = cannot use wt (206 vs. _w and _u)
-// d5py#  = learn ability (cancel _y)	(must be 7 chars because applied by ApplySpellRES)
+// d5ps__z = cannot use wt (206 vs. _w and _u)
+// d5pz__  = learn ability (cancel _y)	(must be 7 chars because applied by ApplySpellRES)
 
 
 // d5ps000 = immunity vs. d5ps#w
 // d5pswt0 = immunity vs. d5ps#s, d5ps#t, d5ps#q, d5ps#y
 
 ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-  ACTION_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+  ACTION_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ /*~11~*/ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%s.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%~ END
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%r.spl~
@@ -516,16 +529,16 @@ ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5pv%disc%%abil%.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pv000~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%p~ END
+//	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pv000~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls2~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 2 STR_VAR resource = ~d5pspls1~ END
-	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%y.spl~
+	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%z.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%w~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%u~ END
-	COPY ~will_to_power/data/d5_base.spl~ ~override/d5py%disc%%abil%.spl~
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%y~ END
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%y~ END
+	COPY ~will_to_power/data/d5_base.spl~ ~override/d5pz%disc%%abil%.spl~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls2~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 2 STR_VAR resource = ~d5pspls1~ END
   END
@@ -572,7 +585,7 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode = 143 END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5prptz~ END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%v.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  END
@@ -585,25 +598,27 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
-	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%y.spl~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%y~ END
+	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
+		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
 	END
   END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5spm3m~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5spmem~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5pswt0~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5pswt_~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5spm3m~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5spmem~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 172 target = 1 timing = 1 STR_VAR resource = ~d5pswt0~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5pswt_~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pv000~ END
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pv000.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01v~ END
 //	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5pv%disc%01~ END
-	PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%01z.spl~) BEGIN
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01z~ END
+	PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%01p.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01p~ END
 	END
   END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5pv000~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5ps000~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pv000~ END
 
 //___________________________________________________________________________________
 
@@ -636,8 +651,8 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt0.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 STR_VAR icon = ~d5pswt0~ END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
-	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%y.spl~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%y~ END
+	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
+		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
 	END
   END
@@ -677,59 +692,59 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt1.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp1w~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 97 timing = 4 duration = 1 STR_VAR resource = ~d5py101~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 96 probability2 = 93 timing = 4 duration = 1 STR_VAR resource = ~d5py102~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 92 probability2 = 89 timing = 4 duration = 1 STR_VAR resource = ~d5py103~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 88 probability2 = 85 timing = 4 duration = 1 STR_VAR resource = ~d5py104~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 84 probability2 = 81 timing = 4 duration = 1 STR_VAR resource = ~d5py105~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 80 probability2 = 77 timing = 4 duration = 1 STR_VAR resource = ~d5py201~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 76 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5py202~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 69 timing = 4 duration = 1 STR_VAR resource = ~d5py203~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 68 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5py204~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 61 timing = 4 duration = 1 STR_VAR resource = ~d5py205~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 60 probability2 = 57 timing = 4 duration = 1 STR_VAR resource = ~d5py301~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 56 probability2 = 53 timing = 4 duration = 1 STR_VAR resource = ~d5py302~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 52 probability2 = 49 timing = 4 duration = 1 STR_VAR resource = ~d5py303~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 48 probability2 = 45 timing = 4 duration = 1 STR_VAR resource = ~d5py304~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 44 probability2 = 41 timing = 4 duration = 1 STR_VAR resource = ~d5py305~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 40 probability2 = 37 timing = 4 duration = 1 STR_VAR resource = ~d5py401~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 36 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5py402~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5py403~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 25 timing = 4 duration = 1 STR_VAR resource = ~d5py404~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 24 probability2 = 21 timing = 4 duration = 1 STR_VAR resource = ~d5py405~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 20 probability2 = 17 timing = 4 duration = 1 STR_VAR resource = ~d5py501~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 16 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5py502~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 9 timing = 4 duration = 1 STR_VAR resource = ~d5py503~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 8 probability2 = 5 timing = 4 duration = 1 STR_VAR resource = ~d5py504~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 4 probability2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5py505~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 97 timing = 4 duration = 1 STR_VAR resource = ~d5pz101~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 96 probability2 = 93 timing = 4 duration = 1 STR_VAR resource = ~d5pz102~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 92 probability2 = 89 timing = 4 duration = 1 STR_VAR resource = ~d5pz103~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 88 probability2 = 85 timing = 4 duration = 1 STR_VAR resource = ~d5pz104~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 84 probability2 = 81 timing = 4 duration = 1 STR_VAR resource = ~d5pz105~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 80 probability2 = 77 timing = 4 duration = 1 STR_VAR resource = ~d5pz201~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 76 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5pz202~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 69 timing = 4 duration = 1 STR_VAR resource = ~d5pz203~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 68 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5pz204~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 61 timing = 4 duration = 1 STR_VAR resource = ~d5pz205~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 60 probability2 = 57 timing = 4 duration = 1 STR_VAR resource = ~d5pz301~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 56 probability2 = 53 timing = 4 duration = 1 STR_VAR resource = ~d5pz302~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 52 probability2 = 49 timing = 4 duration = 1 STR_VAR resource = ~d5pz303~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 48 probability2 = 45 timing = 4 duration = 1 STR_VAR resource = ~d5pz304~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 44 probability2 = 41 timing = 4 duration = 1 STR_VAR resource = ~d5pz305~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 40 probability2 = 37 timing = 4 duration = 1 STR_VAR resource = ~d5pz401~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 36 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5pz402~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5pz403~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 25 timing = 4 duration = 1 STR_VAR resource = ~d5pz404~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 24 probability2 = 21 timing = 4 duration = 1 STR_VAR resource = ~d5pz405~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 20 probability2 = 17 timing = 4 duration = 1 STR_VAR resource = ~d5pz501~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 16 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5pz502~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 9 timing = 4 duration = 1 STR_VAR resource = ~d5pz503~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 8 probability2 = 5 timing = 4 duration = 1 STR_VAR resource = ~d5pz504~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 4 probability2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pz505~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5prptz~ END
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt2.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 97 timing = 4 duration = 1 STR_VAR resource = ~d5py101~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 96 probability2 = 93 timing = 4 duration = 1 STR_VAR resource = ~d5py102~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 92 probability2 = 89 timing = 4 duration = 1 STR_VAR resource = ~d5py103~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 88 probability2 = 85 timing = 4 duration = 1 STR_VAR resource = ~d5py104~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 84 probability2 = 81 timing = 4 duration = 1 STR_VAR resource = ~d5py105~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 80 probability2 = 77 timing = 4 duration = 1 STR_VAR resource = ~d5py201~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 76 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5py202~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 69 timing = 4 duration = 1 STR_VAR resource = ~d5py203~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 68 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5py204~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 61 timing = 4 duration = 1 STR_VAR resource = ~d5py205~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 60 probability2 = 57 timing = 4 duration = 1 STR_VAR resource = ~d5py301~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 56 probability2 = 53 timing = 4 duration = 1 STR_VAR resource = ~d5py302~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 52 probability2 = 49 timing = 4 duration = 1 STR_VAR resource = ~d5py303~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 48 probability2 = 45 timing = 4 duration = 1 STR_VAR resource = ~d5py304~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 44 probability2 = 41 timing = 4 duration = 1 STR_VAR resource = ~d5py305~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 40 probability2 = 37 timing = 4 duration = 1 STR_VAR resource = ~d5py401~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 36 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5py402~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5py403~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 25 timing = 4 duration = 1 STR_VAR resource = ~d5py404~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 24 probability2 = 21 timing = 4 duration = 1 STR_VAR resource = ~d5py405~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 20 probability2 = 17 timing = 4 duration = 1 STR_VAR resource = ~d5py501~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 16 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5py502~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 9 timing = 4 duration = 1 STR_VAR resource = ~d5py503~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 8 probability2 = 5 timing = 4 duration = 1 STR_VAR resource = ~d5py504~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 4 probability2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5py505~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 97 timing = 4 duration = 1 STR_VAR resource = ~d5pz101~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 96 probability2 = 93 timing = 4 duration = 1 STR_VAR resource = ~d5pz102~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 92 probability2 = 89 timing = 4 duration = 1 STR_VAR resource = ~d5pz103~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 88 probability2 = 85 timing = 4 duration = 1 STR_VAR resource = ~d5pz104~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 84 probability2 = 81 timing = 4 duration = 1 STR_VAR resource = ~d5pz105~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 80 probability2 = 77 timing = 4 duration = 1 STR_VAR resource = ~d5pz201~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 76 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5pz202~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 69 timing = 4 duration = 1 STR_VAR resource = ~d5pz203~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 68 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5pz204~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 61 timing = 4 duration = 1 STR_VAR resource = ~d5pz205~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 60 probability2 = 57 timing = 4 duration = 1 STR_VAR resource = ~d5pz301~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 56 probability2 = 53 timing = 4 duration = 1 STR_VAR resource = ~d5pz302~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 52 probability2 = 49 timing = 4 duration = 1 STR_VAR resource = ~d5pz303~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 48 probability2 = 45 timing = 4 duration = 1 STR_VAR resource = ~d5pz304~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 44 probability2 = 41 timing = 4 duration = 1 STR_VAR resource = ~d5pz305~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 40 probability2 = 37 timing = 4 duration = 1 STR_VAR resource = ~d5pz401~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 36 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5pz402~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5pz403~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 25 timing = 4 duration = 1 STR_VAR resource = ~d5pz404~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 24 probability2 = 21 timing = 4 duration = 1 STR_VAR resource = ~d5pz405~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 20 probability2 = 17 timing = 4 duration = 1 STR_VAR resource = ~d5pz501~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 16 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5pz502~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 9 timing = 4 duration = 1 STR_VAR resource = ~d5pz503~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 8 probability2 = 5 timing = 4 duration = 1 STR_VAR resource = ~d5pz504~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 4 probability2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pz505~ END
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt3.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
@@ -747,21 +762,21 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt3.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp2w~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 94 timing = 4 duration = 1 STR_VAR resource = ~d5py107~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 93 probability2 = 87 timing = 4 duration = 1 STR_VAR resource = ~d5py108~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 86 probability2 = 80 timing = 4 duration = 1 STR_VAR resource = ~d5py109~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 79 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5py207~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 66 timing = 4 duration = 1 STR_VAR resource = ~d5py208~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 65 probability2 = 59 timing = 4 duration = 1 STR_VAR resource = ~d5py209~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 58 probability2 = 52 timing = 4 duration = 1 STR_VAR resource = ~d5py307~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 51 probability2 = 46 timing = 4 duration = 1 STR_VAR resource = ~d5py308~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 45 probability2 = 40 timing = 4 duration = 1 STR_VAR resource = ~d5py309~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 39 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5py407~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 26 timing = 4 duration = 1 STR_VAR resource = ~d5py408~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 25 probability2 = 19 timing = 4 duration = 1 STR_VAR resource = ~d5py409~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 18 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5py507~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 7 timing = 4 duration = 1 STR_VAR resource = ~d5py508~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 6 probability2 = 0 timing = 4 duration = 1 STR_VAR resource = ~d5py509~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 94 timing = 4 duration = 1 STR_VAR resource = ~d5pz107~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 93 probability2 = 87 timing = 4 duration = 1 STR_VAR resource = ~d5pz108~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 86 probability2 = 80 timing = 4 duration = 1 STR_VAR resource = ~d5pz109~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 79 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5pz207~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 66 timing = 4 duration = 1 STR_VAR resource = ~d5pz208~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 65 probability2 = 59 timing = 4 duration = 1 STR_VAR resource = ~d5pz209~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 58 probability2 = 52 timing = 4 duration = 1 STR_VAR resource = ~d5pz307~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 51 probability2 = 46 timing = 4 duration = 1 STR_VAR resource = ~d5pz308~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 45 probability2 = 40 timing = 4 duration = 1 STR_VAR resource = ~d5pz309~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 39 probability2 = 33 timing = 4 duration = 1 STR_VAR resource = ~d5pz407~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 32 probability2 = 26 timing = 4 duration = 1 STR_VAR resource = ~d5pz408~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 25 probability2 = 19 timing = 4 duration = 1 STR_VAR resource = ~d5pz409~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 18 probability2 = 13 timing = 4 duration = 1 STR_VAR resource = ~d5pz507~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 12 probability2 = 7 timing = 4 duration = 1 STR_VAR resource = ~d5pz508~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 6 probability2 = 0 timing = 4 duration = 1 STR_VAR resource = ~d5pz509~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5prptz~ END
 
 ACTION_FOR_EACH tc_clab IN ~clabfi01~ ~clabpa01~ ~clabrn01~ ~clabth01~ ~clabba01~ ~clabpr01~ ~clabdr01~ ~clabma01~ BEGIN
@@ -793,8 +808,8 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh0.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
 	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
-	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%y.spl~) BEGIN
-		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%y~ END
+	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
+		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
 	END
   END
@@ -829,13 +844,13 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh1.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp2w~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 83 timing = 4 duration = 1 STR_VAR resource = ~d5py104~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 82 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5py201~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 47 timing = 4 duration = 1 STR_VAR resource = ~d5py302~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 46 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5py405~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 11 timing = 4 duration = 1 STR_VAR resource = ~d5py504~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 10 probability2 = 6 timing = 4 duration = 1 STR_VAR resource = ~d5py507~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 5 probability2 = 0 timing = 4 duration = 1 STR_VAR resource = ~d5py509~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 83 timing = 4 duration = 1 STR_VAR resource = ~d5pz104~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 82 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5pz201~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 47 timing = 4 duration = 1 STR_VAR resource = ~d5pz302~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 46 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5pz405~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 11 timing = 4 duration = 1 STR_VAR resource = ~d5pz504~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 10 probability2 = 6 timing = 4 duration = 1 STR_VAR resource = ~d5pz507~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 5 probability2 = 0 timing = 4 duration = 1 STR_VAR resource = ~d5pz509~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5prptz~ END
 
 ACTION_FOR_EACH haer IN ~haer10~ ~haer13~ ~haer15~ ~haer19~ BEGIN
@@ -1507,7 +1522,8 @@ COPY ~will_to_power/data/d5prmed.bam~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5prmed.spl~
   SAY NAME1 @151
   SAY UNIDENTIFIED_DESC @152
-  LPF ALTER_SPELL_HEADER INT_VAR target = 5 location = 4 END
+  WRITE_ASCII 0x3a ~d5prmed~ #8
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 location = 4 STR_VAR icon = ~d5prmed~ END
   WRITE_BYTE 0x1a (THIS BOR 0b00000001) 	//	set as non-combat ability
   PATCH_FOR_EACH points IN ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~X~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp_%points%~ END

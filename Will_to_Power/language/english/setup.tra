@@ -190,8 +190,8 @@ The cost to maintain the repulsion effect is 10 points.~
 @2082  = ~Material Animation: with this ability, the psion can focus <PRO_HISHER> telekinetic energy on a mass of stone, dirt, and other nearby debris. The construct takes on roughly humanoid shape, and can be controlled by the psion and fight on <PRO_HISHER> direction.
 
 The cost to animate the construct is 10 points.~
-@2083  = ~Cancel Repulsion~
-@2091  = ~Mass Immobilize~
+@2084  = ~Animated Construct~
+@2091  = ~.Mass Immobilize~
 @2092  = ~Mass Immobilize: all enemies within 20' of the psion are held frozen in place, unable to move or act, upon a failed saving throw. On the second round and each round thereafter, up to ten rounds, each immobilized target may attempt another save to escape the effect. Even if a save is made, the target is very briefly Slowed while fighting off the telekinetic control. At levels 6 and 12, the target's saving throw is rolled with a -1 and -2 penalty, respectively.
 
 The cost is 10 points.~
