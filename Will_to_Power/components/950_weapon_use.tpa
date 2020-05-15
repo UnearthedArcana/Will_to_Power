@@ -126,6 +126,10 @@ END
 // CM -> Ba
 LAF match_weapprof_if_higher INT_VAR col_to_change = 17 match_col = 4 END
 
+COPY_EXISTING ~weapprof.2da~ ~override~
+	REPLACE_TEXTUALLY ~^ID[ %TAB%]~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%ID~
+BUT_ONLY
+
 END 	//	end define function
 //____________________________________________________________________________________
 

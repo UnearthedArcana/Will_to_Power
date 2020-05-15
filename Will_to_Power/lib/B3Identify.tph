@@ -124,7 +124,23 @@ Infinity_DoFile("B3CONRED")
 
 		COPY_EXISTING ~UI.MENU~ ~override~
 
-			LPF REPLACE_MULTILINE INT_VAR num = 1 STR_VAR pattern = ~showMageMemorizationFlash = false
+			PATCH_IF MOD_IS_INSTALLED ~LeUI.tp2~ ~0~ OR MOD_IS_INSTALLED ~LeUI-BG1EE.tp2~ ~0~ OR MOD_IS_INSTALLED ~LeUI-SoD.tp2~ ~0~ BEGIN
+
+				LPF REPLACE_MULTILINE INT_VAR num = 1 STR_VAR pattern = ~		showMageMemorizationFlash = false
+		setMageBookLevel(1, true)~ string = ~
+		-- B3ContingencyRedirect Edit Start
+
+		if B3ContingencyRedirect_MageDoRedirect() then return end
+
+		-- B3ContingencyRedirect Edit End
+
+		showMageMemorizationFlash = false
+		setMageBookLevel(1, true)~
+				END
+
+			END ELSE BEGIN
+
+				LPF REPLACE_MULTILINE INT_VAR num = 1 STR_VAR pattern = ~showMageMemorizationFlash = false
 	mgpage = nil~ string = ~
 		-- B3ContingencyRedirect Edit Start
 
@@ -134,6 +150,8 @@ Infinity_DoFile("B3CONRED")
 
 		showMageMemorizationFlash = false
 		mgpage = nil~
+				END
+
 			END
 
 			PATCH_IF GAME_IS ~iwdee~ BEGIN

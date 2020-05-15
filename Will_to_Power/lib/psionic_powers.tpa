@@ -1555,12 +1555,14 @@ COPY_EXISTING ~d5pr301.spl~ ~override/d5pu301.spl~
 //__________________________________________________________________________________
 
 COPY ~will_to_power/data/d5ps302.bam~ ~override~
+OUTER_SET blinded_string = RESOLVE_STR_REF (@3024)
 COPY ~will_to_power/data/d5ps302.spl~ ~override~   // 				solar flash
 	SAY NAME1 @3021
 	SAY UNIDENTIFIED_DESC @3022
 	WRITE_LONG 0x34 5
 	WRITE_ASCII 0x3a ~d5ps302~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps302~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = %blinded_string% END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 8 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 15 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 18 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END
@@ -1575,6 +1577,7 @@ COPY ~will_to_power/data/d5ps302.spl~ ~override/d5pr302.spl~
 	WRITE_LONG 0x34 5
 	WRITE_ASCII 0x3a ~d5ps302~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 5 speed = 1 location = 2 STR_VAR icon = ~d5ps302~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = %blinded_string% END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 8 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 15 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 18 parameter2 = 5 timing = 0 duration = 5 STR_VAR resource = ~d5psaura~ END

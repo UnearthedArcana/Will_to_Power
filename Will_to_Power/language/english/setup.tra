@@ -209,6 +209,7 @@ The cost to maintain the charge is 6 points.~
 @3022  = ~Solar Flash: this ability creates an intense ray of radiant energy in a 20-ft. radius around the psion. All enemies within the area of effect take 1d6 points of heat damage and must save vs. petrification with a -1 penalty or be blinded for 2 rounds.  At 12th level the saving throw penalty increases to -2, and at 18th level it increases to -3. Undead that are hit by the solar flash take double damage.
 
 The cost is 6 points.~
+@3024  = ~Blinded~
 @3031  = ~..Molecular Agitation~
 @3032  = ~Molecular Agitation: this ability causes the molecules on the edge of the psion's weapon to to become so excited that they can ignite material with which they make contact. The functional result is that all successful melee attacks made by the psion do 1d6 points of heat damage in addition to the normal weapon damage.
 
