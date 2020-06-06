@@ -5,9 +5,9 @@ IF
 	LevelLT(LastSummonerOf(Myself),2)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",1)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",1)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -16,9 +16,9 @@ IF
 	Level(LastSummonerOf(Myself),2)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",2)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",2)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -27,9 +27,9 @@ IF
 	Level(LastSummonerOf(Myself),3)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",3)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",3)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -38,9 +38,9 @@ IF
 	Level(LastSummonerOf(Myself),4)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",4)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",4)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -49,9 +49,9 @@ IF
 	Level(LastSummonerOf(Myself),5)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",5)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",5)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -60,9 +60,9 @@ IF
 	Level(LastSummonerOf(Myself),6)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",6)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",6)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -71,9 +71,9 @@ IF
 	Level(LastSummonerOf(Myself),7)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",7)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",7)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -82,9 +82,9 @@ IF
 	Level(LastSummonerOf(Myself),8)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",8)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",8)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -93,9 +93,9 @@ IF
 	Level(LastSummonerOf(Myself),9)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",9)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",9)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -104,9 +104,9 @@ IF
 	Level(LastSummonerOf(Myself),10)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",10)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",10)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -115,9 +115,9 @@ IF
 	Level(LastSummonerOf(Myself),11)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",11)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",11)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -126,9 +126,9 @@ IF
 	Level(LastSummonerOf(Myself),12)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",12)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",12)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -137,9 +137,9 @@ IF
 	Level(LastSummonerOf(Myself),13)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",13)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",13)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -148,9 +148,9 @@ IF
 	Level(LastSummonerOf(Myself),14)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",14)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",14)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -159,9 +159,9 @@ IF
 	Level(LastSummonerOf(Myself),15)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",15)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",15)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -170,9 +170,9 @@ IF
 	Level(LastSummonerOf(Myself),16)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",16)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",16)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -181,9 +181,9 @@ IF
 	Level(LastSummonerOf(Myself),17)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",17)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",17)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -192,9 +192,9 @@ IF
 	Level(LastSummonerOf(Myself),18)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",18)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",18)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -203,9 +203,9 @@ IF
 	Level(LastSummonerOf(Myself),19)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",19)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",19)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -214,9 +214,9 @@ IF
 	Level(LastSummonerOf(Myself),20)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",20)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",20)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -225,9 +225,9 @@ IF
 	Level(LastSummonerOf(Myself),21)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",21)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",21)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -236,9 +236,9 @@ IF
 	Level(LastSummonerOf(Myself),22)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",22)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",22)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -247,9 +247,9 @@ IF
 	Level(LastSummonerOf(Myself),23)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",23)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",23)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -258,9 +258,9 @@ IF
 	Level(LastSummonerOf(Myself),24)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",24)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",24)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
@@ -269,292 +269,267 @@ IF
 	LevelGT(LastSummonerOf(Myself),24)
 THEN
 	RESPONSE #100
-	SetGlobal("psi_thief_level","GLOBAL",25)
-	ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
-	ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
+		SetGlobal("psi_thief_level","GLOBAL",25)
+		ChangeClass(LastSummonerOf(Myself),CLERIC_THIEF)
+		ActionOverride(LastSummonerOf(Myself),MakeUnselectable(1))
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	GlobalLT("psi_thief_level","GLOBAL",2)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,1,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,1,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",2)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,2,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,2,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",3)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,3,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,3,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",4)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,4,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,4,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",5)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,5,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,5,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",6)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,6,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,6,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",7)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,7,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,7,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",8)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,8,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,8,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",9)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,9,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,9,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",10)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,10,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,10,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",11)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,11,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,11,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",12)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,12,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,12,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",13)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,13,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,13,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",14)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,14,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,14,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",15)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,15,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,15,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",16)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,16,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,16,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",17)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,17,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,17,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",18)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,18,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,18,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",19)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,19,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,19,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",20)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,20,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,20,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",21)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,21,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,21,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",22)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,22,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,22,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",23)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,23,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,23,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",24)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,24,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,24,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(0)
 	Global("psi_thief_level","GLOBAL",25)
 THEN
 	RESPONSE #100
-	ChangeStat(LastSummonerOf(Myself),34,1,SET)
-	ChangeStat(LastSummonerOf(Myself),68,25,SET)
-	SetNumTimesTalkedTo(1)
+		ChangeStat(LastSummonerOf(Myself),LEVEL,1,SET)
+		ChangeStat(LastSummonerOf(Myself),LEVEL2,25,SET)
+		SetNumTimesTalkedTo(1)
 END
 
 IF
-	Class(LastSummonerOf(Myself),CLERIC_THIEF)
 	NumTimesTalkedTo(1)
 THEN
 	RESPONSE #100
-	Wait(1)
-	ActionOverride(LastSummonerOf(Myself),AddKit(D5_PSION))
-	DestroySelf()
+		Wait(1)
+		ActionOverride(LastSummonerOf(Myself),AddKit(D5_PSION))
+		DestroySelf()
 END
+

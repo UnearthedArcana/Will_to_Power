@@ -10,7 +10,6 @@ THEN
 END
 
 IF
-	Class(LastSummonerOf(Myself),FIGHTER_CLERIC)
 	NumTimesTalkedTo(1)
 THEN
 	RESPONSE #100
