@@ -451,6 +451,7 @@ BUT_ONLY
 //__________________________________________________________________________________
 
 
+/* make a spell instead
 //CLEAR AURA EFF____________________________________________________________________
 //
 CREATE EFF ~d5psaura~
@@ -459,8 +460,27 @@ CREATE EFF ~d5psaura~
   WRITE_LONG 0x18 0
   WRITE_LONG 0x20 1
   WRITE_LONG 0x24 0
-  WRITE_LONG 0x28 5
+  WRITE_LONG 0x28 6
   WRITE_SHORT 0x2c 100
+//__________________________________________________________________________________
+*/
+
+//CLEAR AURA SPL____________________________________________________________________
+//
+COPY ~will_to_power/data/d5_base.spl~ ~override/d5psaura.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 7 speed = 0 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 188 target = 1 parameter2 = 1 timing = 0 duration = 6 END
+
+// all wizard spells should cancel it
+COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
+  PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+	READ_SHORT 0x1c spell_type
+	PATCH_IF (spell_type = 1) BEGIN
+	  LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5psaura~ END
+	END
+  END
+BUT_ONLY
+
 //__________________________________________________________________________________
 
 
