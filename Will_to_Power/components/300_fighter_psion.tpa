@@ -63,7 +63,7 @@ ADD_KIT ~D5_SOULBLADE~
 //CLASSES: Mage = 1, Fighter = 2, Cleric=3, Thief = 4, Bard = 5
 //         Paladin 6, Druid = 11, Ranger = 12, Sorcerer = 19
 //         Monk = 20
-~0x00008000 8~
+~0x00004000 8~
 
 //HIGH LEVEL ABILITIES ABBREVIATION___________________________________________________
 ~Fi0~
