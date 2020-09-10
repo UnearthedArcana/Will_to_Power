@@ -178,7 +178,7 @@ ADD_KIT ~D5_SOULBLADE_MENU~
 
 //DUAL CLASS OPTIONS__________________________________________________________________
 //                    FT CL MA TH DR RA
-~D5_SOULBLADE_MENU     0  0  0  0  0  0~
+~D5_SOULBLADE_MENU     0  0  1  0  0  0~
 
 //KIT ABILITIES 2DA FILE______________________________________________________________
 ~will_to_power/data/kit/d5psifm.2da~
