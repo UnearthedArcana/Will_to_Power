@@ -112,7 +112,7 @@ Restrictions:
 @5002  = ~Clairsentience: this feat confers the 'Insightful Strike' ability, and allows for learning more psionic abilities within the Clairsentience discipline.~
 //
 @1011  = ~..Mind Ward~
-@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, and Fear effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
+@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, Confusion, Feeblemind, Stun, and Maze effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
 
 The cost to maintain this protection is 6 points.~
 @1013  = ~Cancel Mind Ward~
@@ -166,7 +166,7 @@ The cost to maintain this ability is 6 points.~
 
 The cost is 6 points.~
 @2041  = ~..Inertial Barrier~
-@2042  = ~Inertial Barrier: this ability creates a movable barrier inches from the psion's skin, which arrests the momentum of objects striking the psion. The barrier provides a +3 bonus to AC and 40% damage resistance against crushing, missile, and fire attacks; a +1 AC bonus and 20% damage resistance against slashing and acid attacks; and immunity to the Magic Missile spell. At 6th and 12th level, the AC bonuses and damage resistances increase by 1 and 10%, respectively.
+@2042  = ~Inertial Barrier: this ability creates a movable barrier inches from the psion's skin, which arrests the momentum of objects striking the psion. The barrier provides a +3 bonus to AC and 40% damage resistance against crushing, missile, and fire attacks; a +1 AC bonus and 20% damage resistance against slashing, piercing, and acid attacks; and immunity to the Magic Missile spell. At 6th and 12th level, the AC bonuses and damage resistances increase by 1 and 10%, respectively.
 
 The cost to maintain the Barrier is 6 points.~
 @2043  = ~Cancel Inertial Barrier~

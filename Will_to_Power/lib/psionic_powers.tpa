@@ -85,6 +85,7 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py101.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx6~ END
 // ***** maybe do this vv more efficiently
 COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
+ PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
   SNPRINT 3 ~spl_prefix~ ~%SOURCE_RES%~
   PATCH_IF NOT (~%spl_prefix%~ STRING_EQUAL_CASE ~#bo~) BEGIN
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 24 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	panic
@@ -94,7 +95,32 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 175 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 185 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold2
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 247 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	berserk
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 128 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	confusion
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 76 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	feeblemind
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
   END
+ END
+BUT_ONLY
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+ PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+  SNPRINT 3 ~spl_prefix~ ~%SOURCE_RES%~
+  PATCH_IF NOT (~%spl_prefix%~ STRING_EQUAL_CASE ~#bo~) BEGIN
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 24 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	panic
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 5 /*match_parameter1 = 1*/ opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END	//	charm
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 39 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	sleep
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 217 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW sleep
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 175 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 185 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold2
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 247 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	berserk
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 128 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	confusion
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 76 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	feeblemind
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
+  END
+ END
 BUT_ONLY
 // I think this is the cancel ability, triggered by being hit with a mental attack?
 COPY_EXISTING ~d5psp+3.spl~ ~override/d5psp&3.spl~
