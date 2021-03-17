@@ -14,8 +14,8 @@
 // main power
 COPY ~will_to_power/data/d5ps101.bam~ ~override~
 COPY ~will_to_power/data/d5ps101.spl~ ~override~    //  			mind ward 
-													// 			prot. vs. fear/charm/sleep/hold
-													// 			109 = + confusion/domination/feeblemind/stun/maze
+													// 			prot. vs. fear/charm/sleep/hold/confusion
+													// 			109 = also vs. feeblemind/stun/maze
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 328 parameter2 = %mind_ward_state% END
 	SAY NAME1 @1011
 	SAY UNIDENTIFIED_DESC @1012
@@ -96,10 +96,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 185 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold2
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 247 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	berserk
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 128 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	confusion
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 76 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	feeblemind
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
   END
  END
 BUT_ONLY
@@ -115,10 +115,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 185 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	hold2
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 247 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	berserk
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 128 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	confusion
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 76 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	feeblemind
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 45 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	stun
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 210 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	PW stun
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_target = 2 match_opcode = 213 opcode = 326 target = 2 parameter1 = %mind_ward_state% parameter2 = 110 timing = 4 duration = 1 STR_VAR resource = ~d5ps101x~ END 	//	maze
   END
  END
 BUT_ONLY
@@ -2423,6 +2423,22 @@ COPY_EXISTING ~d5pr409.spl~ ~override/d5pu409.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409s~ resource = ~d5ps409w~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR match_resource = ~d5ps409r~ resource = ~d5ps409u~ END
 
+// allow opcode 314 to function alongside the juggernaut golem manual
+COPY_EXISTING ~tomegol4.bcs~ ~override~
+  DECOMPILE_BCS_TO_BAF
+	REPLACE_TEXTUALLY ~!CheckStatGT(LastSummonerOf(Myself),0,STONESKINSGOLEM)~ ~~
+	REPLACE_TEXTUALLY ~!CheckStatGT(Player[1-6],0,STONESKINSGOLEM)~ ~~
+	REPLACE_TEXTUALLY ~Kill(Myself)~ ~~
+  COMPILE_BAF_TO_BCS
+IF_EXISTS BUT_ONLY
+
+COPY_EXISTING ~tomegol4.cre~ ~override~
+  WRITE_ASCII 0x248 ~~
+IF_EXISTS BUT_ONLY
+
+// remove awful sound
+COPY ~will_to_power/data/blank.wav~ ~override/eff_e02.wav~
+
 //__________________________________________________________________________________
 
 COPY ~will_to_power/data/d5ps411.bam~ ~override~
@@ -2962,7 +2978,7 @@ COPY_EXISTING ~d5pr508.spl~ ~override/d5pu508.spl~
 
 // add sanctuary to invisibility to make life detection work
 INCLUDE ~%MOD_FOLDER%/lib/d5_insanctibility.tpa~
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_insanctibility.d5~ BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__insanctibility.d5~ BEGIN
   LAM D5_INSANCTIBILITY
 END
 

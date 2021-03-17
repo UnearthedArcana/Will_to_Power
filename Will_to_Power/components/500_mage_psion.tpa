@@ -253,7 +253,7 @@ END
 
 LAM ~READ_FNP_KIT_INFO~
 
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psima~ END
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psimam~ END
 END

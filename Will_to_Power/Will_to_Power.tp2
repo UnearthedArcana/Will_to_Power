@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~1.0~	
+VERSION ~1.2~
 
 ALWAYS
 
@@ -119,7 +119,7 @@ INCLUDE ~will_to_power/components/500_mage_psion.tpa~
 BEGIN @900
 DESIGNATED 900
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
-REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5_psionics.d5~) @4
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) @4
 
 INCLUDE ~will_to_power/components/900_dark_sun_mode.tpa~
   LAF dark_sun_mode END

@@ -222,7 +222,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 			hpclass = ~HPWIZ~
 			backstab = ~1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
 			clswpbon = ~0 0 3~
-			thiefskl = ~30 12~
+			thiefskl = ~30 15~
 			thiefscl = ~0 100 100 100 100 100 0 0~
 			clsrcreq = ~1 1 1 1 1 1 1~
 	END
@@ -262,7 +262,7 @@ END
 
 LAM ~READ_FNP_KIT_INFO~
 
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psith~ END
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psithm~ END
 END
@@ -376,7 +376,7 @@ LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL918
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL919~ END
 LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~AP_D5PSIFZ~ num_allowed = ~10~ END
 /*
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__rfeat.d5~ BEGIN
   LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~AP_D5_RFD1~ num_allowed = ~3~ END
   LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~GA_D5_RFD5~ num_allowed = ~1~ END
   LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~GA_D5_RF31~ num_allowed = ~3~ END

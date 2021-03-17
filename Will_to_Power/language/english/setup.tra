@@ -112,7 +112,7 @@ Restrictions:
 @5002  = ~Clairsentience: this feat confers the 'Insightful Strike' ability, and allows for learning more psionic abilities within the Clairsentience discipline.~
 //
 @1011  = ~..Mind Ward~
-@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, Confusion, Feeblemind, Stun, and Maze effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
+@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, and Confusion effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
 
 The cost to maintain this protection is 6 points.~
 @1013  = ~Cancel Mind Ward~

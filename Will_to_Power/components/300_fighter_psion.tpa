@@ -251,7 +251,7 @@ END
 
 LAM ~READ_FNP_KIT_INFO~
 
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psifi~ END
 	LAF apply_fnp_usability STR_VAR clab_name = ~d5psifm~ END
 END
@@ -364,7 +364,7 @@ IF_EXISTS BUT_ONLY
 
 //WEAR ELVEN CHAIN___________________________________________________________________
 //
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_echan.d5~ BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__echan.d5~ BEGIN
 	INCLUDE ~will_to_power/lib/elven_chain.tpa~
 END
 //___________________________________________________________________________________

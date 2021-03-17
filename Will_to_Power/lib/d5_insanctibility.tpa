@@ -3,7 +3,7 @@
 //
 DEFINE_ACTION_MACRO D5_INSANCTIBILITY BEGIN
 
-  COPY_EXISTING ~sw1h01.itm~ ~override/d5_insanctibility.d5~
+  COPY_EXISTING ~sw1h01.itm~ ~override/d5__insanctibility.d5~
 
   APPEND ~splprot.2da~ ~D5_SANCT%TAB%63%TAB%1%TAB%4~
 
