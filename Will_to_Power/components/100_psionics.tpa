@@ -29,7 +29,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__psionics.d5~ BEGIN
 
 //COPY MARKER FILE____________________________________________________________________
 //
-COPY ~will_to_power/lib/markers/d5_marker.d5~ ~override/d5__psionics.d5~ ~override~
+COPY ~will_to_power/lib/markers/d5_marker.d5~ ~override/d5__psionics.d5~
 //____________________________________________________________________________________
 
 
