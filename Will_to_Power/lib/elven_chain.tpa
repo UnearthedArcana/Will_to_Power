@@ -9,7 +9,7 @@
 
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY ~will_to_power/lib/markers/d5__echan.d5~ ~override~
+COPY ~will_to_power/lib/markers/d5_marker.d5~ ~override/d5__echan.d5~
 //__________________________________________________________________________________
 
 
