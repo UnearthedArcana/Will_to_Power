@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Beta 0.9 </strong><br />
+  <p><strong> 1.3 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X</p>
 </div>
@@ -34,7 +34,7 @@
   <p><strong>Install Order:</strong><br />
 	Probably it should be after most other kits. Like maybe immediately before Might & Guile. (Kits installed after WtP will not have a chance to be Wild Talents.)</p>
   <p><strong>Modder Resources:</strong><br />
-	Will to Power adds three custom spellstates to SPLSTATE.IDS.  It uses stat 33, "Tracking," to track PSPs, and will conflict with mods that use that stat in ways that are not limited to a kit or power. (My 'Mana Sorcerer' mod also uses the tracking stat, but it is fully compatible with Will to Power.)
+	Will to Power adds three custom spellstates to SPLSTATE.IDS.  It uses stat 33, "Tracking," to track PSPs, and will conflict with mods that use that stat in ways that are not limited to a kit or power. (My 'Mana Sorcerer' mod also uses the tracking stat, but it is fully compatible with Will to Power.)</p>
 </div>
 <h2>Component 100: </h2>
   <div class="section">
