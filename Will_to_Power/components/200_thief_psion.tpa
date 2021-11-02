@@ -91,7 +91,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 			kit_name = D5_PSION
 			backstab = ~1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
 			clswpbon = ~0 0 3~
-			thiefskl = ~30 12~
+			thiefskl = ~30 15~
 			thiefscl = ~0 100 100 100 100 100 0 0~
 			clsrcreq = ~1 1 1 1 1 1 1~
 	END

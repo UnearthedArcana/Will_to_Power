@@ -1739,7 +1739,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps305p.spl~
 	SAY NAME1 @3051
 	SAY UNIDENTIFIED_DESC @3052
 	WRITE_SHORT 0x1c 2
-	WRITE_LONG 0x34 1
+	WRITE_LONG 0x34 3
 	WRITE_ASCII 0x3a ~d5ps305~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps305~ END
 COPY_EXISTING ~d5ps305.spl~ ~override/d5pw305.spl~
