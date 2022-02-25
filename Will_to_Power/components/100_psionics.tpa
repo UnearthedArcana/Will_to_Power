@@ -867,7 +867,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp2w~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 83 timing = 4 duration = 1 STR_VAR resource = ~d5pz104~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 82 probability2 = 65 timing = 4 duration = 1 STR_VAR resource = ~d5pz201~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 47 timing = 4 duration = 1 STR_VAR resource = ~d5pz302~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 64 probability2 = 47 timing = 4 duration = 1 STR_VAR resource = ~d5pz305~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 46 probability2 = 29 timing = 4 duration = 1 STR_VAR resource = ~d5pz405~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 28 probability2 = 11 timing = 4 duration = 1 STR_VAR resource = ~d5pz504~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 10 probability2 = 6 timing = 4 duration = 1 STR_VAR resource = ~d5pz507~ END
