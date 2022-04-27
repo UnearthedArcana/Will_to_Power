@@ -6,52 +6,57 @@ IF ~Global("D5_PSI","GLOBAL",1)~ THEN BEGIN d5_psion
  IF ~GlobalLT("D5_PSI_103","LOCALS",1)~ THEN REPLY @1031 GOTO d5_psion_103		//	id insinuation
  IF ~GlobalLT("D5_PSI_104","LOCALS",1)~ THEN REPLY @1041 GOTO d5_psion_104		//	mind ward
  IF ~GlobalLT("D5_PSI_105","LOCALS",1)~ THEN REPLY @1051 GOTO d5_psion_105		//	ego repair
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_107","LOCALS",1)~ THEN REPLY @1071 GOTO d5_psion_107	//	domination
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_108","LOCALS",1)~ THEN REPLY @1081 GOTO d5_psion_108	//	intellect fortress
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_109","LOCALS",1)~ THEN REPLY @1091 GOTO d5_psion_109	//	psychic crush
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",6) GlobalLT("D5_PSI_111","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @1111 GOTO d5_psion_111	//	synaptic static
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_107","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @1071 GOTO d5_psion_107	//	domination
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_108","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @1081 GOTO d5_psion_108	//	intellect fortress
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_109","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @1091 GOTO d5_psion_109	//	psychic crush
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",3) GlobalLT("D5_PSI_110","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @1101 GOTO d5_psion_110	//	mass hysteria
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",7) GlobalLT("D5_PSI_111","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @1111 GOTO d5_psion_111	//	synaptic static
  IF ~GlobalLT("D5_PSI_202","LOCALS",1)~ THEN REPLY @2021 GOTO d5_psion_202		//	unhindered mobility
  IF ~GlobalLT("D5_PSI_203","LOCALS",1)~ THEN REPLY @2031 GOTO d5_psion_203		//	immobilize
  IF ~GlobalLT("D5_PSI_204","LOCALS",1)~ THEN REPLY @2041 GOTO d5_psion_204		//	inertial barrier
  IF ~GlobalLT("D5_PSI_205","LOCALS",1)~ THEN REPLY @2051 GOTO d5_psion_205		//	psychic knife
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_207","LOCALS",1)~ THEN REPLY @2071 GOTO d5_psion_207	//	repulsion
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_208","LOCALS",1)~ THEN REPLY @2081 GOTO d5_psion_208	//	animate material
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_209","LOCALS",1)~ THEN REPLY @2091 GOTO d5_psion_209	//	mass immobilize
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",5) GlobalLT("D5_PSI_211","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @2111 GOTO d5_psion_211	//	earthquake
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_207","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @2071 GOTO d5_psion_207	//	repulsion
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_208","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @2081 GOTO d5_psion_208	//	animate material
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_209","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @2091 GOTO d5_psion_209	//	mass immobilize
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",3) GlobalLT("D5_PSI_210","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @2101 GOTO d5_psion_210	//	kinetic control
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",7) GlobalLT("D5_PSI_211","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @2111 GOTO d5_psion_211	//	earthquake
  IF ~GlobalLT("D5_PSI_302","LOCALS",1)~ THEN REPLY @3021 GOTO d5_psion_302		//	solar flash
  IF ~GlobalLT("D5_PSI_303","LOCALS",1)~ THEN REPLY @3031 GOTO d5_psion_303		//	molecular agitation
  IF ~GlobalLT("D5_PSI_304","LOCALS",1)~ THEN REPLY @3041 GOTO d5_psion_304		//	energy dispersion
  IF ~GlobalLT("D5_PSI_305","LOCALS",1)~ THEN REPLY @3051 GOTO d5_psion_305		//	psychic combustion
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_307","LOCALS",1)~ THEN REPLY @3071 GOTO d5_psion_307	//	energy modulation
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_308","LOCALS",1)~ THEN REPLY @3081 GOTO d5_psion_308	//	freezing precipitation
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_309","LOCALS",1)~ THEN REPLY @3091 GOTO d5_psion_309	//	generate lightning
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",6) GlobalLT("D5_PSI_311","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @3111 GOTO d5_psion_311	//	energy storm
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_307","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @3071 GOTO d5_psion_307	//	energy modulation
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_308","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @3081 GOTO d5_psion_308	//	freezing precipitation
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_309","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @3091 GOTO d5_psion_309	//	generate lightning
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",3) GlobalLT("D5_PSI_310","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @3101 GOTO d5_psion_310	//	negative energy inversion
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",7) GlobalLT("D5_PSI_311","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @3111 GOTO d5_psion_311	//	energy storm
  IF ~GlobalLT("D5_PSI_402","LOCALS",1)~ THEN REPLY @4021 GOTO d5_psion_402		//	metabolic acceleration
  IF ~GlobalLT("D5_PSI_403","LOCALS",1)~ THEN REPLY @4031 GOTO d5_psion_403		//	body purification
  IF ~GlobalLT("D5_PSI_404","LOCALS",1)~ THEN REPLY @4041 GOTO d5_psion_404		//	bioregeneration
  IF ~GlobalLT("D5_PSI_405","LOCALS",1)~ THEN REPLY @4051 GOTO d5_psion_405		//	chemical simulation
- IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_407","LOCALS",1)~ THEN REPLY @4071 GOTO d5_psion_407	//	empathic transfer
- IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_408","LOCALS",1)~ THEN REPLY @4081 GOTO d5_psion_408	//	camouflage
- IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_409","LOCALS",1)~ THEN REPLY @4091 GOTO d5_psion_409	//	carapace
- IF ~GlobalGT("D5_BIOKINESIS","LOCALS",6) GlobalLT("D5_PSI_411","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @4111 GOTO d5_psion_411	//	bestial transformation
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_407","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @4071 GOTO d5_psion_407	//	empathic transfer
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_408","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @4081 GOTO d5_psion_408	//	camouflage
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_409","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @4091 GOTO d5_psion_409	//	carapace
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",3) GlobalLT("D5_PSI_410","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @4101 GOTO d5_psion_410	//	biofeedback
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",7) GlobalLT("D5_PSI_411","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @4111 GOTO d5_psion_411	//	bestial transformation
  IF ~GlobalLT("D5_PSI_502","LOCALS",1)~ THEN REPLY @5021 GOTO d5_psion_502		//	aura evaluation
  IF ~GlobalLT("D5_PSI_503","LOCALS",1)~ THEN REPLY @5031 GOTO d5_psion_503		//	insightful strike
  IF ~GlobalLT("D5_PSI_504","LOCALS",1)~ THEN REPLY @5041 GOTO d5_psion_504		//	instinctive precognition
  IF ~GlobalLT("D5_PSI_505","LOCALS",1)~ THEN REPLY @5051 GOTO d5_psion_505		//	remote observation
- IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_507","LOCALS",1)~ THEN REPLY @5071 GOTO d5_psion_507	//	fate link
- IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_508","LOCALS",1)~ THEN REPLY @5081 GOTO d5_psion_508	//	life detection
- IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_509","LOCALS",1)~ THEN REPLY @5091 GOTO d5_psion_509	//	danger sense
- IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",6) GlobalLT("D5_PSI_511","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @5111 GOTO d5_psion_511	//	project mind
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",6) GlobalGT("D5_TELEKINESIS","LOCALS",6) GlobalLT("D5_PSI_901","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9011 GOTO d5_psion_901	//	ultrablast
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",6) GlobalGT("D5_PYROKINESIS","LOCALS",6) GlobalLT("D5_PSI_902","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9021 GOTO d5_psion_902	//	energy construct
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",6) GlobalGT("D5_BIOKINESIS","LOCALS",6) GlobalLT("D5_PSI_903","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9031 GOTO d5_psion_903	//	fission
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",6) GlobalGT("D5_PYROKINESIS","LOCALS",6) GlobalLT("D5_PSI_904","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9041 GOTO d5_psion_904	//	atomic disruption
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",6) GlobalGT("D5_BIOKINESIS","LOCALS",6) GlobalLT("D5_PSI_905","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9051 GOTO d5_psion_905	//	exoskeleton
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",6) GlobalGT("D5_BIOKINESIS","LOCALS",6) GlobalLT("D5_PSI_906","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9061 GOTO d5_psion_906	//	elemental composition
- IF ~GlobalGT("D5_TELEPATHY","LOCALS",6) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",6) GlobalLT("D5_PSI_907","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9071 GOTO d5_psion_907	//	clairvoyant channeling
- IF ~GlobalGT("D5_TELEKINESIS","LOCALS",6) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",6) GlobalLT("D5_PSI_908","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9081 GOTO d5_psion_908	//	dimensional anchor
- IF ~GlobalGT("D5_PYROKINESIS","LOCALS",6) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",6) GlobalLT("D5_PSI_909","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9091 GOTO d5_psion_909	//	stasis field
- IF ~GlobalGT("D5_BIOKINESIS","LOCALS",6) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",6) GlobalLT("D5_PSI_910","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9101 GOTO d5_psion_910	//	body control
+ IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_507","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @5071 GOTO d5_psion_507	//	fate link
+ IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_508","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @5081 GOTO d5_psion_508	//	life detection
+ IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_509","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @5091 GOTO d5_psion_509	//	danger sense
+ IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",3) GlobalLT("D5_PSI_510","LOCALS",1) CheckStatGT(myself,6,LEVEL)~ THEN REPLY @5101 GOTO d5_psion_510	//	avoid fate
+ IF ~GlobalGT("D5_CLAIRSENTIENCE","LOCALS",7) GlobalLT("D5_PSI_511","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @5111 GOTO d5_psion_511	//	project mind
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",7) GlobalGT("D5_TELEKINESIS","LOCALS",7) GlobalLT("D5_PSI_901","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9011 GOTO d5_psion_901	//	ultrablast
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",7) GlobalGT("D5_PYROKINESIS","LOCALS",7) GlobalLT("D5_PSI_902","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9021 GOTO d5_psion_902	//	energy construct
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",7) GlobalGT("D5_BIOKINESIS","LOCALS",7) GlobalLT("D5_PSI_903","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9031 GOTO d5_psion_903	//	fission
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",7) GlobalGT("D5_PYROKINESIS","LOCALS",7) GlobalLT("D5_PSI_904","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9041 GOTO d5_psion_904	//	atomic disruption
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",7) GlobalGT("D5_BIOKINESIS","LOCALS",7) GlobalLT("D5_PSI_905","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9051 GOTO d5_psion_905	//	exoskeleton
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",7) GlobalGT("D5_BIOKINESIS","LOCALS",7) GlobalLT("D5_PSI_906","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9061 GOTO d5_psion_906	//	elemental composition
+ IF ~GlobalGT("D5_TELEPATHY","LOCALS",7) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",7) GlobalLT("D5_PSI_907","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9071 GOTO d5_psion_907	//	clairvoyant channeling
+ IF ~GlobalGT("D5_TELEKINESIS","LOCALS",7) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",7) GlobalLT("D5_PSI_908","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9081 GOTO d5_psion_908	//	dimensional anchor
+ IF ~GlobalGT("D5_PYROKINESIS","LOCALS",7) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",7) GlobalLT("D5_PSI_909","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9091 GOTO d5_psion_909	//	stasis field
+ IF ~GlobalGT("D5_BIOKINESIS","LOCALS",7) GlobalGT("D5_CLAIRSENTIENCE","LOCALS",7) GlobalLT("D5_PSI_910","LOCALS",1) CheckStatGT(myself,12,LEVEL)~ THEN REPLY @9101 GOTO d5_psion_910	//	body control
 END
 
 IF ~~ THEN BEGIN d5_psion_102 // sensory sync
@@ -87,6 +92,11 @@ END
 IF ~~ THEN BEGIN d5_psion_109 // psychic crush
  SAY @1092
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_109","LOCALS",1)~ DO ~ApplySpellRES("D5PV109",Myself)~ EXIT 
+ IF ~~ THEN REPLY @97 GOTO d5_psion 
+END
+IF ~~ THEN BEGIN d5_psion_110 // mass hysteria
+ SAY @1102
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEPATHY","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_110","LOCALS",1)~ DO ~ApplySpellRES("D5PV110",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_111 // synaptic static
@@ -129,6 +139,11 @@ IF ~~ THEN BEGIN d5_psion_209 // mass immobilize
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_209","LOCALS",1)~ DO ~ApplySpellRES("D5PV209",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
+IF ~~ THEN BEGIN d5_psion_210 // kinetic control
+ SAY @2102
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_210","LOCALS",1)~ DO ~ApplySpellRES("D5PV210",Myself)~ EXIT 
+ IF ~~ THEN REPLY @97 GOTO d5_psion 
+END
 IF ~~ THEN BEGIN d5_psion_211 // seismic manipulation
  SAY @2112
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_TELEKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_211","LOCALS",1)~ DO ~ApplySpellRES("D5PV211",Myself)~ EXIT 
@@ -167,6 +182,11 @@ END
 IF ~~ THEN BEGIN d5_psion_309 // generate lightning
  SAY @3092
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_309","LOCALS",1)~ DO ~ApplySpellRES("D5PV309",Myself)~ EXIT 
+ IF ~~ THEN REPLY @97 GOTO d5_psion 
+END
+IF ~~ THEN BEGIN d5_psion_310 // negative energy inversion
+ SAY @3102
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_PYROKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_310","LOCALS",1)~ DO ~ApplySpellRES("D5PV310",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_311 // energy storm
@@ -209,6 +229,11 @@ IF ~~ THEN BEGIN d5_psion_409 // carapace
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_409","LOCALS",1)~ DO ~ApplySpellRES("D5PV409",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
+IF ~~ THEN BEGIN d5_psion_410 // biofeedback
+ SAY @4102
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_410","LOCALS",1)~ DO ~ApplySpellRES("D5PV410",Myself)~ EXIT 
+ IF ~~ THEN REPLY @97 GOTO d5_psion 
+END
 IF ~~ THEN BEGIN d5_psion_411 // bestial metamorphosis
  SAY @4112
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_BIOKINESIS","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_411","LOCALS",1)~ DO ~ApplySpellRES("D5PV411",Myself)~ EXIT 
@@ -247,6 +272,11 @@ END
 IF ~~ THEN BEGIN d5_psion_509 // danger sense
  SAY @5092
  IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_509","LOCALS",1)~ DO ~ApplySpellRES("D5PV509",Myself)~ EXIT 
+ IF ~~ THEN REPLY @97 GOTO d5_psion 
+END
+IF ~~ THEN BEGIN d5_psion_510 // avoid fate
+ SAY @5102
+ IF ~~ THEN REPLY @98 DO ~IncrementGlobal("D5_CLAIRSENTIENCE","LOCALS",1)~ DO ~IncrementGlobal("D5_PSI_510","LOCALS",1)~ DO ~ApplySpellRES("D5PV510",Myself)~ EXIT 
  IF ~~ THEN REPLY @97 GOTO d5_psion 
 END
 IF ~~ THEN BEGIN d5_psion_511 // project mind

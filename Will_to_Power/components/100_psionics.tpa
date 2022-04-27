@@ -25,7 +25,7 @@
 
 DEFINE_ACTION_FUNCTION psionics_system BEGIN 
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__psionics.d5~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
 
 //COPY MARKER FILE____________________________________________________________________
 //
@@ -48,25 +48,25 @@ COPY_EXISTING ~splprot.2da~ ~override~
   READ_2DA_ENTRIES_NOW rows cols
   FOR (row = 1; row < rows; ++row) BEGIN
 	READ_2DA_ENTRY_FORMER rows row 0 ~stat~
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_MXHP_GT~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_MXHP_GT~) BEGIN
 	  SET maxhp_gt = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_MXHP_LT~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_MXHP_LT~) BEGIN
 	  SET maxhp_lt = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_PSI~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_134_PSI~) BEGIN
 	  SET 134_psi = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_PTS~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_PTS~) BEGIN
 	  SET tracking_points = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_LESS~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_LESS~) BEGIN
 	  SET tracking_less = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_MORE~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_TRKNG_MORE~) BEGIN
 	  SET tracking_more = %row%
 	END
-	PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_FATIGUE_IS~ BEGIN
+	PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_FATIGUE_IS~) BEGIN
 	  SET fatigue_value = %row%
 	END
   END
@@ -118,7 +118,7 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~d50wspl.2da~) BEGIN
 END
 ACTION_IF 0wspl = 0 BEGIN
   COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
-	PATCH_IF FILE_EXISTS_IN_GAME ~%SOURCE_RES%.spl~ BEGIN
+	PATCH_IF (FILE_EXISTS_IN_GAME ~%SOURCE_RES%.spl~) BEGIN
 	  READ_SHORT 0x1c spell_type 
 	  READ_LONG 0x34 spell_level
 	  PATCH_IF (~%SOURCE_RES%~ STRING_MATCHES_REGEXP ~[Ss][Pp][Ww][Ii][1-9][0-5][0-9]~ = 0) && (spell_type = 1) BEGIN
@@ -163,6 +163,7 @@ NOSLOTS     AP_D50CSLT  ****        ****        ****        ****        ****    
 ~
 //____________________________________________________________________________________
 
+
 //remove cleric spells every level____________________________________________________
 //
 COPY_EXISTING_REGEXP GLOB ~^SPPR[1-7]\(0[1-9]\|[1-4][0-9]\|50\)\.spl$~ ~override~
@@ -191,7 +192,7 @@ APPEND ~d5_psi.2da~ ~NO_SPELLS   AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL  AP_D5PSNCL 
 // Points = (stat 133)
 //
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp01.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 15 parameter2 = 1 timing = 9 /*0 duration = 126144000*/ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 20 parameter2 = 1 timing = 9 /*0 duration = 126144000*/ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp01~ END
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp1w.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 18 parameter2 = 1 timing = 9 /*0 duration = 126144000*/ END
@@ -199,21 +200,37 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp1w.spl~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp2w.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 20 parameter2 = 1 timing = 9 /*0 duration = 126144000*/ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp0w~ END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp1a.spl~ BEGIN
+/*
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp1a.spl~) BEGIN
   ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ ~l~ ~m~ ~n~ ~o~ ~p~ ~q~ ~r~ ~s~ ~t~ ~u~ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp1%let%.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 1 parameter2 = 0 timing = 9 /*0 duration = 126144000*/ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp1%let%~ END
   END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp2a.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp2a.spl~) BEGIN
   ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ ~l~ ~m~ ~n~ ~o~ ~p~ ~q~ ~r~ ~s~ ~t~ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp2%let%.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 2 parameter2 = 0 timing = 9 /*0 duration = 126144000*/ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp2%let%~ END
   END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp5a.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp3a.spl~) BEGIN
+  ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ ~l~ ~m~ ~n~ ~o~ ~p~ ~q~ ~r~ ~s~ ~t~ BEGIN
+	COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp3%let%.spl~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 3 parameter2 = 0 timing = 9 /*0 duration = 126144000*/ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp3%let%~ END
+  END
+END
+*/
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp4a.spl~) BEGIN
+  ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ ~l~ ~m~ ~n~ ~o~ ~p~ ~q~ ~r~ ~s~ ~t~ ~u~ BEGIN
+	COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp4%let%.spl~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 4 parameter2 = 0 timing = 9 /*0 duration = 126144000*/ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5psp4%let%~ END
+  END
+END
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp5a.spl~) BEGIN
   ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ ~l~ ~m~ ~n~ ~o~ ~p~ ~q~ ~r~ ~s~ ~t~ ~u~ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp5%let%.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 5 parameter2 = 0 timing = 9 /*0 duration = 126144000*/ END
@@ -221,11 +238,14 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp5a.spl~ BEGIN
   END
 END
 
-// maybe 15 + ...5/level? (to level 20, then 2/level to 40)
-APPEND ~d5_psi.2da~ ~PSI_PTS     AP_D5PSP01  AP_D5PSP5A  AP_D5PSP5B  AP_D5PSP5C  AP_D5PSP5D  AP_D5PSP5E  AP_D5PSP5F  AP_D5PSP5G  AP_D5PSP5H  AP_D5PSP5I  AP_D5PSP5J  AP_D5PSP5K  AP_D5PSP5L  AP_D5PSP5M  AP_D5PSP5N  AP_D5PSP5O  AP_D5PSP5P  AP_D5PSP5Q  AP_D5PSP5R  AP_D5PSP5S  AP_D5PSP2B  AP_D5PSP2C  AP_D5PSP2D  AP_D5PSP2E  AP_D5PSP2F  AP_D5PSP2G  AP_D5PSP2H  AP_D5PSP2I  AP_D5PSP2J  AP_D5PSP2K  AP_D5PSP2L  AP_D5PSP2M  AP_D5PSP2N  AP_D5PSP2O  AP_D5PSP2P  AP_D5PSP2Q  AP_D5PSP2R  AP_D5PSP2S  AP_D5PSP2T  AP_D5PSP2U  ****        ****        ****        ****        ****        ****        ****        ****        ****        **** 
-~
+/*
+// maybe 15 + ...4/level to level 20, then 3/level to 30, = 121 total
+APPEND ~d5_psi.2da~ ~PSI_PTS     AP_D5PSP01  AP_D5PSP4A  AP_D5PSP4B  AP_D5PSP4C  AP_D5PSP4D  AP_D5PSP4E  AP_D5PSP4F  AP_D5PSP4G  AP_D5PSP4H  AP_D5PSP4I  AP_D5PSP4J  AP_D5PSP4K  AP_D5PSP4L  AP_D5PSP4M  AP_D5PSP4N  AP_D5PSP4O  AP_D5PSP4P  AP_D5PSP4Q  AP_D5PSP4R  AP_D5PSP4S  AP_D5PSP3B  AP_D5PSP3C  AP_D5PSP3D  AP_D5PSP3E  AP_D5PSP3F  AP_D5PSP3G  AP_D5PSP3H  AP_D5PSP3I  AP_D5PSP3J  AP_D5PSP3K  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+// OR, 15 + 5/level to level 20, and that's it. These are multiclasses after all. = 110 total
+APPEND ~d5_psi.2da~ ~PSI_PTS     AP_D5PSP01  AP_D5PSP5A  AP_D5PSP5B  AP_D5PSP5C  AP_D5PSP5D  AP_D5PSP5E  AP_D5PSP5F  AP_D5PSP5G  AP_D5PSP5H  AP_D5PSP5I  AP_D5PSP5J  AP_D5PSP5K  AP_D5PSP5L  AP_D5PSP5M  AP_D5PSP5N  AP_D5PSP5O  AP_D5PSP5P  AP_D5PSP5Q  AP_D5PSP5R  AP_D5PSP5S  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+*/
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-1.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-1.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-1.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 1) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_1.spl~
@@ -233,7 +253,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-1.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+1.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 1 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-2.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-2.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-2.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 2) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_2.spl~
@@ -241,7 +261,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-2.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+2.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 2 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-3.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-3.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-3.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 3) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_3.spl~
@@ -249,7 +269,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-3.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+3.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 3 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-4.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-4.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-4.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 4) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_4.spl~
@@ -257,7 +277,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-4.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+4.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 4 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-5.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-5.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 5) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_5.spl~
@@ -265,7 +285,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-5.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 5 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-6.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-6.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-6.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 6) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_6.spl~
@@ -273,7 +293,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-6.spl~ BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+6.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 6 parameter2 = 0 timing = 0 duration = 126144000 END
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5psp-X.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-X.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-X.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 10) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_X.spl~
@@ -398,15 +418,20 @@ COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrz6.spl~
 //add needed spellstates etc.________________________________________________________
 //
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_METAPSIONIC~ RET new_state_ind END
-
 OUTER_SET metapsionic_state = %new_state_ind%
 
+/*
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_MIND_WARD~ RET new_state_ind END
-
 OUTER_SET mind_ward_state = %new_state_ind%
+*/
+
+LAF d5_resolve_state STR_VAR new_state_id = ~D5_CHARMEVADE~ RET new_state_ind END
+OUTER_SET charm_evasion_state = %new_state_ind%
+
+LAF d5_resolve_state STR_VAR new_state_id = ~D5_STUNEVADE~ RET new_state_ind END
+OUTER_SET stun_evasion_state = %new_state_ind%
 
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_HOLDS_BARRED~ RET new_state_ind END
-
 OUTER_SET hold_evasion_state = %new_state_ind%
 
 APPEND ~splprot.2da~ ~D5_STATE_POISON%TAB%0x111%TAB%0x4000%TAB%8~
@@ -417,10 +442,10 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	READ_2DA_ENTRIES_NOW rows cols 
 	FOR (row = 1; row < rows; ++row) BEGIN 
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STATE_POISON~ BEGIN
+	  PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_STATE_POISON~) BEGIN
 	    SET state_poison = %row%
 	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STATE_DISEASE~ BEGIN
+	  PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_STATE_DISEASE~) BEGIN
 	    SET state_disease = %row%
 	  END
 	END
@@ -429,10 +454,20 @@ BUT_ONLY
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_SNAREARROW~ RET new_state_ind END
 OUTER_SET missile_snaring_state = %new_state_ind%
 OUTER_SET nada = RESOLVE_STR_REF (~ ~)
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~7eyes.2da~ BEGIN
-	COPY ~will_to_power/misc/7eyes.2da~ ~override~
+ACTION_IF !(FILE_EXISTS_IN_GAME ~7eyes.2da~) BEGIN
+  COPY ~will_to_power/misc/7eyes.2da~ ~override~
 END
-APPEND ~7eyes.2da~ ~SNARE_ARROW  %missile_snaring_state%         %nada%         12*0x800000 *           *           *            *            *          *          *          * ~ UNLESS ~SNARE_ARROW~
+APPEND ~7eyes.2da~ ~SNARE_ARROW  %missile_snaring_state%         %nada%         12*0x00800000 *           *           *            *            *          *          *          * ~ UNLESS ~SNARE_ARROW~
+
+COPY_EXISTING ~7eyes.2da~ ~override~
+  COUNT_2DA_ROWS 1 rows
+  FOR (row = 1; row < rows; ++row) BEGIN
+	READ_2DA_ENTRY row 0 1 tag
+	PATCH_IF (~%tag%~ STRING_EQUAL_CASE ~SNARE_ARROW~) BEGIN
+	  SET 7eyes_row = row
+	END
+  END
+BUT_ONLY
 
 OUTER_SET optional_evade = 1
 INCLUDE ~%MOD_FOLDER%/lib/spell_evasion.tpa~
@@ -443,7 +478,7 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	READ_2DA_ENTRIES_NOW rows cols
 	FOR (row = 1; row < rows; ++row) BEGIN
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_KIT_IS~ BEGIN
+	  PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~D5_KIT_IS~) BEGIN
 	    SET kit_is_row = %row%
 	  END
 	END
@@ -486,7 +521,7 @@ BUT_ONLY
 
 //PSIONIC ABILITY FILES_____________________________________________________________
 //
-INCLUDE ~will_to_power/lib/psionic_powers.tpa~
+INCLUDE ~will_to_power/components/psionic_powers.tpa~
 //__________________________________________________________________________________
 
 
@@ -521,7 +556,7 @@ INCLUDE ~will_to_power/lib/psionic_powers.tpa~
 // d5pswt0 = immunity vs. d5ps#s, d5ps#t, d5ps#q, d5ps#y
 
 ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-  ACTION_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ /*~11~*/ BEGIN
+  ACTION_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ /*~11~*/ BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%s.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%~ END
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%disc%%abil%r.spl~
@@ -606,7 +641,7 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode = 143 END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5prptz~ END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH abil IN ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%v.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  END
@@ -618,7 +653,7 @@ COPY ~will_to_power/data/d5ps000.spl~ ~override~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
@@ -638,6 +673,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pv000.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%disc%01p~ END
 	END
   END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5prfrsh~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5ps000~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pv000~ END
 
@@ -671,14 +707,14 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt0.spl~
   SAY UNIDENTIFIED_DESC @112
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 STR_VAR icon = ~d5pswt0~ END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%v.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  END
@@ -699,7 +735,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt0.spl~
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt1.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%s~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%r~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%t~ END
@@ -769,7 +805,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt2.spl~
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt3.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%s~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%r~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%t~ END
@@ -783,10 +819,11 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswt3.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp2w~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 94 timing = 4 duration = 1 STR_VAR resource = ~d5pz107~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 93 probability2 = 87 timing = 4 duration = 1 STR_VAR resource = ~d5pz108~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 86 probability2 = 80 timing = 4 duration = 1 STR_VAR resource = ~d5pz109~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 79 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5pz207~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 100 probability2 = 95 timing = 4 duration = 1 STR_VAR resource = ~d5pz107~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 94 probability2 = 89 timing = 4 duration = 1 STR_VAR resource = ~d5pz108~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 88 probability2 = 84 timing = 4 duration = 1 STR_VAR resource = ~d5pz109~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 83 probability2 = 79 timing = 4 duration = 1 STR_VAR resource = ~d5pz110~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 78 probability2 = 73 timing = 4 duration = 1 STR_VAR resource = ~d5pz207~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 72 probability2 = 66 timing = 4 duration = 1 STR_VAR resource = ~d5pz208~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 65 probability2 = 59 timing = 4 duration = 1 STR_VAR resource = ~d5pz209~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 probability1 = 58 probability2 = 52 timing = 4 duration = 1 STR_VAR resource = ~d5pz307~ END
@@ -828,14 +865,14 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh0.spl~
   SAY UNIDENTIFIED_DESC @112
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%z.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%z~ END
 	  END
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%v.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5ps%disc%%abil%v~ END
 	  END
@@ -851,7 +888,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh0.spl~
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pswh1.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%s~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%r~ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%abil%t~ END
@@ -885,7 +922,7 @@ END
 
 //recalculate PSPs____________________________________________________________________
 //
-// these will have 171 effects for every power, 2^(#-1) times each
+// these will have 171 effects for every power, 2^(n-1) times each
 
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts1.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
@@ -915,7 +952,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts1.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -992,7 +1029,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts2.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1079,7 +1116,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts3.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1158,7 +1195,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts4.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1237,7 +1274,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts5.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1316,7 +1353,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts6.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1395,7 +1432,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 	END
   END
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ BEGIN
+	PATCH_FOR_EACH sci IN ~07~ ~08~ ~09~ ~10~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%s.spl~) BEGIN
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
@@ -1448,7 +1485,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 // this will have 172 effects for all powers of every type and range
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pspls2.spl~
   PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
-	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~11~ BEGIN
+	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = EVAL ~d5ps%disc%%abil%~ END
 	  END
@@ -1525,14 +1562,22 @@ CREATE EFF ~d5prpts~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5prpt.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0 parameter2 = %fatigue_value% timing = 1 STR_VAR resource = ~d5prfrsh~ END
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5prfrsh.spl~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5prfrsh.spl~) BEGIN
  COPY ~will_to_power/data/d5_base.spl~ ~override/d5prfrsh.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 93 target = 1 parameter1 = 1 parameter2 = 1 timing = 1 END
   PATCH_FOR_EACH points IN ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~X~ BEGIN
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp-%points%~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp_%points%~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp+%points%~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp&%points%~ END
+    PATCH_IF (FILE_EXISTS_IN_GAME ~d5psp-%points%.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp-%points%~ END
+	END
+    PATCH_IF (FILE_EXISTS_IN_GAME ~d5psp_%points%.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp_%points%~ END
+	END
+    PATCH_IF (FILE_EXISTS_IN_GAME ~d5psp+%points%.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp+%points%~ END
+	END
+    PATCH_IF (FILE_EXISTS_IN_GAME ~d5psp&%points%.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp&%points%~ END
+	END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
@@ -1547,7 +1592,9 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5prmed.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 location = 4 STR_VAR icon = ~d5prmed~ END
   WRITE_BYTE 0x1a (THIS BOR 0b00000001) 	//	set as non-combat ability
   PATCH_FOR_EACH points IN ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~X~ BEGIN
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp_%points%~ END
+    PATCH_IF (FILE_EXISTS_IN_GAME ~d5psp_%points%.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = EVAL ~d5psp_%points%~ END
+	END
   END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
@@ -1565,7 +1612,7 @@ COPY ~will_to_power/data/d5psi1.spl~ ~override~
   SAY NAME1 @99
   SAY UNIDENTIFIED_DESC @96
   WRITE_ASCII 0x3a ~d5_feat~ #8
-  LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_feat~ END
+  LPF ALTER_SPELL_HEADER INT_VAR target = 7 STR_VAR icon = ~d5_feat~ END
 
 COPY ~will_to_power/data/d5_feat.bam~ ~override~
 COPY ~will_to_power/data/d5_psion.eff~ ~override~ 
@@ -1577,7 +1624,7 @@ COPY_EXISTING ~d5psi1.spl~ ~override/d5psj1.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = EVAL ~d5psj%ind%~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = EVAL ~d5psj%ind%~ END
 
-OUTER_FOR (ind = 2; ind < 50; ++ind) BEGIN
+OUTER_FOR (ind = 2; ind < 35; ++ind) BEGIN
   COPY_EXISTING ~d5psi1.spl~ ~override/d5psi%ind%.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = EVAL ~d5psi%ind%~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = EVAL ~d5psi%ind%~ END

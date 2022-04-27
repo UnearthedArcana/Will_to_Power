@@ -48,11 +48,11 @@
 NOTE: the Psionicist kit is chosen from the single-class thief/rogue menu. Upon starting the game, you must use the "Initialize Psionics" ability which will make you a multiclass thief/psion. Psionic development proceeds according to the Cleric XP and thac0 tables, so the character record sheet will look like a cleric/thief.
 
 Abilities:
-- Begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psionicist can proceed to learn two additional powers with each new level of experience.
-- Psionicists begin with 15 Psionic Strength Points (PSPs).  They gain 5 more PSPs per level through 20th level, and 2 per level after that.
+- Begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psionicist can learn two additional powers at 1st level, and two more with each new level of experience, plus an additional power at levels 5, 10, 15, 20, and 25.
+- Psionicists begin with 25 Psionic Strength Points (PSPs). They gain 5 more PSPs per level, through 20th level.
 
 Restrictions:
-- May only distribute 12 skill points per level into thief skills.
+- May only distribute 15 skill points per level into thief skills.
 - May not Pick Pockets or Set Traps.
 - May not be Chaotic.
 ~
@@ -63,8 +63,8 @@ Restrictions:
 NOTE: the Soulblade kit is chosen from the single-class fighter menu. Upon starting the game, you must use the "Initialize Psionics" ability which will make you a multiclass fighter/psion. Psionic development proceeds according to the Cleric XP and thac0 tables, so the character record sheet will look like a fighter/cleric.
 
 Abilities:
-- Soulblades begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Soulblade can proceed to learn two additional powers at each new even level of experience, and one additional power at each new odd level of experience, up to level 14. From level 15 onward they may learn one additional power.
-- Soulblades begin with 15 Psionic Strength Points (PSPs).  They gain 5 more PSPs per level through 20th level, and 2 per level after that.
+- Soulblades begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Soulblade can learn two additional powers at each level of experience.
+- Soulblades begin with 20 Psionic Strength Points (PSPs). They gain 4 more PSPs per level, through 20th level.
 
 Restrictions:
 - Limited to light armors.
@@ -77,8 +77,8 @@ Restrictions:
 NOTE: the Psypher kit is chosen from the single-class ranger menu. Upon starting the game, you must use the "Initialize Psionics" ability which will make you a multiclass ranger/psion. Psionic development proceeds according to the Cleric XP and thac0 tables, so the character record sheet will look like a ranger/cleric.
 
 Abilities:
-- Psyphers begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psypher can proceed to learn two additional powers at each new even level of experience, and one additional power at each new odd level of experience, up to level 14. From level 15 onward they may learn one additional power.
-- Psyphers begin with 15 Psionic Strength Points (PSPs).  They gain 5 more PSPs per level through 20th level, and 2 per level after that.
+- Psyphers begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psypher can learn two additional powers with each new even level of experience.
+- Psyphers begin with 20 Psionic Strength Points (PSPs). They gain 4 more PSPs per level, through 20th level.
 
 Restrictions:
 - Limited to light armors.
@@ -93,7 +93,7 @@ NOTE: the Cerebremancer kit is chosen from the single-class wizard menu. Upon st
 
 Abilities:
 - Begins with access to the first power in all five psionic disciplines: Mind Ward, Project Force, Static Discharge, Adrenaline Rush, and Object Reading. The Psionicist can proceed to learn two additional powers with each new level of experience.
-- Cerebremancers begin with 15 Psionic Strength Points (PSPs).  They gain 5 more PSPs per level through 20th level, and 2 per level after that.
+- Cerebremancers begin with 20 Psionic Strength Points (PSPs). They gain 4 more PSPs per level, through 20th level.
 
 Restrictions:
 - Has the spell restrictions and spell-learning characteristics of an Enchanter.
@@ -112,12 +112,12 @@ Restrictions:
 @5002  = ~Clairsentience: this feat confers the 'Insightful Strike' ability, and allows for learning more psionic abilities within the Clairsentience discipline.~
 //
 @1011  = ~..Mind Ward~
-@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. It protects against Charm/Domination, Sleep, Hold, Fear, and Confusion effects.  A Mind Ward only protects against one such attack; after that it will be canceled.
+@1012  = ~Mind Ward: the psion erects a minor barrier against mental attacks, be they magical or psionic in nature. This ward allows the psion an extra chance to make a saving throw to avoid any Charm/Domination, Sleep, Hold, Fear, Confusion, Berserk, Stun, or Maze effects.
 
 The cost to maintain this protection is 6 points.~
 @1013  = ~Cancel Mind Ward~
 @1021  = ~..Sensory Synchronization~
-@1022  = ~Sensory Synchronization: the psion connects the minds of a group of allies, enabling them to work very efficiently together and anticipate each others actions and the perceived actions of enemies.  This give each affected ally a -2 Armor Class bonus.  At 6th level this increases to a -3 bonus, and at 12th level the affected allies also do more damage in melee and take less damage from spells targeting them.
+@1022  = ~Sensory Synchronization: the psion connects the minds of a group of allies, enabling them to work very efficiently together and anticipate each others actions and the perceived actions of enemies.  This gives each affected ally a 1-point bonus to Armor Class aand melee damage, and a 1-point reduction in damage taken from magic spells. At 6th level the armor class bonus increases to -2, and at 12th level the armor class bonus increases to -3.
 
 The cost to maintain this effect is 6 points.~
 @1023  = ~Cancel Sensory Synchronization~
@@ -130,7 +130,7 @@ The cost is 6 points.~
 
 The cost is 6 points.~
 @1051  = ~..Cerebral Repair~
-@1052  = ~Cerebral Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, and intoxication, as well as berserk and confused states of mind.
+@1052  = ~Cerebral Repair: this ability removes the effects of fear, sleep, feeblemindedness, unconsciousness, intoxication, as well as berserk, confused, and stunned states of mind.
 
 The cost is 6 points.~
 @1071  = ~.Mental Domination~
@@ -146,8 +146,12 @@ The cost to maintain this protection is 10 points.~
 @1092  = ~Psychic Crush: this ability initiates a powerful mental attack, stunning a target creature for 3 rounds and doing 3d4 psychic (stunning) damage unless the target makes a saving throw with a -2 penalty (which avoids the stun effect and halves the damage). At 12th level the save penalty increases to -3 and the damage increases to 4d4, and at 18th level the save penalty increases to -4 and the damage increases to 4d6. In addition, there is a 50% chance that this ability will remove the protection of Chaotic Commands, Mind Blank, Exaltation, and similar spells.
 
 The cost is 10 points.~
+@1101  = ~.Mass Hysteria~
+@1102  = ~Mass Hysteria: this ability induces chaotic, irrational, and sometimes violent behavior in nearby enemies, which lasts for three rounds. Enemies may overcome the effect if they make a saving throw. At 6th level enemies have a -1 penalty to their save and the effect lasts for five rounds; at 12th level enemies have a -2 penalty to their save and the effect lasts for seven rounds. 
+
+The cost is 10 points.~
 @1111  = ~Synaptic Static~
-@1112  = ~Synaptic Static: this ability creates a harsh ringing in the brains of all nearby creatures, including the psion <PRO_HIMHER>self. 
+@1112  = ~Synaptic Static: this ability creates a harsh ringing in the brains of all nearby creatures, including the psion <PRO_HIMHER>self. This creates a 60% chance that the attempted use of any spell or psionic power will fail.
 
 The cost to maintain this power is 20 points; additionally, its use increases the psion's fatigue.~
 @1113  = ~Cancel Synaptic Static~
@@ -166,7 +170,7 @@ The cost to maintain this ability is 6 points.~
 
 The cost is 6 points.~
 @2041  = ~..Inertial Barrier~
-@2042  = ~Inertial Barrier: this ability creates a movable barrier inches from the psion's skin, which arrests the momentum of objects striking the psion. The barrier provides a +3 bonus to AC and 40% damage resistance against crushing, missile, and fire attacks; a +1 AC bonus and 20% damage resistance against slashing, piercing, and acid attacks; and immunity to the Magic Missile spell. At 6th and 12th level, the AC bonuses and damage resistances increase by 1 and 10%, respectively.
+@2042  = ~Inertial Barrier: this ability creates a bubble of force several feet around the psion, which robs moving objects of their momentum, stopping almost all missile attacks and forcing approaching enemies to momentarily pause; additionally, any enemies inside the bubble must continually make saves vs. petrifiction/polymorph or be telekinetically pushed toward the edge of the barrier. At 6th the save is rolled with a -1 penalty, and 12th level it is rolled with a -2 penalty.
 
 The cost to maintain the Barrier is 6 points.~
 @2043  = ~Cancel Inertial Barrier~
@@ -179,13 +183,6 @@ The cost to maintain the Psychic Knife is 6 points.~
 @2072  = ~Detonate: with this ability, the psion releases the latent kinetic energy in solid material like stone and metal, within a small (5') radius. The forceful blast pushes all creatures away from the central point of the area of effect, and can knock them down on a failed saving throw, and does 2d8 points of force damage (save for half). At 6th level, the saving throw is made with a -1 penalty and the damage increases to 3d8; at 12th level the saving throw is made with a -2 penalty and the damage increases to 4d8. Creatures made of inanimate material, like golems and skeletons, are particularly vulnerable to the blast and take twice the base damage.
 
 The cost is 10 points.~
-/*
-@2071  = ~.Repulsion~
-@2072  = ~Repulsion: this ability creates an unfocused surge of telekinetic force which throws anyone nearby away from the psion (except allies, who can be shielded from the effect), unless they make a saving throw vs. Breath. While the ability is maintained, this surge of force builds and is released once per 6 seconds.  
-
-The cost to maintain the repulsion effect is 10 points.~
-@2073  = ~Cancel Repulsion~
-*/
 @2081  = ~.Material Animation~
 @2082  = ~Material Animation: with this ability, the psion can focus <PRO_HISHER> telekinetic energy on a mass of stone, dirt, and other nearby debris. The construct takes on roughly humanoid shape, and can be controlled by the psion and fight on <PRO_HISHER> direction.
 
@@ -195,6 +192,11 @@ The cost to animate the construct is 10 points.~
 @2092  = ~Mass Immobilize: all enemies within 20' of the psion are held frozen in place, unable to move or act, upon a failed saving throw. On the second round and each round thereafter, up to ten rounds, each immobilized target may attempt another save to escape the effect. Even if a save is made, the target is very briefly Slowed while fighting off the telekinetic control. At levels 6 and 12, the target's saving throw is rolled with a -1 and -2 penalty, respectively.
 
 The cost is 10 points.~
+@2101  = ~.Kinetic Control~
+@2102  = ~Kinetic Control: while this ability is maintained, the psion can stop oen physical attack each round. A sword, arrow, claw, or other weapon will come to a complete stop before it touches the psion's body, losing all momentum and therefore causing no damage. At level 12, there is a chance for the kinetic energy absorbed by such attacks to be returned against the attacker, mimicking the Project Force power.
+
+The cost to maintain this ability is 10 points.~
+@2103  = ~Cancel Kinetic Control~
 @2111  = ~Seismic Vibration~
 @2112  = ~Seismic Vibration: this ability causes a strong tremor to affect the ground nearby. All enemies in the vicinity take 4d6 damage per round over the course of three rounds, though they may make a saving throw each round for half damage. Enemies must also make a saving throw in the first round or fall down; those that fall down cannot regain their footing until the quake has ended.
 
@@ -215,11 +217,11 @@ The cost is 6 points.~
 
 The cost to maintain the ability is 6 points.~
 @3033  = ~Cancel Molecular Agitation~
-@3041  = ~..Energy Dispersion~
-@3042  = ~Energy Dispersion: while this ability is maintained, the psion instinctively absorbs and deflects harmful energies. <PRO_HISHER> resistance to energy-based damage (fire, cold, electricity, and magic damage) is set to 50%. At 6th level this increases to 65%, and at 12th level it increases to 75%.
+@3041  = ~..Energy Containment~
+@3042  = ~Energy Containment: while this ability is maintained, the psion instinctively absorbs and deflects harmful energies. <PRO_HISHER> resistance to energy-based damage (fire, cold, electricity, and magic damage) is set to 40%. At 6th level this increases to 50%, and at 12th level it increases to 60%.
 
-The cost to maintain the barrier is 6 points.~
-@3043  = ~Cancel Energy Dispersion~
+The cost to maintain the containment is 6 points.~
+@3043  = ~Cancel Energy Containment~
 @3051  = ~..Psychic Combustion~
 @3052  = ~Psychic Combustion: this ability allows the psion to spontaneously create a brief but powerful fire in any location. The flames do 3d4+3 fire damage to all enemies within 5 feet of the point of combustion. At 6th level the damage increases to 4d4+4, and at 12th level the damage increases to 5d4+5.
 
@@ -234,26 +236,23 @@ The cost to maintain the modulation is 10 points.~
   
 The cost is 10 points.~
 @3091  = ~.Generate Lightning~
-@3092  = ~Generate Lightning: after taking a few moments to collect static energy from the surrounding area, the rogue can discharge it as violent lightning energy. The lightning strikes a chosen target and arcs to any other enemies within 10 feet (the psion has some measure of control over the energy and can protect <PRO_HISHER> companions). The discharge does 2d6 lightning damage, which is halved upon a successful saving throw. At 6th level the damage is 3d6 and the save is rolled with a -1 penalty. At 12th level the damage is 4d6 and the save is rolled with a -2 penalty.
+@3092  = ~Generate Lightning: after taking a few moments to collect static energy from the surrounding area, the rogue can discharge it as violent lightning energy. The lightning strikes a chosen target and arcs to any other enemies within 10 feet (the psion has some measure of control over the energy and can protect <PRO_HISHER> companions). The discharge does 2d6 lightning damage. At 6th level the damage is increased to 3d6, and at 12th level it is increased to 4d6.
 
 The cost is 10 points.~
+@3101  = ~.Negative Energy Inversion~
+@3102  = ~Negative Energy Inversion: this ability allows the psion to convert negative energy into positive energy. This allows the psion to resist direct negative energy attacks such as vampires' level drain ability; and it also causes the psion's physical attacks to do an extra 1d6 damage to undead targets. At 6th level the extra damage is increased to 2d4, and at 12th level it is increased to 2d6. 
+
+The cost to maintain the positive energy channel is 10 points.~
+@3103  = ~Cancel Negative Energy Inversion~
 @3111  = ~Energy Storm~
 @3112  = ~Energy Storm: this ability fills the vicinity with a churning storm of fire and electricity. For three rounds, enemies in the storm take 1d10 fire damage and 1d10 electrical damage (save at -3 penalty for half). Further, the radiant flashes inside the storm require enemies to make a save vs. petrification at a -3 penalty each round or be blinded for 4 rounds.
 
 Using this ability costs 20 points, and increases the psion's fatigue.~
 //
 @4011  = ~..Adrenaline Rush~
-@4012  = ~Adrenaline Rush: this ability temporarily boosts the psion's strength by 2 points and adds 8 to the psion's maximum hit points; both effects last three rounds. Afterward, the psion becomes tired and weakened (-4 to STR) for 2 rounds while catching <PRO_HISHER> breath. At 6th level the Strength bonus is increased to +3 and the hit point boost increases to +10, and the effects last four rounds; at 12th level the Strength bonus is increased to +4 and the hit point boost increases to +15, and the effects last four rounds.
+@4012  = ~Adrenaline Rush: this ability temporarily boosts the psion's strength by 2 points and adds 8 to the psion's maximum hit points; both effects last three rounds. Afterward, the psion becomes tired and weakened (-4 to STR) for 2 rounds while catching <PRO_HISHER> breath. At 6th level the Strength bonus is increased to +3 and the hit point boost increases to +10, and the effects last four rounds; at 12th level the Strength bonus is increased to +4 and the hit point boost increases to +15, and the effects last five rounds.
 
 The cost is 6 points, and the ability may not be used again until the weakness has worn off.~
-/*
-@4021  = ~..Heightened Senses~
-//////////////////////////////////////
-//////////////////////////////////////
-//////////////////////////////////////
-@4022  = ~Heightened Senses: ~
-@4023  = ~Cancel Heightened Senses~
-*/
 @4021  = ~..Metabolic Acceleration~
 @4022  = ~Metabolic Acceleration: this ability allows the psion to drastically speed up <PRO_HISHER> biological processes for a short time. For 5 rounds <PRO_HISHER> movement speed will be doubled and <PRO_HESHE> will be able to perform one extra physical attack per round. This lasts for five rounds, after which the psion returns to a normal pace of life.
 
@@ -285,6 +284,11 @@ The cost to maintain the Camouflage is 10 points.~
 
 The cost to maintain the Carapace is is 10 points.~
 @4093  = ~Cancel Carapace~
+@4101  = ~.Biofeedback~
+@4102  = ~Biofeedback: while this ability is maintained, the psion instinctively controls <PRO_HISHER> bloodflow and the way <PRO_HISHER> body responds to wounds. The result is 30% resistance to physical and biological damage (slashing/crushing/piercing/missile, as well as acid and poison). At 6th level this increases to 40%, and at 12th level it increases to 50%.
+
+The cost to maintain the Biofeedback is 10 points.~
+@4103  = ~Cancel Biofeedback~
 @4111  = ~Bestial Metamorphosis~
 @4112  = ~Bestial Metamorphosis: with this ability, the psion undergoes a radical transformation, gaining savage strength and other bestial features similar to those of a greater werewolf.
 
@@ -314,7 +318,7 @@ The cost to maintain this ability is 6 points.~
 
 The cost is 6 points.~
 @5071  = ~.Fate Link~
-@5072  = ~Fate Link: using this ability, the psion extends <PRO_HISHER> aura and connects with other creatures in the vicinity, in a manner particularly attuned to pain and violence. Whenever a nearby creature harms the psion - even with a ranged weapon - the resulting feedback causes that creature to suffer 1d6 nonlethal damage.
+@5072  = ~Fate Link: using this ability, the psion extends <PRO_HISHER> aura and connects with other creatures in the vicinity, in a manner particularly attuned to pain and violence. Whenever a nearby creature harms the psion - even with a ranged weapon - the resulting feedback causes that creature to suffer 1d6 nonlethal damage. At 12th level, anyone affected by this damage must make a saving throw or be stunned for two rounds.
 
 The cost to maintain the link is 10 points.~
 @5073  = ~Cancel Fate Link~
@@ -328,6 +332,11 @@ The cost to maintain this ability is 10 points.~
 
 The cost to maintain this ability is is 10 points.~
 @5093  = ~Cancel Danger Sense~
+@5101  = ~.Fate Avoidance~
+@5102  = ~Fate Avoidance: this ability will prevent the psion from being affected by any instant-death effect. Additionally, when reduced to zero hit points by other means, the psion will be able to attempt a saving throw each round to avoid dying. The psion will survive if healed before failing a save.
+
+The cost to maintain this ability is 10 points.~
+@5103  = ~Cancel Danger Sense~
 @5111  = ~Project mind~
 @5112  = ~Project Mind: using this ability, the psion may step outside <PRO_HISHER> body, and explore by way of a ghostly mental projection. This projection cannot interact physically with the world, but has the ability to use psionic powers known to the psion, but has no means of recovering PSPs. The projection has a source of virtual hit points which can also fuel psionic powers, but they are not recovered either. The projection can be damaged by magic and enchanted weapons; being somewhat frail and ethereal, such attacks will generally do twice the normal damage.
 
@@ -338,7 +347,7 @@ Using this ability costs 20 points, and increases the psion's fatigue.~
 
 Using this ability costs 20 points, and increases the psion's fatigue.~
 @9021  = ~Energy Construct~
-@9022  = ~Energy Construct: 
+@9022  = ~Energy Construct: this ability collects and concentrates energy into the shape of a fiery humanoid, which can act and even fight on the psion's behalf.
 
 Using this ability costs 20 points, and increases the psion's fatigue.~
 @9031  = ~Fission~
@@ -350,12 +359,12 @@ Using this ability costs 20 points, and increases the psion's fatigue.~
 
 Using this ability costs 20 points, and increases the psion's fatigue.~
 @9051  = ~Exoskeleton~
-@9052  = ~Exoskeleton: this power allows the psion to wrap <PRO_HISHER> body with layers of telekinetic force, creating a near-impenetrable shell of pure will. Visually, <PRO_HISHER> body seems to be encased in a dull, metallic sheen. While 
+@9052  = ~Exoskeleton: this power allows the psion to wrap <PRO_HISHER> body with layers of telekinetic force, creating a near-impenetrable shell of pure will. Visually, <PRO_HISHER> body seems to be encased in a dull, metallic sheen. 
 
 Maintaining this ability costs 20 points; upon releasing the exoskeleton, the psion's fatigue is increased.~
 @9053  = ~Cancel Exoskeleton~
 @9061  = ~Elemental Composition~
-@9062  = ~Elemental Composition: this power allows the psion to infuse his very body with elemental energy into a form  wrap <PRO_HISHER> body with layers of telekinetic force, creating a near-impenetrable shell of pure will. Visually, <PRO_HISHER> body seems to be encased in a dull, metallic sheen. While 
+@9062  = ~Elemental Composition: this power allows the psion to infuse his very body with elemental energy, taking on form of pure fire, cold, or lightning.
 
 Maintaining this ability costs 20 points; upon returning to <PRO_HISHER> normal form, the psion's fatigue is increased.~
 @9063  = ~Cancel Elemental Composition~
@@ -377,7 +386,7 @@ Maintaining this ability costs 20 points; upon ending the effect, the psion's fa
 
 Using this ability costs 20 points, and increases the psion's fatigue.~
 @9101  = ~Body Control~
-@9102  = ~Body Control: this ability represents the ultimate control over one's own biological processes. The psion can make <PRO_HIMHER>self 85 immune to environmental damage such as acid, fire, cold, lightning, poison; or 65% immune to physical damage such as crushing, slashing, or piercing/missile. While the ability is maintained, the psion can change immunity at will to match whatever adverse conditions <PRO_HESHE> is currently facing.
+@9102  = ~Body Control: this ability represents the ultimate control over one's own biological processes. The psion can make <PRO_HIMHER>self completely immune to environmental damage such as acid, fire, cold, lightning, poison, or to physical damage such as crushing, slashing, or piercing/missile injuries. While the ability is maintained, the psion can change immunity at will to match whatever adverse conditions <PRO_HESHE> is currently facing.
 
 Maintaining this ability costs 20 points; upon ending the effect, the psion's fatigue is increased.~
 @9103  = ~Cancel Body Control~
