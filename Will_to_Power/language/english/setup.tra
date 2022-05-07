@@ -36,6 +36,7 @@
 //
 @101  = ~Initialize Psionics~
 @102  = ~Initialize Psionics: this ability will enable the use of psionics, making the character a multiclass. Psionic advancement uses the Cleric XP and thac0 tables.~
+@103  = ~initialize psionic abilities~
 @111  = ~Check for Wild Talent~
 @112  = ~This ability will roll a check to determine whether the character is a 'wild talent' with access to a psionic power.~
 @151  = ~Restorative Meditation~
