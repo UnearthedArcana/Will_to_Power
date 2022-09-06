@@ -1708,7 +1708,19 @@ COPY_EXISTING ~spin975.spl~ ~override~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 2 parameter2 = 1 timing = 1 probability1 = 100 probability2 = 51 STR_VAR resource = ~d5ps103a~ END
 IF_EXISTS BUT_ONLY
 
+/*
 // find illithid .CRE files, add Inertial Barrier
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_LONG 0x14 xp_val
+  READ_LONG 0x28 animation
+  READ_BYTE 0x272 race
+  PATCH_IF (animation = 32513) AND (race = 124) BEGIN
+    PATCH_IF (xp_val < 15001) BEGIN
+    END
+  END
+BUT_ONLY
+*/
+    
 
 // ulitharid psionic blast -> psychic crush or ego whip or detonate or generate lightning (remove projectile)
 COPY_EXISTING ~spin959.spl~ ~override~
@@ -1720,7 +1732,18 @@ COPY_EXISTING ~spin959.spl~ ~override~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 2 parameter2 = 1 timing = 1 probability1 = 100 probability2 = 76 STR_VAR resource = ~d5ps309a~ END
 IF_EXISTS BUT_ONLY
 
-// find ulitharid .CRE files, add Inertial Barrier and Carapace
+/*
+// find ulitharid .CRE files, add Kinetic Control
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_LONG 0x14 xp_val
+  READ_LONG 0x28 animation
+  READ_BYTE 0x272 race
+  PATCH_IF (animation = 32513) AND (race = 124) BEGIN
+    PATCH_IF (xp_val > 15000) BEGIN
+    END
+  END
+BUT_ONLY
+*/
 
 // elder brain psionic blast -> psychic crush or detonate or psychic combustion or id insinuation (remove projectile?)
 COPY_EXISTING ~spin834.spl~ ~override~

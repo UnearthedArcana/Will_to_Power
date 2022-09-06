@@ -1356,10 +1356,19 @@ COPY ~will_to_power/data/d5ps204b.eff~ ~override~
 COPY ~will_to_power/data/d5ps204c.eff~ ~override~
 COPY ~will_to_power/data/d5ps204a.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5smlnp% END
+	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
+	END
 COPY ~will_to_power/data/d5ps204b.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5smlnp% END
+	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
+	END
 COPY ~will_to_power/data/d5ps204c.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5smlnp% END
+	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
+	END
 COPY ~will_to_power/data/d5ps204d.spl~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps204p.spl~
 	SAY NAME1 @2041

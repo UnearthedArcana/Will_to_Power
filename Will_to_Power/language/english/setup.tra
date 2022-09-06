@@ -161,6 +161,7 @@ The cost to maintain this power is 20 points; additionally, its use increases th
 
 The cost is 6 points.~
 @2021  = ~..Enhanced Mobility~
+//@2021  = ~..Radial Projection~
 @2022  = ~Enhanced Mobility: this ability allows the psion to break free of any bonds; and to avoid being caught or held by any effect that affects <PRO_HISHER> mobility. This is not quite as powerful as the magic of a Free Action spell; but the psion will be able to evade  spells or events that hinder <PRO_HISHER> movement 60% of the time, as long as this ability is maintained.
 
 The cost to maintain this ability is 6 points.~
@@ -170,7 +171,7 @@ The cost to maintain this ability is 6 points.~
 
 The cost is 6 points.~
 @2041  = ~..Inertial Barrier~
-@2042  = ~Inertial Barrier: this ability creates a bubble of force several feet around the psion, which robs moving objects of their momentum, stopping almost all missile attacks and forcing approaching enemies to momentarily pause; additionally, any enemies inside the bubble must continually make saves vs. petrifiction/polymorph or be telekinetically pushed toward the edge of the barrier. At 6th the save is rolled with a -1 penalty, and 12th level it is rolled with a -2 penalty.
+@2042  = ~Inertial Barrier: this ability creates a bubble of force several feet wide, which deflects the momentum of objects moving toward the psion - resulting in a 2-point bonus to armor class and 50% less damage taken from missile attacks; Additionally, this forces approaching enemies to momentarily pause, and attackers inside the bubble must make a save vs. petrifiction/polymorph each round or be telekinetically nudged toward the edge of the barrier. At 6th this save is rolled with a -1 penalty; at 12th level attackers' save is rolled with a -2 penalty and the psion's AC bonus increases to 3.
 
 The cost to maintain the Barrier is 6 points.~
 @2043  = ~Cancel Inertial Barrier~
@@ -180,6 +181,7 @@ The cost to maintain the Barrier is 6 points.~
 The cost to maintain the Psychic Knife is 6 points.~
 @2053  = ~Cancel Psychic Knife~
 @2071  = ~.Detonate~
+@2071  = ~.Unhindered Mobility~
 @2072  = ~Detonate: with this ability, the psion releases the latent kinetic energy in solid material like stone and metal, within a small (5') radius. The forceful blast pushes all creatures away from the central point of the area of effect, and can knock them down on a failed saving throw, and does 2d8 points of force damage (save for half). At 6th level, the saving throw is made with a -1 penalty and the damage increases to 3d8; at 12th level the saving throw is made with a -2 penalty and the damage increases to 4d8. Creatures made of inanimate material, like golems and skeletons, are particularly vulnerable to the blast and take twice the base damage.
 
 The cost is 10 points.~
@@ -193,7 +195,8 @@ The cost to animate the construct is 10 points.~
 
 The cost is 10 points.~
 @2101  = ~.Kinetic Control~
-@2102  = ~Kinetic Control: while this ability is maintained, the psion can stop oen physical attack each round. A sword, arrow, claw, or other weapon will come to a complete stop before it touches the psion's body, losing all momentum and therefore causing no damage. At level 12, there is a chance for the kinetic energy absorbed by such attacks to be returned against the attacker, mimicking the Project Force power.
+//@2101  = ~.Inertial Control~
+@2102  = ~Kinetic Control: while this ability is maintained, the psion can stop oen physical attack each round. Arrows, bolts, and similar missile projectiles will lose all momentum and be completely unable to cause damage. Up close, the psion will be able to drain the momentum from one strike per round from a weapon, claw, or similar attack before it touches <PRO_HISHER> body. At level 12, there is a chance for the kinetic energy absorbed by such melee attacks to be returned against the attacker, mimicking the Project Force power in reactionary form.
 
 The cost to maintain this ability is 10 points.~
 @2103  = ~Cancel Kinetic Control~
