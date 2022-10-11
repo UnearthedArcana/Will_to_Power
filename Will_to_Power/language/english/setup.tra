@@ -196,7 +196,7 @@ The cost to animate the construct is 10 points.~
 The cost is 10 points.~
 @2101  = ~.Kinetic Control~
 //@2101  = ~.Inertial Control~
-@2102  = ~Kinetic Control: while this ability is maintained, the psion can stop oen physical attack each round. Arrows, bolts, and similar missile projectiles will lose all momentum and be completely unable to cause damage. Up close, the psion will be able to drain the momentum from one strike per round from a weapon, claw, or similar attack before it touches <PRO_HISHER> body. At level 12, there is a chance for the kinetic energy absorbed by such melee attacks to be returned against the attacker, mimicking the Project Force power in reactionary form.
+@2102  = ~Kinetic Control: while this ability is maintained, the psion will be able to drain the momentum from one strike per round from a weapon, claw, arrow, or other physical attack before it touches <PRO_HISHER> body. At level 12, there is a chance for the kinetic energy absorbed by melee attacks to be returned against the attacker, mimicking the Project Force power in reactionary form.
 
 The cost to maintain this ability is 10 points.~
 @2103  = ~Cancel Kinetic Control~
@@ -331,7 +331,7 @@ The cost to maintain the link is 10 points.~
 The cost to maintain this ability is 10 points.~
 @5083  = ~Cancel Life Detection~
 @5091  = ~.Danger Sense~
-@5092  = ~Danger Sense: while this ability is maintained, the psion has a 3-point bonus to Armor Class, a 50% bonus to the Find Traps skill, cannot be backstabbed, and can avoid one missile attack each round. Further, if the psion encounters certain magical and environmental effects that can be dodged, <PRO_HESHE> may attempt a saving throw vs. Breath Weapon to avoid the effect altogether.
+@5092  = ~Danger Sense: while this ability is maintained, the psion has a 3-point bonus to Armor Class, a 50% bonus to the Find Traps skill, and cannot be backstabbed. Further, if the psion encounters certain magical and environmental effects that can be dodged, <PRO_HESHE> may attempt a saving throw vs. Breath Weapon to avoid the effect altogether.
 
 The cost to maintain this ability is is 10 points.~
 @5093  = ~Cancel Danger Sense~

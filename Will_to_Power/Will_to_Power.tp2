@@ -1,7 +1,7 @@
 BACKUP ~will_to_power/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~2.2~
+VERSION ~2.3~
 
 ALWAYS
 
@@ -34,6 +34,7 @@ LANGUAGE
 
 BEGIN @200
 DESIGNATED 200
+LABEL ~D5_PSIONICS_PSIONICIST~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 
 INCLUDE ~will_to_power/components/100_psionics.tpa~
@@ -55,6 +56,7 @@ INCLUDE ~will_to_power/components/200_thief_psion.tpa~
 
 BEGIN @300
 DESIGNATED 300
+LABEL ~D5_PSIONICS_SOULBLADE~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 
 INCLUDE ~will_to_power/components/100_psionics.tpa~
@@ -76,6 +78,7 @@ INCLUDE ~will_to_power/components/300_fighter_psion.tpa~
 
 BEGIN @400
 DESIGNATED 400
+LABEL ~D5_PSIONICS_PSYPHER~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 
 INCLUDE ~will_to_power/components/100_psionics.tpa~
@@ -97,6 +100,7 @@ INCLUDE ~will_to_power/components/400_ranger_psion.tpa~
 
 BEGIN @500
 DESIGNATED 500
+LABEL ~D5_PSIONICS_CEREBREMANCER~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 
 INCLUDE ~will_to_power/components/100_psionics.tpa~
@@ -118,6 +122,7 @@ INCLUDE ~will_to_power/components/500_mage_psion.tpa~
 
 BEGIN @900
 DESIGNATED 900
+LABEL ~D5_PSIONICS_DARK_SUN_MODE~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) @4
 
@@ -135,6 +140,7 @@ INCLUDE ~will_to_power/components/900_dark_sun_mode.tpa~
 
 BEGIN @950
 DESIGNATED 950
+LABEL ~D5_CLERICS_USE_ALL_WEAPONS~
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @4
 FORBID_COMPONENT ~faiths_and_powers.tp2~ ~75~ @4
 

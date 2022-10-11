@@ -451,20 +451,32 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	END
 BUT_ONLY
 
+/*
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_SNAREARROW~ RET new_state_ind END
 OUTER_SET missile_snaring_state = %new_state_ind%
+*/
+
+LAF d5_resolve_state STR_VAR new_state_id = ~D5_KINETICCONTROL~ RET new_state_ind END
+OUTER_SET kinetic_control_state = %new_state_ind%
+
 OUTER_SET nada = RESOLVE_STR_REF (~ ~)
 ACTION_IF !(FILE_EXISTS_IN_GAME ~7eyes.2da~) BEGIN
   COPY ~will_to_power/misc/7eyes.2da~ ~override~
 END
-APPEND ~7eyes.2da~ ~SNARE_ARROW  %missile_snaring_state%         %nada%         12*0x00800000 *           *           *            *            *          *          *          * ~ UNLESS ~SNARE_ARROW~
+//APPEND ~7eyes.2da~ ~SNARE_ARROW  %missile_snaring_state%         %nada%         12*0x800000  *           *           *            *            *          *          *          * ~ UNLESS ~SNARE_ARROW~
+APPEND ~7eyes.2da~ ~BLOCK_ATTACK %kinetic_control_state%         %nada%         12*0         12*0x800000 12*0x100000 12*0x1000000 *            *          *          *          * ~ UNLESS ~BLOCK_ATTACK~
 
 COPY_EXISTING ~7eyes.2da~ ~override~
   COUNT_2DA_ROWS 1 rows
   FOR (row = 1; row < rows; ++row) BEGIN
 	READ_2DA_ENTRY row 0 1 tag
+/*
 	PATCH_IF (~%tag%~ STRING_EQUAL_CASE ~SNARE_ARROW~) BEGIN
-	  SET 7eyes_row = row
+	  SET missile_snaring_row = row
+	END
+*/
+	PATCH_IF (~%tag%~ STRING_EQUAL_CASE ~BLOCK_ATTACK~) BEGIN
+	  SET kinetic_control_row = row
 	END
   END
 BUT_ONLY

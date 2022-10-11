@@ -370,11 +370,12 @@ LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL912
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_RR#THL04~ END
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_RR#ALCHT~ END
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_TG#BRPO~ END
-LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~AP_SPCL915~ END
+//LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~AP_SPCL915~ END
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL916~ END
-LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL918~ END
+//LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL918~ END
 LAF action_remove_hla STR_VAR kit_name = ~D5_PSION~ remove_ability = ~GA_SPCL919~ END
 LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~AP_D5PSIFZ~ num_allowed = ~10~ END
+LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~GA_SPCL904~ num_allowed = ~10~ END
 /*
 ACTION_IF FILE_EXISTS_IN_GAME ~d5__rfeat.d5~ BEGIN
   LAF action_add_hla STR_VAR kit_name = ~D5_PSION~ ability = ~AP_D5_RFD1~ num_allowed = ~3~ END
