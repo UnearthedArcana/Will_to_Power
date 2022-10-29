@@ -1,7 +1,7 @@
-BACKUP ~will_to_power/backup~
+BACKUP ~weidu_external/backup/will_to_power~
 AUTHOR ~SubtleD~
 
-VERSION ~2.3~
+VERSION ~2.3.1~
 
 ALWAYS
 

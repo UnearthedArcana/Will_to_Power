@@ -339,7 +339,7 @@ The cost to maintain this ability is is 10 points.~
 @5102  = ~Fate Avoidance: this ability will prevent the psion from being affected by any instant-death effect. Additionally, when reduced to zero hit points by other means, the psion will be able to attempt a saving throw each round to avoid dying. The psion will survive if healed before failing a save.
 
 The cost to maintain this ability is 10 points.~
-@5103  = ~Cancel Danger Sense~
+@5103  = ~Cancel Fate Avoidance~
 @5111  = ~Project mind~
 @5112  = ~Project Mind: using this ability, the psion may step outside <PRO_HISHER> body, and explore by way of a ghostly mental projection. This projection cannot interact physically with the world, but has the ability to use psionic powers known to the psion, but has no means of recovering PSPs. The projection has a source of virtual hit points which can also fuel psionic powers, but they are not recovered either. The projection can be damaged by magic and enchanted weapons; being somewhat frail and ethereal, such attacks will generally do twice the normal damage.
 
