@@ -181,7 +181,7 @@ The cost to maintain the Barrier is 6 points.~
 The cost to maintain the Psychic Knife is 6 points.~
 @2053  = ~Cancel Psychic Knife~
 @2071  = ~.Detonate~
-@2071  = ~.Unhindered Mobility~
+//@2071  = ~.Unhindered Mobility~
 @2072  = ~Detonate: with this ability, the psion releases the latent kinetic energy in solid material like stone and metal, within a small (5') radius. The forceful blast pushes all creatures away from the central point of the area of effect, and can knock them down on a failed saving throw, and does 2d8 points of force damage (save for half). At 6th level, the saving throw is made with a -1 penalty and the damage increases to 3d8; at 12th level the saving throw is made with a -2 penalty and the damage increases to 4d8. Creatures made of inanimate material, like golems and skeletons, are particularly vulnerable to the blast and take twice the base damage.
 
 The cost is 10 points.~
