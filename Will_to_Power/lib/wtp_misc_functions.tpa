@@ -318,3 +318,47 @@ DEFINE_ACTION_FUNCTION match_weapprof_if_higher INT_VAR col_to_change = 0 match_
 END	//	end function
 //__________________________________________________________________________________
 
+
+//CALCULATE PSPs____________________________________________________________________
+//
+DEFINE_ACTION_FUNCTION apply_psp_table STR_VAR psp_table = ~mxsplps1~ psp_spl = ~~ BEGIN
+
+// ACTION function - copy .2da table, run this
+
+// limit psp_spl to 7 letters!!!
+
+  COPY ~%MOD_FOLDER%/misc/d5__psp.spl~ ~override/%psp_spl%.spl~
+      WRITE_SHORT 0x1c 2
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~%psp_spl%z.spl~) BEGIN
+    COPY ~%MOD_FOLDER%/data/d5_base.spl~ ~override/%psp_spl%z.spl~
+      WRITE_SHORT 0x1c 2
+      LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = EVAL ~%psp_spl%~ END
+  END
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~%psp_table%.2da~) AND (FILE_EXISTS ~%MOD_FOLDER%/misc/%psp_table%.2da~) BEGIN
+    COPY ~%MOD_FOLDER%/misc/%psp_table%.2da~ ~override~
+  END
+  COPY_EXISTING ~%psp_table%.2da~ ~override~
+    READ_2DA_ENTRIES_NOW r2en_table 2
+    FOR (row = 0; row < r2en_table; ++row) BEGIN
+      READ_2DA_ENTRY_FORMER r2en_table row 1 num_psps
+      INNER_ACTION BEGIN
+        COPY_EXISTING ~%psp_spl%.spl~ ~override~
+          PATCH_IF (VARIABLE_IS_SET %num_psps%) BEGIN
+            PATCH_IF (IS_AN_INT %num_psps%) AND (%num_psps% > 0) BEGIN
+              LPF ADD_SPELL_EFFECT INT_VAR header = (%row% + 1) opcode = 95 target = 1 parameter1 = %num_psps% parameter2 = 1 timing = 9 END
+            END
+          END
+        IF_EXISTS BUT_ONLY
+      END
+    END
+  BUT_ONLY
+  COPY_EXISTING ~%psp_spl%.spl~ ~override~
+    FOR (header = 1 ; header < 40; ++header) BEGIN
+      LPF ADD_SPELL_EFFECT INT_VAR header = %header% /*(%header% + 1)*/ insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~%psp_spl%~ END
+    END
+  BUT_ONLY
+
+END		//	end function
+//__________________________________________________________________________________
+
+

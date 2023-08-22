@@ -9,9 +9,9 @@
 DEFINE_ACTION_FUNCTION dark_sun_mode BEGIN
 
 COPY_EXISTING ~d5pswt0.spl~ ~override~
-  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 93 probability2 = 0 STR_VAR match_resource = ~d5pswt1~ END
-  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 96 probability2 = 89 STR_VAR match_resource = ~d5pswt2~ END
-  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 100 probability2 = 94 STR_VAR match_resource = ~d5pswt3~ END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 90 probability2 = 0 STR_VAR match_resource = ~d5pswt1~ END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 95 probability2 = 80 STR_VAR match_resource = ~d5pswt2~ END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 probability1 = 100 probability2 = 91 STR_VAR match_resource = ~d5pswt3~ END
 IF_EXISTS BUT_ONLY
 
 END 	//	end define function

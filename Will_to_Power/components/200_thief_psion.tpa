@@ -98,7 +98,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 END
 //____________________________________________________________________________________
 
-
+COPY ~will_to_power/data/kit/d5psith.2da~ ~override~
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5ps000.bam~) BEGIN
   COPY ~will_to_power/data/d5ps000.bam~ ~override~
 END
@@ -112,8 +112,19 @@ COPY ~will_to_power/data/kit/d5pzion.spl~ ~override~
 COPY ~will_to_power/data/kit/d5pzion.eff~ ~override~
 COPY ~will_to_power/data/kit/d5pzion.cre~ ~override~
 COMPILE ~will_to_power/data/kit/d5pzion.baf~
-//____________________________________________________________________________________
 
+/*
+APPEND ~d5psith.2da~ ~PSI_PTS     AP_D5PSP01  AP_D5PSP5B  AP_D5PSP5C  AP_D5PSP5D  AP_D5PSP5E  AP_D5PSP5F  AP_D5PSP5G  AP_D5PSP5H  AP_D5PSP5I  AP_D5PSP5J  AP_D5PSP5K  AP_D5PSP5L  AP_D5PSP5M  AP_D5PSP5N  AP_D5PSP5O  AP_D5PSP5P  AP_D5PSP5Q  AP_D5PSP5R  AP_D5PSP5S  AP_D5PSP5T  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** 
+PSI_PTS     AP_D5PSP5A  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~PSI_PTS~
+*/
+
+COPY ~%MOD_FOLDER%/misc/mxsplps1.2da~ ~override~ 
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5pspz1.spl~) BEGIN
+  LAF apply_psp_table STR_VAR psp_table = ~mxsplps1~ psp_spl = ~d5pspz1~ END
+END
+APPEND ~d5psith.2da~ ~PSI_PTS     AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1  AP_D5PSPZ1 ~ UNLESS ~PSI_PTS~
+
+//____________________________________________________________________________________
 
 LAF ~DEFINE_FNP_KIT_INFO~
   INT_VAR
@@ -229,6 +240,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 END
 //____________________________________________________________________________________
 
+COPY ~will_to_power/data/kit/d5psithm.2da~ ~override~
 
 LAF ~DEFINE_FNP_KIT_INFO~
   INT_VAR

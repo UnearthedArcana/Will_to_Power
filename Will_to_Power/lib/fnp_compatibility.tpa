@@ -1,5 +1,5 @@
 
-// 0.85.0
+// 0.85.16
 
 //REMOVE BLANK LINES MACRO___________________________________________________________
 //
@@ -569,10 +569,16 @@ DEFINE_ACTION_FUNCTION apply_fnp_spheres STR_VAR clab_name = ~x~ BEGIN
 		  BUT_ONLY
 		  ACTION_PHP_EACH d5_fnp_kit_caster_type AS this_kit => caster_type BEGIN
 			ACTION_IF (~%this_kit%~ STRING_EQUAL_CASE ~%mod_clab%~) && !(~%caster_type%~ STRING_EQUAL_CASE ~mystic~) BEGIN
-			  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) /*AND !(FILE_EXISTS_IN_GAME ~d5__fnp_spont_casting.d5~)*/ BEGIN
+			  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) AND !(FILE_EXISTS_IN_GAME ~d5__fnp_spont_casting.d5~) BEGIN
 			    APPEND ~%mod_clab%.2da~ ~SPHERES     AP_D5SF%shortsphere%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ 
 			  END
-			  ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) OR (FILE_EXISTS_IN_GAME ~d5__fnp_spont_casting.d5~) BEGIN
+			  ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) AND !(FILE_CONTAINS_EVALUATED (~%mod_clab%.2da~ ~AP_D5ZZ000~)) BEGIN
+			    APPEND ~%mod_clab%.2da~ ~SPHERES     AP_D5SF%shortsphere%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ 
+			  END
+			  ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) AND (FILE_CONTAINS_EVALUATED (~%mod_clab%.2da~ ~AP_D5ZZ000~)) BEGIN
+			    APPEND ~%mod_clab%.2da~ ~SPHERES     AP_D5ZF%shortsphere%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ 
+			  END
+			  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) AND (FILE_EXISTS_IN_GAME ~d5__fnp_spont_casting.d5~) BEGIN
 			    APPEND ~%mod_clab%.2da~ ~SPHERES     AP_D5ZF%shortsphere%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ 
 			  END
 			END
@@ -1401,14 +1407,14 @@ Weapons Usable by this kit:
 			END
 		  END
 	      SPRINT kit_weapon_use ~%base_weapon_use%~^~%these_weapon_use%~
+//	      PATCH_PRINT ~%kit_weapon_use%~
+	      PATCH_IF (simpler_usability_changes = 0) BEGIN
+	        GET_STRREF %kit_desc% kit_desc_text
+	        SPRINT new_kit_desc ~%kit_desc_text%~^~ %kit_weapon_use%~
+	        SET new_kit_desc_string = RESOLVE_STR_REF (~%new_kit_desc%~)
+	        SET_2DA_ENTRY row 4 10 new_kit_desc_string
+	      END
 		END
-//        PATCH_PRINT ~%kit_weapon_use%~
-        PATCH_IF (simpler_usability_changes = 0) BEGIN
-          GET_STRREF %kit_desc% kit_desc_text
-          SPRINT new_kit_desc ~%kit_desc_text%~^~ %kit_weapon_use%~
-          SET new_kit_desc_string = RESOLVE_STR_REF (~%new_kit_desc%~)
-          SET_2DA_ENTRY row 4 10 new_kit_desc_string
-        END
 	    PATCH_IF (simpler_usability_changes = 0) BEGIN
 		 INNER_ACTION BEGIN
 		  ACTION_IF FILE_EXISTS_IN_GAME ~%mod_clab%.2da~ BEGIN

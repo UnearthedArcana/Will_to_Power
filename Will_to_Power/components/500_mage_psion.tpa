@@ -93,7 +93,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 END
 //____________________________________________________________________________________
 
-
+COPY ~will_to_power/data/kit/d5psima.2da~ ~override~
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5ps000.bam~) BEGIN
   COPY ~will_to_power/data/d5ps000.bam~ ~override~
 END
@@ -108,6 +108,15 @@ COPY ~will_to_power/data/kit/d5pzicm.eff~ ~override~
 COPY ~will_to_power/data/kit/d5pzicm.cre~ ~override~
 COMPILE ~will_to_power/data/kit/d5pzicm.baf~
 
+//APPEND ~d5psima.2da~ ~PSI_PTS     AP_D5PSP01  AP_D5PSP4B  AP_D5PSP4C  AP_D5PSP4D  AP_D5PSP4E  AP_D5PSP4F  AP_D5PSP4G  AP_D5PSP4H  AP_D5PSP4I  AP_D5PSP4J  AP_D5PSP4K  AP_D5PSP4L  AP_D5PSP4M  AP_D5PSP4N  AP_D5PSP4O  AP_D5PSP4P  AP_D5PSP4Q  AP_D5PSP4R  AP_D5PSP4S  AP_D5PSP4T  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~PSI_PTS~
+
+COPY ~%MOD_FOLDER%/misc/mxsplps2.2da~ ~override~ 
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5pspz2.spl~) BEGIN
+  LAF apply_psp_table STR_VAR psp_table = ~mxsplps2~ psp_spl = ~d5pspz2~ END
+END
+APPEND ~d5psima.2da~ ~PSI_PTS     AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2  AP_D5PSPZ2 ~ UNLESS ~PSI_PTS~
+
+//____________________________________________________________________________________
 
 LAF ~DEFINE_FNP_KIT_INFO~
   INT_VAR
@@ -220,6 +229,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 END
 //____________________________________________________________________________________
 
+COPY ~will_to_power/data/kit/d5psimam.2da~ ~override~
 
 LAF ~DEFINE_FNP_KIT_INFO~
   INT_VAR
