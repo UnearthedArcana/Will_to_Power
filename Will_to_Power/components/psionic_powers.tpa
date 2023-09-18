@@ -1311,6 +1311,7 @@ COPY ~will_to_power/data/d5ps204.spl~ ~override~   // 				inertial barrier
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 66 STR_VAR resource = ~d5px204~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
 COPY ~will_to_power/data/d5ps204.spl~ ~override/d5pr204.spl~
 	SAY NAME1 @2041
 	SAY UNIDENTIFIED_DESC @2042
@@ -1326,6 +1327,7 @@ COPY ~will_to_power/data/d5ps204.spl~ ~override/d5pr204.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 6 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5pr204~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnt6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5py204~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
 COPY ~will_to_power/data/d5px204.bam~ ~override~
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px204.spl~
 	SAY NAME1 @2043
@@ -1351,6 +1353,8 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py204.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx6~ END
 COPY ~will_to_power/data/d5ps204a.bam~ ~override~
 COPY ~will_to_power/data/d5ps204a.vvc~ ~override~
+COPY ~will_to_power/data/d5ps204z.bam~ ~override~
+COPY ~will_to_power/data/d5ps204z.vvc~ ~override~
 COPY ~will_to_power/data/d5ps204a.eff~ ~override~
 COPY ~will_to_power/data/d5ps204b.eff~ ~override~
 COPY ~will_to_power/data/d5ps204c.eff~ ~override~
@@ -1359,16 +1363,19 @@ COPY ~will_to_power/data/d5ps204a.spl~ ~override~
 	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
 	END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 4 STR_VAR resource = ~d5_sns2~ END
 COPY ~will_to_power/data/d5ps204b.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5smlnp% END
 	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
 	END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 4 STR_VAR resource = ~d5_sns2~ END
 COPY ~will_to_power/data/d5ps204c.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5smlnp% END
 	PATCH_IF (FILE_EXISTS_IN_GAME ~k1#inse.spl~) BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 9 parameter2 = 1 timing = 1 STR_VAR resource = ~k1#inse~ END
 	END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 4 STR_VAR resource = ~d5_sns2~ END
 COPY ~will_to_power/data/d5ps204d.spl~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps204p.spl~
 	SAY NAME1 @2041
@@ -2451,7 +2458,7 @@ COPY ~will_to_power/data/d5ps402.spl~ ~override~   //  				metabolic acceleratio
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp_3~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
-COPY ~will_to_power/data/d5ps403.spl~ ~override/d5pr402.spl~
+COPY ~will_to_power/data/d5ps402.spl~ ~override/d5pr402.spl~
 	SAY NAME1 @4021
 	SAY UNIDENTIFIED_DESC @4022
 	WRITE_LONG 0x34 5
