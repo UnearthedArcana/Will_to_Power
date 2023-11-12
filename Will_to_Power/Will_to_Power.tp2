@@ -23,6 +23,10 @@ LANGUAGE
   ~English~
   ~english~
   ~will_to_power/language/english/setup.tra~
+LANGUAGE
+  ~Français~
+  ~french~
+  ~will_to_power/language/french/setup.tra~
 
 
 //__________________________________________________________________________________
