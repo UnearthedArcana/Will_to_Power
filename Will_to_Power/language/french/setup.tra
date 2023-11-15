@@ -433,3 +433,7 @@ Quand le psion reprend sa forme naturelle, il devient fatigué et subit une réd
 
 Unlike lesser psionic powers, these abilities may be used once per day. In each case, using the ability increases the psion's fatigue and causes a temporary reduction of 25 max hit points. Note: you may only learn one of the two ultimate powers in each discipline.~
 //
+
+
+// identify UI
+@20000 = ~Identifications restantes : ~
