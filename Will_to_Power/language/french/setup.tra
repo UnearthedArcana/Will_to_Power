@@ -1,0 +1,439 @@
+@1   = ~ignore le composant~
+@2   = ~ignore le composant non-EE~
+@3   = ~skipping overhaul components~ //unused
+@4   = ~ignore les composants d'ajustement~
+@5   = ~ignore les composants de kits~
+@6   = ~...~
+@7   = ~ ~
+//unused
+//@15   = ~Bonus de sauvegarde contre les sorts~
+//@16   = ~Bonus de sauvegarde contre la mort~
+//@17   = ~Bonus de sauvegarde contre les souffles~
+//@18   = ~Bonus de sauvegarde contre les baguettes~
+//@19   = ~Bonus de sauvegarde contre la pétrification~
+//unused
+//@33  = ~- Accès focus aux sphères : ~
+//@34  = ~- Accès majeur aux sphères : ~
+//@35  = ~- Accès mineur aux sphères : ~
+//unused
+//@36  = ~Advantages:~
+//@37  = ~Abilities:~
+//@38  = ~Disadvantages:~
+//@39  = ~Restrictions:~
+//@40  = ~Shapeshift Natural Form~
+@97  = ~Choisir un autre pouvoir~
+//@20097  = ~Choisir un autre pouvoir~
+@98  = ~Choisir ce pouvoir~
+//@20098  = ~Choisir ce pouvoir~
+@99  = ~Choisir un pouvoir psionique~
+//@20099  = ~Choisir un pouvoir psionique~
+@96  = ~Utiliser cette faculté pour apprendre un nouveau pouvoir psionique~
+//@20100  = ~Utiliser cette faculté pour apprendre un nouveau pouvoir psionique~
+//@100   = ~Installer le système psionique~
+@200   = ~Ajouter le Psioniste, voleur/psion~
+@300   = ~Ajouter le Guerrier Psychique, guerrier/psion~ //seems to match somewhat
+@400   = ~Ajouter le Psypher, rodeur/psion~ // no inspiration :/
+@500   = ~Ajouter le Cerebromant, mage/psion~
+@900   = ~Mode Dark Sun : Tout le monde est un talent natif~
+@950   = ~Permettre aux clercs multiclasses d'utiliser plus d'armes~
+//
+@101  = ~Initialisation du système psionique~
+@102  = ~Initialisation du système psionique : cette faculté permet d'utiliser les pouvoir psioniques en rendant le personnage multiclassé. La progression psionique utilise les tables de clerc pour l'expérience et le TAC0.~
+@103  = ~initialiser les aptitudes psioniques~
+@111  = ~Détection de talent natif~
+@112  = ~Cette faculté effectue un jet pour déterminer si le personnage est un talent natif qui a accès à un pouvoir psionique.~
+@151  = ~Méditation réparatrice~
+@152  = ~Méditation réparatrice : cette faculté permet à un psion de se reposer et méditer entre des rencontres de combat et ainsi de retirer les effets de la fatigue et de récupérer une partie de ses points de force psionique.~
+//
+@201  = ~psioniste~
+@202  = ~Psioniste~
+@203  = ~PSIONISTE : Le psioniste est un roublard qui se détourne des larcins pour se concentrer sur son éducation et la méditation pour exploiter pleinement le pouvoir du corps et de l'esprit. Les psionistes sont généralement instruits et autonomes. Leurs études et leur discipline leur permettent d'utiliser les pouvoirs de toutes les disciplines psioniques.
+
+NOTE : le kit de Psioniste est sélectionné depuis le menu de la classe de voleur. Au début du jeu, vous devez utiliser la faculté « Initialisation du système psionique » qui convertira le personnage en multi-classe voleur/psion. La progression psionique utilise les tables de clerc pour l'expérience et le TAC0 donc la fiche du personnage ressemblera à celle d'un clerc/voleur.
+
+CAPACITÉS :
+- Commence avec accès au premier pouvoir dans les cinq disciplines psioniques : Garde mentale, Force projetée, Décharge statique, Poussée d'adrénaline et Lecture d'objet. Le psioniste peut ensuite apprendre deux nouveaux pouvoirs pour chaque niveau d'expérience.
+- Les psionistes commencent avec 25 points de force psionique (PFP). Ils gagnent 5 PFP supplémentaires chaque niveau jusqu'au niveau 20.
+
+Restrictions :
+- Ne dispose que de 15 points par niveau pour les compétences de voleur.
+- Ne peut utiliser Pickpocket ou Pose de pièges.
+- Ne peut être d'alignement chaotique.
+~
+@301  = ~guerrier psychique~
+@302  = ~Guerrier psychique~
+@303  = ~GUERRIER PSYCHIQUE : Ces combattants font usage de la méditation pour développer des pouvoirs psychiques en renfort de leurs aptitudes martiales. Ils se concentrent sur leur éducation et la méditation pour exploiter pleinement le pouvoir du corps et de l'esprit. Les guerriers psychiques sont généralement instruits et autonomes. Leurs études et leur discipline leur permettent d'utiliser les pouvoirs de toutes les disciplines psioniques
+
+NOTE : le kit de Guerrier psychique est sélectionné depuis le menu de la classe de guerrier. Au début du jeu, vous devez utiliser la faculté « Initialisation du système psionique » qui convertira le personnage en multi-classe guerrier/psion. La progression psionique utilise les tables de clerc pour l'expérience et le TAC0 donc la fiche du personnage ressemblera à celle d'un guerrier/clerc.
+
+CAPACITÉS :
+- Commence avec accès au premier pouvoir dans les cinq disciplines psioniques : Garde mentale, Force projetée, Décharge statique, Poussée d'adrénaline et Lecture d'objet. Le guerrier psychique peut ensuite apprendre deux nouveaux pouvoirs pour chaque niveau d'expérience pair et un pouvoir pour les niveaux impairs, jusqu'au niveau 14. À partir du niveau 15, ils peuvent apprendre un nouveau pouvoir par niveau.
+- Les guerriers psychiques commencent avec 20 points de force psionique (PFP). Ils gagnent 4 PFP supplémentaires chaque niveau jusqu'au niveau 20.
+
+Restrictions :
+- Ne peut utiliser que des armures légères.
+- Ne peut être d'alignement chaotique.
+~
+@401  = ~psypher~
+@402  = ~Psypher~
+@403  = ~PSYPHER: Ces combattants font usage de la méditation pour développer des pouvoirs psychiques en renfort de leurs aptitudes à la survie. Ils se concentrent sur leur éducation et la méditation pour exploiter pleinement le pouvoir du corps et de l'esprit. Les psyphers sont généralement instruits et autonomes. Leurs études et leur discipline leur permettent d'utiliser les pouvoirs de toutes les disciplines psioniques
+
+NOTE : le kit de Guerrier psychique est sélectionné depuis le menu de la classe de rôdeur. Au début du jeu, vous devez utiliser la faculté « Initialisation du système psionique » qui convertira le personnage en multi-classe rôdeur/psion. La progression psionique utilise les tables de clerc pour l'expérience et le TAC0 donc la fiche du personnage ressemblera à celle d'un rôdeur/clerc.
+
+CAPACITÉS :
+- Commence avec accès au premier pouvoir dans les cinq disciplines psioniques : Garde mentale, Force projetée, Décharge statique, Poussée d'adrénaline et Lecture d'objet. Le psypher peut ensuite apprendre deux nouveaux pouvoirs pour chaque niveau d'expérience pair et un pouvoir pour les niveaux impairs, jusqu'au niveau 14. À partir du niveau 15, ils peuvent apprendre un nouveau pouvoir par niveau.
+- Les psyphers commencent avec 15 points de force psionique (PFP). Ils gagnent 5 PFP supplémentaires chaque niveau jusqu'au niveau 20, puis 2 points par niveau par la suite.
+
+Restrictions :
+- Ne peut utiliser que des armures légères.
+- Ne peut lancer de sorts divins.
+- Ne peut être d'alignement chaotique.
+~
+@501  = ~cérébromant~
+@502  = ~Cérébromant~
+@503  = ~CÉRÉBROMANT : le cérébromant allie la méditation nécessaire à sa progression comme psion avec les compétences dans les arts profanes. Combiner ces disciplines difficiles est rare mais le résultat est puissant. Les cérébromants ont une affinité avec l'école de magie profane de l'enchantement et du charme et se concentrent souvent sur la discipline psionique de télépathie.
+
+NOTE : le kit de Cérébromant est sélectionné depuis le menu de la classe de mage. Au début du jeu, vous devez utiliser la faculté « Initialisation du système psionique » qui convertira le personnage en multi-classe mage/psion. La progression psionique utilise les tables de clerc pour l'expérience et le TAC0 donc la fiche du personnage ressemblera à celle d'un mage/clerc.
+
+CAPACITÉS :
+- Commence avec accès au premier pouvoir dans les cinq disciplines psioniques : Garde mentale, Force projetée, Décharge statique, Poussée d'adrénaline et Lecture d'objet. Le cérébromant peut ensuite apprendre deux nouveaux pouvoirs pour chaque niveau d'expérience.
+- Les cérébromants commencent avec 20 points de force psionique (PFP). Ils gagnent 4 PFP supplémentaires chaque niveau jusqu'au niveau 20.
+
+Restrictions :
+- A les mêmes restrictions de sort et les mêmes caractéristiques pour l'apprentissage de sorts qu'un enchanteur.
+- Ne peut être d'alignement chaotique.
+~
+//
+//@1001  = ~Télépathie~
+//@1002  = ~Télépathie : ce don confère la faculté de Garde mentale et permet d'apprendre d'autres pouvoirs psioniques de la discipline de télépathie.~
+//@2001  = ~Télékinésie~
+//@2002  = ~Télékinésie: ce don confère la faculté de Force projetée et permet d'apprendre d'autres pouvoirs psioniques de la discipline de télékinésie.~
+//@3001  = ~Pyrokinésie~
+//@3002  = ~Pyrokinésie : ce don confère la faculté de Décharge statique et permet d'apprendre d'autres pouvoirs psioniques de la discipline de Pyrokinésie.~
+//@4001  = ~Biokinésie~
+//@4002  = ~Biokinésie : ce don confère la faculté de Poussée d'adrénaline et permet d'apprendre d'autres pouvoirs psioniques de la discipline de Biokinésie.~
+//@5001  = ~Clairsentience~
+//@5002  = ~Clairsentience : ce don confère la faculté de Lecture d'objet et permet d'apprendre d'autres pouvoirs psioniques de la discipline de Clairsentience.~
+//
+@1011  = ~Garde mentale~
+@1012  = ~Garde mentale : le psion érige une barrière mineure contre les attaques mentales, magiques ou psioniques. Cette barrière offre une deuxième chance de réussir un jet de sauvegarde pour éviter un effet de charme, de domination, de sommeil, d'immobilisation, de terreur, de confusion, de berserk, d'étourdissement ou de labyrinthe.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@1013  = ~Annuler Garde mentale~
+@1021  = ~Synchronisation sensorielle~
+@1022  = ~Synchronisation sensorielle : le psion crée une connexion entre les esprits d'un groupe d'alliés, ce qui leur permet d'agir de façon efficace ensemble et d'anticiper les actions des autres et les actions apparentes des ennemis. Chaque allié affecté reçoit un bonus de 1 point à la classe d'armure et aux dégâts de mêlée ainsi qu'une réduction d'un point aux dégâts causés par les attaques magiques. Au niveau 6, le bonus à la classe d'armure est porté à 2 points. Au niveau 12, le bonus à la classe d'armure est porté à 3 points.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@1023  = ~Annuler Synchronisation sensorielle~
+@1031  = ~Excitation du Ça~
+@1032  = ~Excitation du Ça : ce pouvoir s'attaque au subconscient de la cible, la forçant soit à devenir folle de terreur, soit à entrer en état de berserk et attaquer la créature la plus proche. L'effet dure 4 rounds sauf si la cible réussit un jet de sauvegarde avec une pénalité de 1 point. Au niveau 6, la pénalité au jet de sauvegarde passe à 2 points, puis à 3 points au niveau 12.
+
+Ce pouvoir coûte 4 points.~
+@1041  = ~Cinglement de l'ego~
+@1042  = ~Cinglement de l'ego : ce pouvoir provoque de la léthargie et du désespoir chez la cible, ce qui se traduit par une pénalité de 2 points aux jets de sauvegarde contre les enchantements et la télépathie pendant 1 tour. Si la cible échoue à un jet de sauvegarde, elle s'effondre au sol pendant 1 round et subit en plus une pénalité de 2 points au TAC0, à la vitesse des armes et aux autres jets de sauvegarde, ainsi qu'une pénalité d'un point à la chance et au temps d'incantation.
+
+Ce pouvoir coûte 4 points.~
+@1051  = ~Réparation cérébrale~
+@1052  = ~Réparation cérébrale : ce pouvoir retire les effets de terreur, de sommeil, de débilité mentale, d'inconscience, d'ébriété, ou encore les états de berserk, de confusion et d'étourdissement.
+
+Ce pouvoir coûte 4 points.~
+@1071  = ~Domination mentale~
+@1072  = ~Domination mentale : ce pouvoir permet de prendre contrôle de l'esprit d'une créature humanoïde pour une durée jusqu'à 10 rounds. La cible est dominée pendant 3 rounds sauf si elle réussit un jet de sauvegarde. Pendant les 7 rounds suivants, la victime peut faire un jet de sauvegarde chaque round pour essayer d'échapper à la domination. Au niveau 6, le jet de sauvegarde est fait avec une pénalité de 1 point. Au niveau 12, la pénalité augmente à 2 points.
+
+Ce pouvoir coûte 6 points.~
+@1081  = ~Forteresse intellectuelle~
+@1082  = ~Forteresse intellectuelle : le psion érige une puissante défense mentale contre les attaques mentales, psioniques ou magiques. Cette défense protège contre les effets de charme, de domination, de sommeil, d'immobilisation, de terreur, de confusion, de débilité mentale, d'étourdissement et de labyrinthe.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@1083  = ~Annuler Forteresse intellectuelle~
+@1091  = ~Écrasement psychique~
+@1092  = ~Écrasement psychique : ce pouvoir libère une puissante attaque mentale qui étourdit une créature pendant 3 rounds et inflige 3d4 dégâts psychiques (étourdissants) si la cible échoue à un jet de sauvegarde avec une pénalité de 2 points (qui évite l'étourdissement et réduit les dégâts de moitié). Au niveau 12, la pénalité du jet de sauvegarde passe à 3 points et les dégâts à 4d4, puis au niveau 18, la pénalité au jet de sauvegarde est portée à 4 points et les dégâts à 4d6. De plus, il y a 50 % de chances que ce pouvoir supprime les protections d'Ordres chaotiques, d'Esprit vierge, d'Exaltation et autres sorts similaires. Enfin, même si la cible réussit son jet de sauvegarde, elle subit une pénalité de 3 points aux jets de sauvegarde contre les enchantements et la télépathie pendant le tour qui suit.
+
+Ce pouvoir coûte 6 points.~
+
+@1101  = ~Hystérie collective~
+@1102  = ~Hystérie collective : ce pouvoir provoque des comportements chaotiques, irrationnel et parfois violents chez les ennemis proches, qui durent trois rounds. Les ennemis peuvent surmonter les effets en réussissant un jet de sauvegarde. Au niveau 6, les ennemis doivent réussir leur jet de sauvegarde avec une pénalité de 1 point et l'effet dure 5 rounds. Au niveau 12, la pénalité au jet de sauvegarde passe à deux points et l'effet dure 7 rounds.
+
+Ce pouvoir coûte 6 points.~
+
+@1111  = ~Bruit synaptique~
+@1112  = ~Bruit synaptique : ce pouvoir crée un bourdonnement discordant dans le cerveau de toutes les créatures alentours, le psion lui-même inclus. Cet effet ralentit le lancer de sorts de la cible et provoque 60 % de chances d'échouer sur une tentative de lancer un sort ou d'utiliser un pouvoir psionique.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 12 points. De plus, ce pouvoir augmente la fatigue du psion.~
+@1113  = ~Annuler Bruit synaptique~
+//
+@2011  = ~Force projetée~
+@2012  = ~Force projetée : ce pouvoir frappe la cible avec de l'énergie télékinétique puissante mais imprécises qui infligent 1d8 points de dégâts étourdissants et, sur un échec au jet de sauvegarde, la repousse de 1,5 m en arrière. De plus, ce pouvoir a 50 % de chances de briser un verrou. AU niveau 6, les dégâts passent à 1d10 et le jet de sauvegarde est fait avec une pénalité de 1 point, puis au niveau 12, les dégâts passent à 2d6 et la pénalité au jet de sauvegarde à 2 points.
+
+Ce pouvoir coûte 4 points.~
+@2021  = ~Mobilité améliorée~
+@2022  = ~Mobilité améliorée : ce pouvoir permet au psion d'échapper à toute entrave, mais aussi d'éviter de subir les effets qui l'immobilisent ou limitent sa mobilité. Même si le pouvoir n'est pas aussi puissant que le sort de magie Action libre, le psion parviendra à éviter les sorts ou événements qui entravent ses mouvements dans 60 % des cas tant que ce pouvoir est maintenu.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@2023  = ~Annuler Mobilité améliorée~
+@2031  = ~Immobiliser~
+@2032  = ~Immobiliser : la cible de ce pouvoir est immobilisée sur place, incapable de se déplacer ou d'agir, si elle échoue à un jet de sauvegarde. Le deuxième round, et chaque round suivant jusqu'à 10 rounds, une cible immobilisée peut tenter un nouveau jet de sauvegarde pour échapper à l'effet. Même quand la cible réussit le jet de sauvegarde, elle est brièvement sous l'effet de lenteur pendant qu'elle combat le pouvoir télékinétique. Aux niveaux 6 et 12, le jet de sauvegarde se fait avec une pénalité de 1 puis 2 points respectivement.
+
+Ce pouvoir coûte 4 points.~
+@2041  = ~Barrière inertielle~
+@2042  = ~Barrière inertielle : ce pouvoir crée une bulle de force autour du psion. Cette barrière absorbe le mouvement des objets qui se dirigent le psion, ce qui améliore sa classe d'armure de 2 points et lui confère une résistance aux dégâts de projectiles de 50 %. De plus, elle oblige les ennemis qui se dirigent vers le psion à s'arrêter brièvement s'ils échouent à un jet de sauvegarde contre la pétrification/métamorphose. Au niveau 6, le jet de sauvegarde est fait avec une pénalité de 1 point et les ennemis qui échouent sont repoussés par télékinésie à distance de la barrière. Au niveau 12, la pénalité passe à 2 points et la classed'armure du psion est encore améliorée d'un point.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@2043  = ~Annuler Barrière inertielle~
+@2051  = ~Lame psychique~
+@2052  = ~Lame psychique: le psion focalise de l'énergie télékinétique sous la forme d'une lame tranchante comme un rasoir dans sa main. Cette lame de force peut être maniée comme une épée, comme si le psion était spécialisé (2 étoiles) dans son utilisation. Elle inflige 1d4 point de dégâts tranchants et 1d4 points de dégâts étourdissants. Au niveau 6, le psion la manie comme un maître (3 étoiles) et au niveau 12, comme un grand-maître(5 étoiles).
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@2053  = ~Annuler Lame psychique~
+@2071  = ~Répulsion~
+//@2071  = ~Mobilité sans entrave~
+@2072  = ~Répulsion : avec ce pouvoir, le psion libère une explosion d'énergie télékinétique à l'endroit où il se trouve. L'explosion projette tous les ennemis loin du point d'origine de la zone d'effet, peut les projeter au sol sur un échec au jet de sauvegarde et inflige 2d8 dégâts de force (jet de sauvegarde pour moitié et éviter de tomber). Au niveau 6, les dégâts passent à 3d8 et le jet de sauvegarde est fait avec une pénalité de 1 point. Au niveau 12, les dégâts passent à 4d8 et le jet est fait avec une pénalité de 2 points. Les créatures constituées de matériaux inanimés, comme les golems et les squelettes, sont particulièrement vulnérables à la détonation et subissent des dégâts doublés.
+
+Ce pouvoir coûte 6 points.~
+
+@2081  = ~Animation de matière~
+@2082  = ~Animation de matière : avec ce pouvoir, le psion focalise de l'énergie télékinétique sur une quantité de pierre, de terre ou d'autres débris. La construction prend une forme humanoïde grossière et peut être contrôlée par le psion pour combattre sous ses ordres.
+
+Animer la construction pendant 5 rounds coûte 6 points.~
+@2084  = ~Construction animée~
+@2091  = ~Immobiliser en masse~
+@2092  = ~Immobiliser en masse : tous les ennemis à moins de 6 m du psion sont immobilisés sur place, incapables de se déplacer ou d'agir, s'ils échouent à un jet de sauvegarde. Au deuxième round et tous les rounds suivants jusqu'au dixième, chaque cible immobilisée peut tenter un jet de sauvegarde pour échapper à l'effet. Même si un jet est réussi, la victime est brièvement sous un effet de lenteur, le temps de combattre le pouvoir télékinétique. Au 6ème et au 12ème niveaux, les jets de sauvegarde sont effectués avec une pénalité de 1 point et de 2 points respectivement.
+
+Ce pouvoir coûte 6 points.~
+
+@2101  = ~Contrôle cinétique~
+@2102  = ~Contrôle cinétique : tant que ce pouvoir est maintenu, le psion peut, chaque round, absorber l'énergie d'une attaque physique d'arme, de griffe, de flèche ou autre attaque similaire avant qu'elle ne touche le psion. Au niveau 12, il y a une chance que l'énergie cinétique des attaques de mêlée absorbées soit retournée vers l'attaquant avec un effet similaire au pouvoir Force projetée.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 6 points.~
+@2103  = ~Annuler Contrôle cinétique~
+
+@2111  = ~Vibration sismique~
+@2112  = ~Vibration sismique : ce pouvoir déclenche une forte secousse dans le sol environnant. Tous les ennemis alentours subissent 4d6 points de dégâts chaque round pendant 3 rounds. Ils peuvent tenter un jet de sauvegarde chaque round pour éviter la moitié des dégâts. Les ennemis doivent aussi réussir un jet de sauvegarde au premier round pour éviter de chuter. Ceux qui sont tombés ne peuvent se relever avant la fin du séisme.
+
+Ce pouvoir coûte 12 points et l'utiliser augmente la fatigue du psion.~
+//
+@3011  = ~Décharge statique~
+@3012  = ~Décharge statique : ce pouvoir est similaire au sort de mage Poigne électrique. Le psion recueille de l'électricité statique dans sa main puis l'utilise pour attaquer un ennemi. L'ennemi subit 2d4+1 points de dégâts et doit réussir un jet de sauvegarde ou être étourdi pendant 1 round. Au niveau 6, les dégâts sont portés à 3d4+2 et le jet de sauvegarde est effectué avec une pénalité de 1 point. Au niveau 12, les dégâts passent à 4d4+3 et le jet a une pénalité de 2 points.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@3013  = ~Annuler Décharge statique~
+@3021  = ~Éclair solaire~
+@3022  = ~Éclair solaire : ce pouvoir crée un rayon d'intense énergie éclatante dans un rayon de 6 m autour du psion. Tous les ennemis dans la zone d'effet subissent 1d4 points de dégâts de chaleur et doivent réussir un jet de sauvegarde contre la pétrification avec une pénalité de 1 point pour ne pas être aveuglés pendant 2 rounds. La pénalité au jet de sauvegarde est portée à 2 points au niveau 12, puis à 3 points au niveau 18. Les morts-vivants frappés par Éclair solaire subissent des dégâts doublés.
+
+Ce pouvoir coûte 4 points.~
+@3024  = ~Aveuglé~
+@3031  = ~Agitation moléculaire~
+@3032  = ~Agitation moléculaire : ce pouvoir permet au psion d'exciter les molécules au contact de son arme au point d'enflammer les matériaux avec lesquels elles entrent en contact. Le résultat est que les attaques de mêlée réussies par le psion infligent 1d4 point de dégâts de chaleur en plus des dégâts normaux de l'arme.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@3033  = ~Annuler Agitation moléculaire~
+@3041  = ~Confinement d'énergie~
+@3042  = ~Confinement d'énergie : tant que ce pouvoir est maintenu, le psion absorbe et  disperse instinctivement, les énergies néfastes. Sa résistance aux dégâts basés sur les énergies (feu, froid, électricité et magique) est fixée à 40 %. Elle passe à 50 % au niveau 6, puis à 60 % au niveau 12.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@3043  = ~Annuler Confinement d'énergie~
+@3051  = ~Combustion psychique~
+@3052  = ~Combustion psychique : ce pouvoir permet au psion de créer spontanément, n'importe tout,  un feu de courte durée mais intense. Les flammes infligent 3d4+3 points de dégâts de feu à tous les ennemis à moins de 1,5 m du lieu désigné. Les dégâts passent à 4d4+4 au niveau 6, puis à 5d4+5 au niveau 12.
+
+Ce pouvoir coûte 4 points.~
+@3071  = ~Modulation d'énergie~
+@3072  = ~Modulation d'énergie : ce pouvoir permet au psion de contrôler mentalement le flux d'énergie autour de lui. Les alliés infligeront 50 % de dégâts en plus avec les attaques basées sur l'énergie tandis que les ennemis verront ces attaques affaiblies au point d'infliger 50 % de dégâts en moins.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@3073  = ~Annuler Modulation d'énergie~
+@3081  = ~Précipitation glaciale~
+@3082  = ~Précipitation glaciale : ce pouvoir retire l'énergie calorifique dans une zone à une vitesse prodigieuse. De la neige et de la glace se précipiteront dans l'air et les créatures dans la zone d'effet subiront 2d4 points de dégâts de froid par round pendant 4 rounds. De plus les créatures dans la zone d'effet doivent réussir un jet de sauvegarde contre les souffles chaque round sous peine de voir leur vitesse de déplacement réduite de moitié pendant ce round.
+
+Ce pouvoir coûte 6 points.~
+@3091  = ~Génération de foudre~
+@3092  = ~Génération de foudre : après avoir consacré quelques instants pour recueillir de l'électricité statique dans la zone environnante, le psion peut la décharger comme un violent éclair. La foudre frappe la cible choisie et se propage vers tous les ennemis à moins de 3 m (le psion a un certain contrôle sur la propagation et peut protéger ses compagnons). La décharge inflige 2d6 points de dégâts d'électricité. Les dégâts sont portés à 3d6 au niveau 6 puis à 4d6 au niveau 12.
+
+Ce pouvoir coûte 6 points.~
+@3101  = ~Inversion d'énergie négative~
+@3102  = ~Inversion d'énergie négative : ce pouvoir permet au psion de convertir l'énergie négative en énergie positive. Ceci lui permet de résister aux attaques directes d'énergie négative, comme le drain de niveau des vampires, et ajoute 1d6 points de dégâts 'énergie positive aux attaques du psion contre les morts-vivants. Au niveau 6, les dégâts passent à 2d4, puis à 2d6 au niveau 12.
+
+Maintenir ce pouvoir coûte pendant 10 rounds coûte 6 points.~
+@3103  = ~Annuler Inversion d'énergie négative~
+@3111  = ~Tempête d'énergie~
+@3112  = ~Tempête d'énergie : ce pouvoir remplit les environs avec une tempête tourbillonnante de feu et d'électricité. Pendant 3 rounds, les ennemis dans la zone subissent 1d10 points de dégâts de feu et 1d10 points de dégâts électriques (jet de sauvegarde avec une pénalité de 3 points pour réduire de moitié). De plus les éclairs lumineux à l'intérieur de la tempête obligent les ennemis à réussir un jet de sauvegarde avec une pénalité de 3 points pour ne pas être aveuglés pendant 4 rounds.
+
+Ce pouvoir coûte 12 points et l'utiliser augmente la fatigue du psion.~
+//
+@4011  = ~Poussée d'adrénaline~
+@4012  = ~Poussée d'adrénaline : ce pouvoir stimule temporairement le psion, ajoutant 2 points à sa force et augmentant son maximum de points de vie de 8 points, pendant 3 rounds. À la fin de cette période, le psion devient fatigué et affaibli (sa force est diminuée de 4 points) pendant 2 rounds, le temps qu'il retrouve son souffle. Le bonus de force est porté à 3 points et celui de points de vie à 10 points au niveau 6 pendant 4 rounds, puis à 4 points de force et 15 points de vie au niveau 12 et dure 5 rounds.
+
+Utiliser ce pouvoir coûte 4 points et il ne peut être utilisé à nouveau tant que la faiblesse n'est pas dissipée.~
+
+@4021  = ~Accélération métabolique~
+@4022  = ~Accélération métabolique : ce pouvoir permet au psion d'accélérer drastiquement ses fonctions biologiques pour une brève période. Pendant 5 rounds, sa vitesse de déplacement sera doublée et il sera capable d'exécuter une attaque physique supplémentaire chaque round. Cet effet dure 5 rounds, à la suite desquels le psion retourne à son rythme de vie normal.
+
+Ce pouvoir coûte 4 points.~
+@4031  = ~Purification du corps~
+@4032  = ~Purification du corps : ce pouvoir retire toutes les toxines, aussi bien naturelles que magiques, du corps. Il neutralise tous les poisons et toutes les maladies dont le psion pourrait souffrir, ainsi que la cécité et la surdité.
+
+Ce pouvoir coûte 4 points.~
+@4041  = ~Bio-régénération~
+@4042  = ~Bio-régénération : ce pouvoir pousse le système immunitaire du psion dans un processus de guérison important, ce qui provoque une régénération de 1 point de vie par round. C'est un pouvoir qui peut être maintenu ; le psion peut conserver ce pouvoir actif jusqu'à guérison complète mais, pour ce faire, il doit se concentrer et ne peut combattre en même temps. Au niveau 6, le psion régénère 3 points de vie tous les 2 rounds, puis au niveau 12, 3 points de vie par round.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@4043  = ~Annuler Bio-régénération~
+@4051  = ~Simulation Chimique~
+@4052  = ~Simulation Chimique : ce pouvoir permet au psion de sécréter un liquide toxique qu'il peut projeter sur un ennemi proche. Cette attaque inflige 2d3 points de dégâts de poison, auxquels s'ajoutent 1 point par round 5 rounds (en cas de réussite au jet de sauvegarde contre le poison, les dégâts initiaux sont réduits de moitié et les dégâts continus sont évités). Au niveau 6, les dégâts passent à 2d4 plus 2 par round, puis au niveau 12, à 2d6 plus 3 par round.
+
+Ce pouvoir coûte 4 points.~
+@4071  = ~Transfert empathique~
+@4072  = ~Transfert empathique : ce pouvoir permet au psion de sacrifier sa propre santé pour soigner un allié. Si le nombre de point de vie actuel du psion est supérieur à celui de son allié, la différence sera soustraite des points de vie du psion et transférée à l'allié. De plus, l’allié peut être soigné de poison, de maladie, de cécité ou de surdité. Le psion transfère ces affections et les purge immédiatement avec une Purification du corps.
+Utiliser ce pouvoir coûte 6 points et l'effort exigé par ce type de soins augmente la fatigue du psion.~
+@4081  = ~Camouflage visuel~
+@4082  = ~Camouflage visuel : ce pouvoir permet au corps du psion de se fondre dans l'environnement comme un caméléon. L'effet est similaire au sort d'Invisibilité suprême mais n'est pas une vraie invisibilité : le psion bénéficie d'un bonus de 4 points à la CA, de 40 % à la discrétion et ne peut être ciblé facilement par les lanceurs de sorts.
+
+Maintenir le camouflage pendant 10 rounds coûte 6 points.~
+@4083  = ~Annuler Camouflage visuel~
+@4091  = ~Carapace dermique~
+@4092  = ~Carapace dermique : ce pouvoir durcit la peau du psion, qui prend l'apparence d'une carapace dure mais cassante qui se régénère rapidement. Elle fournit un bonus à la CA de 2 points et absorbe une attaque physique chaque round.
+
+Maintenir la carapace pendant 10 rounds coûte 6 points.~
+@4093  = ~Annuler Carapace dermique~
+
+@4101  = ~Bio-feedback~
+@4102  = ~Bio-feedback : tant que ce pouvoir est maintenu, le psion contrôle instinctivement son flux sanguin et la manière dont son corps réagit aux blessures. Ceci lui accorde une résistance de 30 % aux dégâts physiques et biologiques (tranchant, contondant, perforant, projectile, acide ou poison). Au niveau 6, les résistances passent à 40 M, puis à 50 % au niveau 12.
+
+Maintenir le bio-feedback pendant 10 rounds coûte 4 points.~
+@4103  = ~Annuler Bio-feedback~
+
+@4111  = ~Métamorphisme bestial~
+@4112  = ~Métamorphisme bestial : avec ce pouvoir, le psion subit une transformation radicale. Il obtient une force sauvage et des caractéristiques bestiales semblables à celles d'un loup-garou majeur.
+
+Maintenir la carapace coûte 12 points ; quand le psion retrouve sa forme normale, sa fatigue augmente.~
+@4113  = ~Annuler Métamorphisme bestial~
+//
+@5011  = ~Lecture d'objet~
+@5012  = ~Lecture d'objet : en se concentrant sur un objet, le psion peut obtenir une compréhension de son histoire et de sa fonction. C'est particulièrement efficace pour les objets qui ont été enchantés, avec un effet similaire au sort Identification.
+
+Utiliser ce pouvoir coûte 4 points. À cause de la concentration intense nécessaire, cette faculté ne peut être utilisée au combat.~
+@5021  = ~Évaluation d'aura~
+@5022  = ~Évaluation d'aura : avec ce pouvoir, le psion peut lire l'aura d'une créature et découvrir ses forces et ses faiblesses. Pendant 2 tours, les résistances physiques de la cible sont réduites de 10 % et tous les jets d'attaque contre la cible se font avec un bonus à de 2 points. Ce pouvoir n'a aucun effet sur les créatures qui n'ont pas d'aura, comme les constructions.
+
+Utiliser ce pouvoir coûte 4 points.~
+@5031  = ~Frappe perspicace~
+@5032  = ~Frappe perspicace : tant que ce pouvoir est actif, l'attaque suivante exécutée par le psion sera automatiquement un coup critique. Quand le coup est porté, le pouvoir est annulé.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@5033  = ~Annuler Frappe perspicace~
+@5041  = ~Prémonition instinctive~
+@5042  = ~Prémonition instinctive : tant que ce pouvoir est maintenu, l'intuition et la prescience du psion lui accordent 1 point de bonus à la chance, ce qui se traduit par un bonus de 5 % aux jets d'attaque, de sauvegarde, aux compétences e voleur et aux dégâts, ainsi qu'un bonus de 10 % aux jets de compétences.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 4 points.~
+@5043  = ~Annuler Prémonition instinctive~
+@5051  = ~Observation à distance~
+@5052  = ~Observation à distance : quand il active ce pouvoir, le psion peut observer une zone à distance. Après l'avoir activée, cliquez sur la section de la carte que vous voulez voir. Pendant 5 rounds, le psion peut espionner cet endroit et noter les créatures et les fortifications.
+
+Utiliser ce pouvoir coûte 4 points.~
+@5071  = ~Lien du destin~
+@5072  = ~Lien du destin : en utilisant ce pouvoir, le psion étend son aura et la connecte avec d'autres créatures alentours, d'une façon particulièrement sensible à la douleur et à la violence. Quand une créature proche blesse le psion, y compris avec une arme à distance, la rétroaction inflige 1d6 points de dégâts non-létaux à la créature. Au niveau 12, toute créature affectée par ces dégâts doit réussir un jet de sauvegarde pour éviter d'être étourdi pendant deux rounds.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 6 points.~
+@5073  = ~Annuler Lien du destin~
+
+@5081  = ~Détection de vie~
+@5082  = ~Détection de vie : ce pouvoir permet au psion de détecter les pensées intelligentes autour d'eux, ce qui permet au psion de voir et cibler les créatures invisibles (mais seulement au psion, pas aux autres, à moins qu'ils aient leurs propres moyens de percer l'invisibilité). Note : ce pouvoir fonctionne aussi sur les morts-vivants, les golems et autres constructions. Même ces êtres animés disposent de processus cognitifs suffisants pour leur contrôle moteur, et c'est ce que le pouvoir permet de détecter.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 6 points.~
+@5083  = ~Annuler Détection de vie~
+@5091  = ~Sens du Danger~
+@5092  = ~Sens du Danger : quand que ce pouvoir est maintenu, le psion bénéficie d'un bonus de 3 points à la CA, d'un bonus de 50 % à détection des pièges. Il ne peut subir d'attaques sournoises et peut éviter une attaque de projectile par round. Enfin, si le psion se trouve confronté à un effet magique ou environnemental qui peut être évité, il peut tenter un jet de sauvegarde contre les souffles pour complètement éviter l'effet.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 6 points.~
+@5093  = ~Annuler Sens du Danger~
+
+@5101  = ~Prévention du destin~
+@5102  = ~Prévention du destin : ce pouvoir protège le psion contre les effets de mort instantanée. De plus lorsque ses points de vie sont réduits à zéros par une autre méthode, le psion a la possibilité de tenter un jet de sauvegarde à chaque round pour éviter de mourir. Le psion survivra s'il est soigné avant d'échouer à un de ces jets de sauvegarde.
+
+Maintenir ce pouvoir pendant 10 rounds coûte 6 points.~
+@5103  = ~Annuler Prévention du destin~
+
+@5111  = ~Projection de l'esprit~
+@5112  = ~Projection de l'esprit : quand il utilise ce pouvoir, le psion peut sortir de son corps et explorer sous forme d'une projection mentale fantomatique. Cette projection ne peut pas interagir avec le monde physique mais peut utiliser les pouvoirs psioniques connus du psion. Par contre, elle n'a aucun moyen de récupérer des PFP. La projection a une source de points de vie virtuels qu'elle peut utiliser pour alimenter des pouvoirs psioniques, mais ils ne sont pas non plus récupérables. La projection peut être endommagée par la magie et les armes enchantées. Comme elle est relativement fragile et éthérée, ces attaques infligent généralement des dégâts doublés.
+
+Utiliser ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+//
+@9011  = ~Ultra-souffle~
+@9012  = ~Ultra-souffle : c'est un énorme souffle psionique omnidirectionnel qui agresse sauvagement les esprits des ennemis du psion. Tous les ennemis à moins de 6 m doivent réussir un jet de sauvegarde avec une pénalité de 3 points sous peine d'être étourdis pendant 3 rounds.
+
+Utiliser ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+@9021  = ~Construction d'énergie~
+@9022  = ~Construction d'énergie : ce pouvoir permet au psion de rassembler de l'énergie et de lui donner la forme d'une créature humanoïde brûlante qui agit et combat pour le psion.
+
+Utiliser ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+@9031  = ~Fission~
+@9032  = ~Fission : ce pouvoir permet de créer un clone conscient et compétent du psion. Le clone possède à peu près la moitié de l'expérience et de la vitalité de l'original et obéit à la volonté du psion (ils sont en réalité la même personne). Maintenir l'intégrité corporelle du clone est un acte de volonté suprême : le clone se désintègre au bout d'un tour.
+
+Utiliser ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+@9041  = ~Destruction atomique~
+@9042  = ~Destruction atomique : ce pouvoir se manifeste comme une intrusion violente dans l'énergie et la forme de la cible et déchire les cellules et les molécules les unes des autres. La cible est immobilisée sur place et subit 10d10 points de dégâts (jet de sauvegarde avec une pénalité de 2 points pour éviter la moitié des dégâts).
+
+Utiliser ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+@9051  = ~Exosquelette~
+@9052  = ~Exosquelette : ce pouvoir permet au psion de recouvrir son corps dans des couches de force télékinétique et ainsi de créer une coquille presque impénétrable de volonté pure. En apparence, son corps brille d'une lueur métallique terne.
+
+Utiliser ce pouvoir coûte 12 points. La fatigue du psion augmente quand il met fin à l'exosquelette.~
+@9053  = ~Annuler Exosquelette~
+@9061  = ~Constitution élémentaire~
+@9062  = ~Constitution élémentaire : ce pouvoir permet au psion d'imprégner son propre corps avec de l'énergie élémentaire et de prendre une forme pure de  flamme, de froid ou d'électricité.
+
+Maintenir ce pouvoir coûte 12 points. Quand il revient à sa forme normale, le psion voit sa fatigue augmenter.~
+@9063  = ~Annuler Constitution élémentaire~
+@9066  = ~Constitution électrique~
+@9067  = ~Constitution de feu~
+@9068  = ~Constitution de glace~
+@9071  = ~Canalisation de clairvoyance~
+@9072  = ~Canalisation de clairvoyance : ce pouvoir permet au psion de manifester des pouvoirs à tout endroit qu'il peut percevoir, au-delà des 18 m habituels. Ceci inclut les endroits qu'il peut voir avec des perceptions psychiques ou une vision lointaine d'origine magique, ou encore les endroits explorés par un des compagnons du psion.
+
+Maintenir ce pouvoir coûte 12 points. Quand le psion met fin à l'effet, sa fatigue augmente.~
+@9073  = ~Annuler Canalisation de clairvoyance~
+@9081  = ~Ancre spatio-temporelle~
+@9082  = ~Ancre spatio-temporelle : ce pouvoir crée une attache psychique entre la forme physique du psion et le plan d'existence sur lequel il se trouve. Cette attache évite au psion de subir les effets d'un sort ou phénomène qui entrave son mouvement, qui le téléporte ou l'arrache de ce plan sans son consentement.
+
+Maintenir ce pouvoir coûte 12 points. Quand le psion met fin à l'effet, sa fatigue augmente.~
+@9083  = ~Annuler Ancre spatio-temporelle~
+@9091  = ~Champ de stase~
+@9092  = ~Champ de stase : cette faculté fige toutes les créatures dans les alentours, au niveau moléculaire. Pendant 12 secondes,le psion est seul à pouvoir bouger et interagir avec le monde hors du temps. Sous stase, le psion ne peut rien endommager physiquement, mais il peut initier des pouvoirs psioniques ou magiques qui prendront effet après la fin de la stase. Prudence, certains êtres aux caractéristiques ou pouvoirs proches du divin peuvent être immunisés contre les effets d'un champ de stase.
+
+L'utilisation de ce pouvoir coûte 12 points et augmente la fatigue du psion.~
+@9101  = ~Contrôle corporel~
+@9102  = ~Contrôle corporel : ce pouvoir représente le contrôle ultime de ses propres processus biologiques. Le psion peut se rendre complètement résistant à des dégâts environnementaux comme l'acide, le feu le froid, l'électricité, le poison ou à des dégâts physiques comme les dégâts contondants, tranchants ou perforants/projectiles. Tant que le pouvoir est maintenu, le psion peut changer de type d'immunité à volonté pour s'adapter aux conditions adverses auxquelles il fait face.
+
+Maintenir ce pouvoir coûte 12 points. Quand le psion met fin à l'effet, sa fatigue augmente.~
+@9103  = ~Annuler Contrôle corporel~
+@91001  = ~Immunité à l'acide~
+@91002  = ~Immunité au froid~
+@91003  = ~Immunité à l'électricité~
+@91004  = ~Immunité au feu~
+@91005  = ~Immunité aux dégâts contondants~
+@91006  = ~Immunité aux dégâts tranchants~
+@91007  = ~Immunité aux dégâts perforants et de projectiles~
+@91008  = ~Immunité au poison~
+//
+@9991  = ~Évolution monstrueuse~
+@9992  = ~Évolution monstrueuse : ce pouvoir déclenche une croissante rapide du corps du psion, qui prend une forme massive et monstrueusement puissante. La forme monstrueuse a une CA de 5, un TAC0 de 2 et attaque deux fois par round avec ses poings puissants. Ces attaques infligent 3d6 points de dégâts contondants plus 2d4 points de dégâts de poison. Sous cette forme, le psion est immunisé contre les effets d'enchevêtrement, de toile et d'immobilisation, ainsi qu'à tous les poisons.
+
+Quand le psion reprend sa forme naturelle, il devient fatigué et subit une réduction temporaire de 20 points de son maximum de points de vie.~
+//
+// unused
+@10001  = ~Choosing this ability will enable you to choose another psionic ability. In addition, if you have learned at least four abilities in any of the four psionic disciplines, you will be able to learn one of two HLA-level powers from that discipline. The eight HLA-level psionic abilities are:
+
+- Telepathy: Ultrablast. Causes all nearby enemies to make a saving throw or be stunned.
+- Telepathy: Tower of Iron Will. This acts like the Intellect Fortress power, but protects all nearby allies while it is maintained.
+- Telekinesis: Earthquake. This acts like the priest spell of the same name.
+- Telekinesis: Stasis Field. This acts like the wizard spell Time Stop, but the psion cannot physically attack while the stasis field is active.
+- Pyrokinesis: Solar Flash. This acts like the priest spell Sunray, but will not automatically kill undead creatures.
+- Pyrokinesis: Energy Storm. This acts like the priest spell Storm of Vengeance, but with no acid or poison damage.
+- Biokinesis: Monstrous Evolution. This ability transforms the psion into a hulking beast, similar in appearance to a Shambling Mound.
+- Biokinesis: Fission. This acts like the wizard spell Simulacrum.
+
+Unlike lesser psionic powers, these abilities may be used once per day. In each case, using the ability increases the psion's fatigue and causes a temporary reduction of 25 max hit points. Note: you may only learn one of the two ultimate powers in each discipline.~
+//
+
+
+// identify UI
+@20000 = ~Identifications restantes : ~

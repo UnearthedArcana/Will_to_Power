@@ -103,8 +103,8 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~d5ps000.bam~) BEGIN
   COPY ~will_to_power/data/d5ps000.bam~ ~override~
 END
 COPY ~will_to_power/data/kit/d5pzion.spl~ ~override~
-  SAY NAME1 ~initialize psionic abilities~
-  SAY UNIDENTIFIED_DESC ~initialize psionic abilities~
+  SAY NAME1 @103
+  SAY UNIDENTIFIED_DESC @103
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 location = 4 STR_VAR icon = ~d5ps000~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 9 STR_VAR resource = ~d5pzion~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pswt_~ END
