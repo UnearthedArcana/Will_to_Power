@@ -33,6 +33,37 @@ COPY ~will_to_power/lib/markers/d5_marker.d5~ ~override/d5__psionics.d5~
 //____________________________________________________________________________________
 
 
+//READ IN SETTINGS____________________________________________________________________
+//
+INCLUDE ~override/d5_WTP_settings.ini~
+
+LAM d5_psp_costs
+
+OUTER_SET dev_plus = (%dev_cost% + 1)
+OUTER_SET dev_minus = (%dev_cost% - 1)
+OUTER_SET dev_half = (%dev_cost% / 2)
+
+OUTER_SET sci_plus = (%sci_cost% + 1)
+OUTER_SET sci_minus = (%sci_cost% - 1)
+OUTER_SET sci_half = (%sci_cost% / 2)
+
+OUTER_SET hla_plus = (%hla_cost% + 1)
+OUTER_SET hla_minus = (%hla_cost% - 1)
+OUTER_SET hla_half = (%hla_cost% / 2)
+
+PRINT ~dev_cost = %dev_cost%
+dev_plus = %dev_plus%
+dev_minus = %dev_minus%
+sci_cost = %sci_cost%
+sci_plus = %sci_plus%
+sci_minus = %sci_minus%
+hla_cost = %hla_cost%
+hla_plus = %hla_plus%
+hla_minus = %hla_minus%~
+
+//____________________________________________________________________________________
+
+
 //PREP SPLPROT.2DA____________________________________________________________________
 //
 APPEND ~splprot.2da~ ~D5_MXHP_GT%TAB%1%TAB%-1%TAB%3~						//	max HP > x
@@ -264,27 +295,27 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-2.spl~) BEGIN
 END
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-3.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-3.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 2) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %dev_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_3.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 2) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %dev_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+3.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 2 parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = %dev_half% parameter2 = 0 timing = 0 duration = 126144000 END
 END
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-5.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-5.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 3) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %sci_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_5.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 3) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %sci_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+5.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 3 parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = %sci_half% parameter2 = 0 timing = 0 duration = 126144000 END
 END
 ACTION_IF !(FILE_EXISTS_IN_GAME ~d5psp-X.spl~) BEGIN
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp-X.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 6) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %hla_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp_X.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - 6) parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = (0 - %hla_half%) parameter2 = 0 timing = 0 duration = 126144000 END
   COPY ~will_to_power/data/d5_base.spl~ ~override/d5psp+X.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 6 parameter2 = 0 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = %hla_half% parameter2 = 0 timing = 0 duration = 126144000 END
 END
 
 // every power will cast d5psp-# and d5psp_#, where # is half the power's cost, if the player has enough points
@@ -303,95 +334,65 @@ END
 //hit point cost files________________________________________________________________
 //
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psst6.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 4 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 7 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx6~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %dev_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %dev_plus% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psmx6~ END
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psst10.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 6 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 11 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx10~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %sci_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %sci_plus% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx10~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx10~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psmx10~ END
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psst20.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 12 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 21 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx20~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %hla_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %hla_plus% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psmx20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psmx20~ END
 
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psmx6.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 4) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %dev_cost%) parameter2 = 3 timing = 4 duration = 1 END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psmx10.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 6) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %sci_cost%) parameter2 = 3 timing = 4 duration = 1 END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psmx20.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 12) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %hla_cost%) parameter2 = 3 timing = 4 duration = 1 END
 
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psnt6.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 4 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 7 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx6~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %dev_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %dev_plus% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnx6~ END
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psnt10.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 6 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 11 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx10~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %sci_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %sci_cost% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx10~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnx10~ END
 COPY ~will_to_power/data/d5psst.spl~ ~override/d5psnt20.spl~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = 12 parameter2 = (0 + (2048 << 16)) timing = 1 END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 21 parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx20~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 21 opcode = 12 target = 1 parameter1 = %hla_cost% parameter2 = (0 + (2048 << 16)) timing = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %hla_cost% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5psnx20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnx20~ END
 
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psnx6.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 4) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %dev_cost%) parameter2 = 3 timing = 4 duration = 1 END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psnx10.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 6) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %sci_cost%) parameter2 = 3 timing = 4 duration = 1 END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psnx20.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - 12) parameter2 = 3 timing = 4 duration = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = (0 - %hla_cost%) parameter2 = 3 timing = 4 duration = 1 END
 
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrx6.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 12 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 24 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 36 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 48 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 60 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 72 END
+  FOR (d_cost = 0; d_cost < %dev_cost%; ++d_cost) BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = (12 * %d_cost%) END
+  END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrx10.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 12 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 24 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 36 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 48 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 60 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 72 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 84 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 96 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 108 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 120 END
+  FOR (s_cost = 0; s_cost < %sci_cost%; ++s_cost) BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = (12 * %s_cost%) END
+  END
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrx20.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 12 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 24 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 36 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 48 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 60 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 72 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 84 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 96 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 108 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 120 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 132 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 144 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 156 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 168 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 180 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 192 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 204 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 216 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 228 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = 240 END
+  FOR (h_cost = 0; h_cost < %hla_cost%; ++h_cost) BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 1 parameter1 = 1 parameter2 = 0 timing = 4 duration = (12 * %h_cost%) END
+  END
 
 COPY ~will_to_power/data/d5psmx.spl~ ~override/d5psrz6.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 6 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 12 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 18 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 24 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 30 END
-//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = 36 END
+  FOR (d_cost = 0; d_cost < %dev_cost%; ++d_cost) BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 18 target = 2 parameter1 = 1 parameter2 = 0 timing = 4 duration = (6 * %d_cost%) END
+  END
 
 // instant powers will cast d5psst#, if the player does not have enough points
 
@@ -946,20 +947,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts1.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		END
 	  END
 	END
@@ -972,18 +973,18 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts1.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		END
 	  END
 	END
@@ -995,14 +996,14 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts1.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		END
 	  END
   END
@@ -1015,28 +1016,28 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts2.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		END
 	  END
 	END
@@ -1049,28 +1050,28 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts2.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		END
 	  END
 	END
@@ -1082,20 +1083,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts2.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		END
 	  END
   END
@@ -1109,20 +1110,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts3.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	  END
@@ -1137,20 +1138,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts3.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	  END
@@ -1164,16 +1165,16 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts3.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 5; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  END
 		END
 	  END
@@ -1188,20 +1189,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts4.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	  END
@@ -1216,20 +1217,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts4.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	  END
@@ -1243,16 +1244,16 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts4.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 9; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  END
 		END
 	  END
@@ -1267,20 +1268,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts5.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	  END
@@ -1295,20 +1296,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts5.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	  END
@@ -1322,16 +1323,16 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts5.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 17; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  END
 		END
 	  END
@@ -1346,20 +1347,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts6.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	  END
@@ -1374,20 +1375,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts6.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	  END
@@ -1401,16 +1402,16 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts6.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 33; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  END
 		END
 	  END
@@ -1425,20 +1426,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%dev%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 5 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 6 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %dev_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%dev%u~ END
 		  END
 		END
 	  END
@@ -1453,20 +1454,20 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%disc%%sci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 9 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 10 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%w~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %sci_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%disc%%sci%u~ END
 		  END
 		END
 	  END
@@ -1480,16 +1481,16 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 110 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %metapsionic_state% parameter2 = 111 timing = 0 duration = 1 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%t~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%q~ END
 		  END
 		END
 	    PATCH_IF !(FILE_EXISTS_IN_GAME ~d5ps%hisci%t.spl~) BEGIN
 		  FOR (pts_count = 1; pts_count < 65; ++pts_count) BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 19 parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 20 parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_minus% parameter2 = %tracking_more% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%s~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %hla_cost% parameter2 = %tracking_less% timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%r~ END
 		  END
 		END
 	  END

@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/will_to_power~
 AUTHOR ~SubtleD~
 
-VERSION ~2.6.3~
+VERSION ~2.7~
 
 ALWAYS
 
@@ -16,6 +16,10 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/fnp_compatibility.tpa~
 
 	LAF fix_kitlist_missing_ids END
+	
+	ACTION_IF !(FILE_EXISTS ~override/d5_WTP_settings.ini~) BEGIN
+  	  COPY ~will_to_power/d5_WTP_settings.ini~ ~override~
+	END
 
 END
 
