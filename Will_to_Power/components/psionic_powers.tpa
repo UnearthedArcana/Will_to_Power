@@ -1495,7 +1495,7 @@ COPY_EXISTING ~d5pr205.spl~ ~override/d5pu205.spl~
 //__________________________________________________________________________________
 
 COPY ~will_to_power/data/d5ps207.bam~ ~override~
-COPY ~will_to_power/data/d5ps207.spl~ ~override~   // 				detonate
+COPY ~will_to_power/data/d5ps207.spl~ ~override~   // 				repulsion
 	SAY NAME1 @2071
 	SAY UNIDENTIFIED_DESC @2072
 	WRITE_LONG 0x34 8
@@ -1673,22 +1673,24 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px210.spl~
 	WRITE_ASCII 0x3a ~d5px210~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 7 speed = 0 location = 4 STR_VAR icon = ~d5px210~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ps210~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5pw210~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5px210~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 //	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psp+5~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5ps210b~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5pw210~ END
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py210.spl~
 	SAY NAME1 @2103
 	SAY UNIDENTIFIED_DESC @2103
 	WRITE_ASCII 0x3a ~d5px210~ #8
 	LPF ALTER_SPELL_HEADER INT_VAR target = 7 speed = 0 location = 4 STR_VAR icon = ~d5px210~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5pr210~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5pu210~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5py210~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx10~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5ps210b~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 321 STR_VAR resource = ~d5pu210~ END
 /*
 COPY ~will_to_power/data/d5ps210a.eff~ ~override~
 COPY ~will_to_power/data/d5ps210a.spl~ ~override~
@@ -1697,7 +1699,7 @@ COPY ~will_to_power/data/d5ps210b.spl~ ~override~
 COPY ~will_to_power/data/d5ps210.eff~ ~override~
 COPY ~will_to_power/data/d5ps210b.spl~ ~override~
 	PATCH_IF (IS_AN_INT %kinetic_control_row%) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 335 opcode = 328 parameter1 = 0 parameter2 = %kinetic_control_state% special = 1 END
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 335 opcode = 328 parameter1 = 0 parameter2 = %kinetic_control_state% timing = 0 duration = 9 special = 1 END
 	END
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps210p.spl~
 	SAY NAME1 @2101
