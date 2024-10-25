@@ -315,6 +315,15 @@ END
 //____________________________________________________________________________________
 
 
+// prevent crash on rest____________________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5xcrsh.spl~) BEGIN
+  COPY_EXISTING ~d5xcrsh.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %cerebremancer_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5pspls2~ END
+END
+//____________________________________________________________________________________
+
+
 //SCRIPTS ETC.________________________________________________________________________
 //
 EXTEND_TOP ~d5_psi.bcs~ ~will_to_power/data/kit/d5_cerebro.baf~
