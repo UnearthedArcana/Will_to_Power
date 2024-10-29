@@ -2266,6 +2266,10 @@ COPY ~will_to_power/data/d5ps309a.spl~ ~override~
 	WRITE_ASCII 0x3a ~d5ps309~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5ps309~ END
 //	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 9 parameter1 = %sci_cost% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5ps309a~ END
+COPY_EXISTING ~will_to_power/data/d5ps309a.spl~ ~override/d5ps309b.spl~
+	LPF ALTER_EFFECT INT_VAR matcxh_opcode = 12 dicenumber = 3 END
+COPY_EXISTING ~will_to_power/data/d5ps309a.spl~ ~override/d5ps309c.spl~
+	LPF ALTER_EFFECT INT_VAR matcxh_opcode = 12 dicenumber = 4 END
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps309p.spl~
 	SAY NAME1 @3091
 	SAY UNIDENTIFIED_DESC @3092
