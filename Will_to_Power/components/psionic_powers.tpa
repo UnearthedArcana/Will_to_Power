@@ -1331,7 +1331,7 @@ COPY ~will_to_power/data/d5ps204.spl~ ~override~   // 				inertial barrier
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 66 STR_VAR resource = ~d5px204~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
+//	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
 COPY ~will_to_power/data/d5ps204.spl~ ~override/d5pr204.spl~
 	SAY NAME1 @2041
 	SAY UNIDENTIFIED_DESC @2042
@@ -1347,7 +1347,7 @@ COPY ~will_to_power/data/d5ps204.spl~ ~override/d5pr204.spl~
 //	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = %dev_cost% parameter2 = %maxhp_lt% timing = 0 duration = 1 STR_VAR resource = ~d5pr204~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psnt6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 1 STR_VAR resource = ~d5py204~ END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
+//	LPF ALTER_EFFECT INT_VAR match_opcode = 215 STR_VAR match_resource = ~d5ps204a~ resource = ~d5ps204z~ END 
 COPY ~will_to_power/data/d5px204.bam~ ~override~
 COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5px204.spl~
 	SAY NAME1 @2043
@@ -1373,8 +1373,8 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py204.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5psrx6~ END
 COPY ~will_to_power/data/d5ps204a.bam~ ~override~
 COPY ~will_to_power/data/d5ps204a.vvc~ ~override~
-COPY ~will_to_power/data/d5ps204z.bam~ ~override~
-COPY ~will_to_power/data/d5ps204z.vvc~ ~override~
+//COPY ~will_to_power/data/d5ps204z.bam~ ~override~
+//COPY ~will_to_power/data/d5ps204z.vvc~ ~override~
 COPY ~will_to_power/data/d5ps204a.eff~ ~override~
 COPY ~will_to_power/data/d5ps204b.eff~ ~override~
 COPY ~will_to_power/data/d5ps204c.eff~ ~override~
