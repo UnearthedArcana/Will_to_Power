@@ -598,19 +598,19 @@ ACTION_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
   END
 END
 ACTION_FOR_EACH hisci IN ~111~ ~211~ ~311~ ~411~ ~511~ ~901~ ~902~ ~903~ ~904~ ~905~ ~906~ ~907~ ~908~ ~909~ ~910~ BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~d5ps%hisci%~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5ps%hisci%.spl~) BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%hisci%s.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5ps%hisci%~ END
   END
-  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pr%hisci%~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pr%hisci%.spl~) BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%hisci%r.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pr%hisci%~ END
   END
-  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pt%hisci%~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pt%hisci%.spl~) BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%hisci%t.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pt%hisci%~ END
   END
-  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pq%hisci%~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5pq%hisci%.spl~) BEGIN
 	COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps%hisci%q.spl~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 timing = 9 STR_VAR resource = EVAL ~d5pq%hisci%~ END
   END
