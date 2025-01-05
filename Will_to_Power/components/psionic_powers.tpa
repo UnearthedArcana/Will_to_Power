@@ -1475,6 +1475,7 @@ COPY ~will_to_power/data/d5ps_x_.spl~ ~override/d5py205.spl~
 COPY ~will_to_power/data/d5psibla.itm~ ~override~
 	SAY NAME1 @2051
 	SAY UNIDENTIFIED_DESC @2051
+	LPF ALTER_EFFECT INT_VAR power = 0 END
 COPY ~will_to_power/data/d5psibla.bam~ ~override~
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5ps205p.spl~
 	SAY NAME1 @2051
@@ -3437,6 +3438,7 @@ COPY ~will_to_power/data/d5ps508.spl~ ~override~   //  				life detection
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = ~d5pspls2~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5pspls1~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 66 STR_VAR resource = ~d5px508~ END
+ 	LPF ALTER_EFFECT INT_VAR match_opcode = 193 match_parameter2 = 0  paramater2 = 1 END
 COPY ~will_to_power/data/d5ps508.spl~ ~override/d5pr508.spl~
 	SAY NAME1 @5081
 	SAY UNIDENTIFIED_DESC @5082
