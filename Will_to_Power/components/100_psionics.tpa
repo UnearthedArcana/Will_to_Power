@@ -442,6 +442,7 @@ LAF d5_resolve_state STR_VAR new_state_id = ~D5_SNAREARROW~ RET new_state_ind EN
 OUTER_SET missile_snaring_state = %new_state_ind%
 */
 
+/* no need for this, kinetic control to use PfMW
 LAF d5_resolve_state STR_VAR new_state_id = ~D5_KINETICCONTROL~ RET new_state_ind END
 OUTER_SET kinetic_control_state = %new_state_ind%
 
@@ -466,6 +467,7 @@ COPY_EXISTING ~7eyes.2da~ ~override~
 	END
   END
 BUT_ONLY
+*/
 
 OUTER_SET optional_evade = 1
 INCLUDE ~%MOD_FOLDER%/lib/spell_evasion.tpa~
