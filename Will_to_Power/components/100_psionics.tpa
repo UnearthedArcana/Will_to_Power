@@ -1500,7 +1500,7 @@ COPY ~will_to_power/data/d5_base.spl~ ~override/d5ppts7.spl~
 
 // this will have 172 effects for all powers of every type and range
 COPY ~will_to_power/data/d5_base.spl~ ~override/d5pspls2.spl~
-  PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ BEGIN
+  PATCH_FOR_EACH disc IN ~1~ ~2~ ~3~ ~4~ ~5~ ~9~ BEGIN
 	PATCH_FOR_EACH abil IN ~01~ ~02~ ~03~ ~04~ ~05~ ~07~ ~08~ ~09~ ~10~ ~11~ BEGIN
 	  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ps%disc%%abil%.spl~) BEGIN
 		LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = EVAL ~d5ps%disc%%abil%~ END
@@ -1667,7 +1667,7 @@ END
 // MC clerics hit HLAs at level 15... 15+ = over 3 mil XP - 1 power per level plus HLAs.  You have 31 powers at level 14, so 24 more.  You can only hit level 25 with 8 mil XP, so that means 11 HLA levels.  Say, 1/level until 27, and up to 11 via HLA. 
 //									1			2			3			4			5			6			7			8			9			10			11			12			13			14			15	
 //APPEND ~d5_psi.2da~ ~ABILITIES   ****        GA_D5PSI2   GA_D5PSI3   GA_D5PSI4   GA_D5PSI5   GA_D5PSI6   GA_D5PSI7   GA_D5PSI8   GA_D5PSI9   GA_D5PSI10  GA_D5PSI11  GA_D5PSI12  GA_D5PSI13  GA_D5PSI14  GA_D5PSI15  GA_D5PSI16  GA_D5PSI17  GA_D5PSI18  GA_D5PSI19  GA_D5PSI20  GA_D5PSI21  GA_D5PSI22  GA_D5PSI23  GA_D5PSI24  GA_D5PSI25  GA_D5PSI26  GA_D5PSI27  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** 
-//ABILITIES   ****        GA_D5PSJ2   GA_D5PSJ3   GA_D5PSJ4   GA_D5PSJ5   GA_D5PSJ6   GA_D5PSJ7   GA_D5PSJ8   GA_D5PSJ9   GA_D5PSJ10  GA_D5PSJ11  GA_D5PSJ12  GA_D5PSJ13  GA_D5PSJ14  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+//                     ABILITIES   ****        GA_D5PSJ2   GA_D5PSJ3   GA_D5PSJ4   GA_D5PSJ5   GA_D5PSJ6   GA_D5PSJ7   GA_D5PSJ8   GA_D5PSJ9   GA_D5PSJ10  GA_D5PSJ11  GA_D5PSJ12  GA_D5PSJ13  GA_D5PSJ14  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
 
 //____________________________________________________________________________________
 
