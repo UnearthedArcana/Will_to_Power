@@ -1,0 +1,426 @@
+@1   = ~omitiendo componente~
+@2   = ~omitiendo componente no-EE~
+@3   = ~omitiendo componentes de revisión~
+@4   = ~omitiendo componentes de ajustes~
+@5   = ~omitiendo nuevos componentes de kit~
+@6   = ~...~
+@7   = ~ ~
+@15   = ~Bonificador a salvación vs. Conjuros~
+@16   = ~Bonificador a salvación vs. Muerte~
+@17   = ~Bonificador a salvación vs. Aliento~
+@18   = ~Bonificador a salvación vs. Varitas~
+@19   = ~Bonificador a salvación vs. Petrificación~
+@33  = ~- Acceso focalizado a las esferas de: ~
+@34  = ~- Acceso mayor a las esferas de: ~
+@35  = ~- Acceso menor a las esferas de: ~
+@36  = ~Ventajas:~
+@37  = ~Habilidades:~
+@38  = ~Desventajas:~
+@39  = ~Restricciones:~
+@40  = ~Cambio de forma: Forma natural~
+@97  = ~Elige un poder diferente~
+@20097  = ~Elige un poder diferente~
+@98  = ~Elige este poder~
+@20098  = ~Elige este poder~
+@99  = ~Elige un poder psiónico~
+@20099  = ~Elige una habilidad~
+@96  = ~Usa esta habilidad para aprender un nuevo poder psiónico~
+@20100  = ~Usa esta habilidad para aprender un nuevo poder~
+@100   = ~Instalar el sistema de psiónica~
+@200   = ~Añadir el Psionicista, pícaro/psiónico~
+@300   = ~Añadir el Hoja del alma, guerrero/psiónico~
+@400   = ~Añadir el Psífero, explorador/psiónico~
+@500   = ~Añadir el Cerebromante, mago/psiónico~
+@900   = ~Modo Dark Sun: Todos son talentos salvajes~
+@950   = ~Permitir a clérigos multiclase usar más armas~
+//
+@101  = ~Inicializar psiónica~
+@102  = ~Inicializar psiónica: esta habilidad habilita el uso de la psiónica, convirtiendo al personaje en multiclase. El progreso psiónico utiliza las tablas de PE y GAC0 del clérigo.~
+@103  = ~inicializar habilidades psiónicas~
+@111  = ~Comprobar talento salvaje~
+@112  = ~Esta habilidad realizará una tirada para determinar si el personaje es un «talento salvaje» con acceso a un poder psiónico.~
+@151  = ~Meditación restauradora~
+@152  = ~Meditación restauradora: esta habilidad permite al psiónico descansar y meditar entre combates, disipando la fatiga y recuperando una parte de sus Puntos de Fuerza Psiónica (PFP).~
+//
+@201  = ~psionicista~
+@202  = ~Psionicista~
+@203  = ~PSIONICISTA: el Psionicista es alguien con habilidades propias de un pícaro, pero que en gran medida rehúye las actividades delictivas y dedica su tiempo al estudio y la meditación para aprovechar plenamente el poder de la mente y el cuerpo. Los psionicistas suelen estar bien educados y ser muy autosuficientes. Mediante disciplina y estudio, pueden aprender habilidades psíquicas de cualquier disciplina psiónica.
+
+NOTA: el kit de Psionicista se elige desde el menú de ladrón/pícaro de clase única. Al iniciar la partida, debes usar la habilidad “Inicializar psiónica”, que convertirá al personaje en multiclase ladrón/psiónico. El desarrollo psiónico sigue las tablas de PE y GAC0 del clérigo, por lo que la hoja de personaje se mostrará como clérigo/ladrón.
+
+Habilidades:
+- Comienza con acceso al primer poder de las cinco disciplinas psiónicas: Protección mental, Proyección de fuerza, Descarga estática, Subidón de adrenalina y Lectura de objetos. El Psionicista puede aprender dos poderes adicionales en nivel 1, y dos más por cada nuevo nivel, además de un poder adicional en los niveles 5, 10, 15, 20 y 25.
+- Los Psionicistas comienzan con 25 Puntos de Fuerza Psiónica (PFP) y ganan 5 PFP adicionales por nivel hasta nivel 20.
+
+Restricciones:
+- Solo puede distribuir 15 puntos de habilidad por nivel en habilidades de ladrón.
+- No puede robar bolsillos ni colocar trampas.
+- No puede ser caótico.
+~
+@301  = ~hoja del alma~
+@302  = ~Hoja del alma~
+@303  = ~HOJA DEL ALMA: estos guerreros utilizan la meditación para canalizar poderes psíquicos y mejorar sus capacidades marciales. Dedican tiempo al estudio y la disciplina mental para aprovechar plenamente el poder de la mente y el cuerpo. Las Hojas del Alma suelen estar bien educadas y ser muy autosuficientes. Mediante disciplina y estudio, pueden aprender habilidades psiónicas de cualquier disciplina psiónica.
+
+NOTA: el kit de Hoja del alma se elige desde el menú de guerrero de clase única. Al iniciar la partida, debes usar la habilidad “Inicializar psiónica”, que convertirá al personaje en multiclase guerrero/psiónico. El desarrollo psiónico sigue las tablas de PE y GAC0 del clérigo, por lo que la hoja de personaje se mostrará como guerrero/clérigo.
+
+Habilidades:
+- Las Hojas del alma comienzan con acceso al primer poder de las cinco disciplinas psiónicas: Protección mental, Proyección de fuerza, Descarga estática, Subidón de adrenalina y Lectura de objetos. La Hoja del Alma puede aprender dos poderes adicionales por cada nivel de experiencia.
+- Las Hojas del alma comienzan con 20 Puntos de Fuerza Psiónica (PFP) y ganan 4 PFP adicionales por nivel hasta nivel 20.
+
+Restricciones:
+- Limitado a armaduras ligeras.
+- No puede ser caótico.
+~
+@401  = ~psífero~
+@402  = ~Psífero~
+@403  = ~PSÍFERO: estos exploradores utilizan la meditación para canalizar poderes psíquicos y mejorar sus capacidades de supervivencia. Dedican tiempo al estudio y la disciplina mental para aprovechar plenamente el poder de la mente y el cuerpo. Los Psíferos suelen estar bien educados y ser extremadamente autosuficientes. Mediante disciplina y estudio, pueden aprender habilidades psiónicas de cualquier disciplina psiónica.
+
+NOTA: el kit de Psífero se elige desde el menú de explorador de clase única. Al iniciar la partida, debes usar la habilidad “Inicializar psiónica”, que convertirá al personaje en multiclase explorador/psiónico. El desarrollo psiónico sigue las tablas de PE y GAC0 del clérigo, por lo que la hoja de personaje se mostrará como explorador/clérigo.
+
+Habilidades:
+- Los Psíferos comienzan con acceso al primer poder de las cinco disciplinas psiónicas: Protección mental, Proyección de fuerza, Descarga estática, Subidón de adrenalina y Lectura de objetos. El Psífero puede aprender dos poderes adicionales cada dos niveles de experiencia.
+- Los Psíferos comienzan con 20 Puntos de Fuerza Psiónica (PFP) y ganan 4 PFP adicionales por nivel hasta nivel 20.
+
+Restricciones:
+- Limitado a armaduras ligeras.
+- Los Psíferos no pueden lanzar conjuros divinos.
+- No puede ser caótico.
+~
+@501  = ~cerebromante~
+@502  = ~Cerebromante~
+@503  = ~CEREBROMANTE: este es alguien que combina el estudio y la meditación necesarios para progresar como psiónico con las artes arcanas. Es raro dominar disciplinas tan exigentes, pero el resultado es poderoso. Los Cerebromantes tienen afinidad con la escuela de Encantamiento/Hechizar y suelen centrarse en la disciplina psiónica de Telepatía.
+
+NOTA: el kit de Cerebromante se elige desde el menú de mago de clase única. Al iniciar la partida, debes usar la habilidad “Inicializar psiónica”, que convertirá al personaje en multiclase mago/psiónico. El desarrollo psiónico sigue las tablas de PE y GAC0 del clérigo, por lo que la hoja de personaje se mostrará como clérigo/mago.
+
+Habilidades:
+- Comienza con acceso al primer poder de las cinco disciplinas psiónicas: Protección mental, Proyección de fuerza, Descarga estática, Subidón de adrenalina y Lectura de objetos. El Cerebromante puede aprender dos poderes adicionales por cada nuevo nivel de experiencia.
+- Los Cerebromantes comienzan con 20 Puntos de Fuerza Psiónica (PFP) y ganan 4 PFP adicionales por nivel hasta nivel 20.
+
+Restricciones:
+- Tiene las restricciones y características de aprendizaje de conjuros de un Encantador.
+- No puede ser caótico.
+~
+//
+@1001  = ~Telepatía~
+@1002  = ~Telepatía: esta dote otorga la habilidad “Empujón Mental” y permite aprender más habilidades psiónicas dentro de la disciplina de Telepatía.~
+@2001  = ~Telequinesis~
+@2002  = ~Telequinesis: esta dote otorga la habilidad “Proyección de fuerza” y permite aprender más habilidades psiónicas dentro de la disciplina de Telequinesis.~
+@3001  = ~Piroquinesis~
+@3002  = ~Piroquinesis: esta dote otorga la habilidad “Descarga estática” y permite aprender más habilidades psiónicas dentro de la disciplina de Telepatía.~
+@4001  = ~Bioquinesis~
+@4002  = ~Bioquinesis: esta dote otorga la habilidad “Subidón de adrenalina” y permite aprender más habilidades psiónicas dentro de la disciplina de Bioquinesis.~
+@5001  = ~Clarisensibilidad~
+@5002  = ~Clarisensibilidad: esta dote otorga la habilidad “Golpe perspicaz” y permite aprender más habilidades psiónicas dentro de la disciplina de Clarisensibilidad.~
+//
+@1011  = ~Protección mental~
+@1012  = ~Protección mental: el psiónico erige una barrera menor contra ataques mentales, ya sean mágicos o psiónicos. Esta protección otorga una tirada de salvación adicional para evitar efectos de encantar/dominar, dormir, inmovilizar, miedo, confusión, frenesí, aturdir o laberinto.
+
+El coste de mantener esta protección durante 10 asaltos es de 4 puntos.~
+@1013  = ~Cancelar Protección mental~
+@1021  = ~Sincronización sensorial~
+@1022  = ~Sincronización sensorial: el psiónico conecta las mentes de un grupo de aliados, permitiéndoles coordinarse con gran eficacia y anticipar las acciones de los demás y de los enemigos. Cada aliado afectado recibe un bonificador de 1 punto a la CA y al daño cuerpo a cuerpo, y una reducción de 1 punto al daño recibido por conjuros mágicos. A nivel 6 el bonificador a la CA aumenta a -2, y a nivel 12 aumenta a -3.
+
+El coste de mantener este efecto durante 10 asaltos es de 4 puntos.~
+@1023  = ~Cancelar Sincronización sensorial~
+@1031  = ~Insinuación de identidad~
+@1032  = ~Insinuación de identidad: esta habilidad ataca el subconsciente del objetivo, provocando que enloquezca de miedo o entre en frenesí y ataque al ser más cercano durante 4 asaltos, salvo que supere una tirada de salvación con un penalizador de -1. A nivel 6 el penalizador aumenta a -2, y a nivel 12 a -3.
+
+El coste es de 4 puntos.~
+@1041  = ~Látigo del ego~
+@1042  = ~Látigo del ego: esta habilidad induce letargo y desesperación en el objetivo, imponiendo un penalizador de 2 puntos a las tiradas de salvación contra encantamientos y telepatía durante un turno. Si el objetivo falla la tirada de salvación, además cae al suelo durante un asalto y sufre un penalizador continuo de 2 puntos al GAC0, velocidad de arma, tiradas de salvación y tiempo de lanzamiento.
+
+El coste es de 4 puntos.~
+@1051  = ~Rehabilitación cerebral~
+@1052  = ~Rehabilitación cerebral: esta habilidad elimina los efectos de miedo, dormir, debilidad mental, inconsciencia, intoxicación, así como los estados de frenesí, confusión y aturdimiento.
+
+El coste es de 4 puntos.~
+@1071  = ~Dominación mental~
+@1072  = ~Dominación mental: esta habilidad permite a un psiónico controlar la mente de un humanoide durante un máximo de 10 asaltos. El objetivo queda dominado durante 3 asaltos salvo que supere una tirada de salvación; durante los 7 asaltos siguientes puede intentar una tirada adicional cada asalto para romper la dominación. A nivel 6 la tirada se realiza con un penalizador de -1, y a nivel 12 el penalizador aumenta a -2.
+
+El coste es de 6 puntos.~
+@1081  = ~Fortaleza del intelecto~
+@1082  = ~Fortaleza del intelecto: el psiónico erige una poderosa defensa mental contra todos los ataques mentales, ya sean mágicos o psiónicos. Protege contra efectos de encantar/dominar, dormir, inmovilizar, miedo, confusión, debilidad mental, aturdir y laberinto.
+
+El coste de mantener esta protección durante 10 asaltos es de 6 puntos.~
+@1083  = ~Cancelar Fortaleza del intelecto~
+@1091  = ~Aplastamiento psíquico~
+@1092  = ~Aplastamiento psíquico: esta habilidad inicia un poderoso ataque mental que aturde a la criatura objetivo durante 3 asaltos e inflige 3d4 puntos de daño psíquico, salvo que el objetivo supere una tirada de salvación con un penalizador de -2 (lo que evita el aturdimiento y reduce el daño a la mitad). A nivel 12 el penalizador aumenta a -3 y el daño a 4d4, y a nivel 18 el penalizador aumenta a -4 y el daño a 4d6. Además, existe un 50% de probabilidad de que esta habilidad elimine protecciones como Órdenes caóticas, Mente en blanco, Exaltación y conjuros similares. Por último, incluso si el objetivo supera la tirada de salvación, sufre un penalizador de -3 a las salvaciones contra encantamientos y telepatía durante el siguiente turno.
+
+El coste es de 6 puntos.~
+@1101  = ~Histeria masiva~
+@1102  = ~Histeria masiva: esta habilidad induce un comportamiento caótico, irracional y a veces violento en los enemigos cercanos durante tres asaltos. Los enemigos pueden resistir el efecto si superan una tirada de salvación. A nivel 6 los enemigos sufren un penalizador de -1 y el efecto dura cinco asaltos; a nivel 12 el penalizador aumenta a -2 y el efecto dura siete asaltos.
+
+El coste es de 6 puntos.~
+@1111  = ~Estática sináptica~
+@1112  = ~Estática sináptica: esta habilidad crea un fuerte zumbido en el cerebro de todas las criaturas cercanas, incluido el propio psiónico. Esto ralentiza enormemente el lanzamiento de conjuros y provoca un 60% de probabilidad de que cualquier conjuro o poder psiónico falle.
+
+El coste de mantener este poder durante 10 asaltos es de 12 puntos; además, su uso incrementa la fatiga del psiónico.~
+@1113  = ~Cancelar Estática sináptica~
+//
+@2011  = ~Proyección de fuerza~
+@2012  = ~Proyección de fuerza: esta habilidad golpea a un objetivo con una potente pero poco focalizada energía telequinética, causando 1d8 puntos de daño aturdidor y, si falla una tirada de salvación, empujándolo 1,5 metros hacia atrás. Además, esta habilidad tiene un 50% de probabilidad de forzar cerraduras. A nivel 6 el daño pasa a ser 1d10 y la tirada de salvación se realiza con un penalizador de -1; a nivel 12 el daño aumenta a 2d6 y el penalizador pasa a ser de -2.
+
+El coste es de 4 puntos.~
+@2021  = ~Movilidad mejorada~
+//@2021  = ~Proyección radial~
+@2022  = ~Movilidad mejorada: esta habilidad permite al psiónico liberarse de cualquier atadura y evitar ser atrapado o inmovilizado por cualquier efecto que afecte a su movilidad. No es tan poderosa como el conjuro Acción libre, pero mientras se mantenga la habilidad del psiónico podrá evitar con un 60% de probabilidad conjuros o efectos que entorpezcan su movimiento.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 4 puntos.~
+@2023  = ~Cancelar Movilidad mejorada~
+@2031  = ~Inmovilizar~
+@2032  = ~Inmovilizar: el objetivo de este poder queda congelado en su sitio, incapaz de moverse o actuar, si falla una tirada de salvación. En el segundo asalto y en cada asalto posterior, hasta un máximo de diez, el objetivo puede intentar otra tirada para escapar del efecto. Incluso si tiene éxito, el objetivo queda brevemente ralentizado mientras combate el control telequinético. A niveles 6 y 12, la tirada de salvación se realiza con un penalizador de -1 y -2 respectivamente.
+
+El coste es de 4 puntos.~
+@2041  = ~Barrera inercial~
+@2042  = ~Barrera inercial: esta habilidad crea una burbuja de fuerza de varios metros de diámetro que desvía el impulso de los objetos que se mueven hacia el psiónico, otorgándole un bonificador de 2 puntos a la CA y reduciendo en un 50% el daño recibido por ataques de proyectiles. Además, detiene brevemente el avance de los enemigos que se aproximan si fallan una tirada de salvación contra petrificación/polimorfia. A nivel 6 la tirada se realiza con un penalizador de -1 y los enemigos que la fallan son empujados telequinéticamente lejos de la barrera; a nivel 12 el penalizador aumenta a -2 y el bonificador a la CA del psiónico aumenta a 3.
+
+El coste de mantener la barrera durante 10 asaltos es de 4 puntos.~
+@2043  = ~Cancelar Barrera inercial~
+@2051  = ~Cuchilla psíquica~
+@2052  = ~Cuchilla psíquica: el psiónico concentra energía telequinética en una hoja extremadamente afilada que emana de su mano. Esta fuerza puede blandirse como una espada, como si el psiónico tuviera Especialización (++) en su uso, infligiendo 1d4 puntos de daño cortante y 1d4 puntos de daño aturdidor. A nivel 6 la hoja se maneja como si tuviera Maestría (+++), y a nivel 12 como si tuviera Gran Maestría (+++++).
+
+El coste de mantener la Cuchilla psíquica durante 10 asaltos es de 4 puntos.~
+@2053  = ~Cancelar Cuchilla psíquica~
+@2071  = ~Repulsión~
+//@2071  = ~Movilidad sin obstáculos~
+@2072  = ~Repulsión: con esta habilidad, el psiónico libera una explosión de energía telequinética desde su posición. La onda de fuerza empuja a todos los enemigos lejos del punto central del área de efecto, puede derribarlos e inflige 2d8 puntos de daño de fuerza (salvación para mitad de daño y evitar caer). A nivel 6 el daño aumenta a 3d8 y la tirada de salvación se realiza con un penalizador de -1; a nivel 12 el daño aumenta a 4d8 y el penalizador pasa a ser de -2. Las criaturas formadas por materia inanimada, como gólems y esqueletos, son especialmente vulnerables y reciben el doble del daño base.
+
+El coste es de 6 puntos.~
+@2081  = ~Animación material~
+@2082  = ~Animación material: con esta habilidad, el psiónico puede concentrar su energía telequinética en una masa de piedra, tierra y otros escombros cercanos. El constructo adopta una forma aproximadamente humanoide y puede ser controlado por el psiónico para combatir siguiendo sus órdenes.
+
+El coste de animar el constructo durante cinco asaltos es de 6 puntos.~
+@2084  = ~Constructo animado~
+@2091  = ~Inmovilización masiva~
+@2092  = ~Inmovilización masiva: todos los enemigos en un radio de 6 metros alrededor del psiónico quedan congelados en su sitio, incapaces de moverse o actuar, si fallan una tirada de salvación. En el segundo asalto y en cada asalto posterior, hasta un máximo de diez asaltos, cada objetivo puede intentar otra tirada para escapar del efecto. Incluso si tiene éxito, el objetivo queda brevemente ralentizado mientras combate el control telequinético. A niveles 6 y 12, la tirada de salvación se realiza con un penalizador de -1 y -2 respectivamente.
+
+El coste es de 6 puntos.~
+@2101  = ~Control cinético~
+//@2101  = ~Control inercial~
+@2102  = ~Control cinético: mientras se mantenga esta habilidad, el psion podrá absorber el impulso de un golpe por asalto de un arma, garra, flecha u otro ataque físico antes de que toque su cuerpo. A nivel 12, existe la posibilidad de que la energía cinética absorbida de ataques cuerpo a cuerpo se devuelva al atacante, imitando la Proyección de fuerza como reacción.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 6 puntos.~
+@2103  = ~Cancelar Control cinético~
+@2111  = ~Vibración sísmica~
+@2112  = ~Vibración sísmica: esta habilidad provoca un fuerte temblor en el terreno cercano. Todos los enemigos en la zona reciben 4d6 puntos de daño por asalto durante tres asaltos, aunque pueden realizar una tirada de salvación cada asalto para reducir el daño a la mitad. Además, los enemigos deben superar una tirada de salvación en el primer asalto o caer al suelo; quienes caigan no podrán incorporarse hasta que termine el temblor.
+
+Usar esta habilidad cuesta 12 puntos e incrementa la fatiga del psiónico.~
+//
+@3011  = ~Descarga estática~
+@3012  = ~Descarga estática: esta habilidad es similar al conjuro del mago Agarre electrizante. El psiónico acumula electricidad estática en su mano y la usa para atacar a un enemigo. El objetivo sufre 2d4+1 puntos de daño y debe superar una tirada de salvación o quedará aturdido durante 1 asalto. A nivel 6 el daño pasa a ser 3d4+2 y la tirada se realiza con un penalizador de -1; a nivel 12 el daño aumenta a 4d4+3 y el penalizador pasa a ser de -2.
+
+El coste de mantener la carga durante 10 asaltos es de 4 puntos.~
+@3013  = ~Cancelar Descarga estática~
+@3021  = ~Destello solar~
+@3022  = ~Destello solar: esta habilidad crea un intenso rayo de energía radiante en un radio de 6 metros alrededor del psiónico. Todos los enemigos en el área de efecto sufren 1d4 puntos de daño por calor y deben superar una tirada de salvación contra petrificación con un penalizador de -1 o quedarán cegados durante 2 asaltos. A nivel 12 el penalizador aumenta a -2 y a nivel 18 aumenta a -3. Los no muertos afectados por el Destello solar reciben el doble de daño.
+
+El coste es de 4 puntos.~
+@3024  = ~Cegado~
+@3031  = ~Agitación molecular~
+@3032  = ~Agitación molecular: esta habilidad provoca que las moléculas en el filo del arma del psiónico se exciten hasta tal punto que pueden inflamar el material con el que entran en contacto. El resultado práctico es que todos los ataques cuerpo a cuerpo exitosos realizados por el psiónico infligen 1d4 puntos de daño por calor adicionales al daño normal del arma.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 4 puntos.~
+@3033  = ~Cancelar Agitación molecular~
+@3041  = ~Contención de energía~
+@3042  = ~Contención de energía: mientras se mantenga esta habilidad, el psiónico absorbe y desvía instintivamente energías dañinas. Su resistencia al daño basado en energía (fuego, frío, electricidad y daño mágico) se establece en un 40%. A nivel 6 aumenta a 50% y a nivel 12 a 60%.
+
+El coste de mantener la contención durante 10 asaltos es de 4 puntos.~
+@3043  = ~Cancelar Contención de energía~
+@3051  = ~Combustión psíquica~
+@3052  = ~Combustión psíquica: esta habilidad permite al psiónico crear espontáneamente un fuego breve pero poderoso en cualquier ubicación. Las llamas infligen 3d4+3 puntos de daño por fuego a todos los enemigos en un radio de 1,5 metros del punto de combustión. A nivel 6 el daño aumenta a 4d4+4 y a nivel 12 a 5d4+5.
+
+El coste es de 4 puntos.~
+@3071  = ~Modulación de energía~
+@3072  = ~Modulación de energía: esta habilidad permite al psiónico controlar mentalmente el flujo de energía en el entorno cercano. Los aliados infligen un 50% más de daño con ataques basados en energía, mientras que los enemigos ven dichos ataques atenuados, infligiendo un 50% menos de daño.
+
+El coste de mantener la modulación durante 10 asaltos es de 6 puntos.~
+@3073  = ~Cancelar Modulación de energía~
+@3081  = ~Precipitación gélida~
+@3082  = ~Precipitación gélida: esta habilidad extrae energía térmica de un área a una velocidad prodigiosa. La nieve y el hielo se precipitan desde aire y las criaturas en el área de efecto sufren 2d4 puntos de daño por ronda debido al frío, durante cuatro rondas. Además, las criaturas en el área deben superar una tirada de salvación contra Arma de Aliento cada asalto que permanezcan en la zona o ver reducida a la mitad su velocidad de movimiento durante ese asalto.
+
+El coste es de 6 puntos.~
+@3091  = ~Generar relámpago~
+@3092  = ~Generar relámpago: tras tomarse unos instantes para acumular energía estática del entorno, el psiónico puede descargarla como un violento relámpago. El rayo impacta en un objetivo elegido y se arquea hacia otros enemigos situados a menos de 3 metros (el psiónico posee cierto control sobre la energía y puede proteger a sus compañeros). La descarga inflige 2d6 puntos de daño eléctrico. A nivel 6 el daño aumenta a 3d6 y a nivel 12 a 4d6.
+
+El coste es de 6 puntos.~
+@3101  = ~Inversión de energía negativa~
+@3102  = ~Inversión de energía negativa: esta habilidad permite al psiónico convertir energía negativa en energía positiva. Esto le permite resistir ataques directos de energía negativa, como el drenaje de niveles de los vampiros; además, hace que los ataques físicos del psiónico inflijan 1d6 puntos de daño adicionales a los no muertos. A nivel 6 el daño adicional aumenta a 2d4 y a nivel 12 a 2d6.
+
+El coste de mantener el canal de energía positiva durante 10 asaltos es de 6 puntos.~
+@3103  = ~Cancelar Inversión de energía negativa~
+@3111  = ~Tormenta de energía~
+@3112  = ~Tormenta de energía: esta habilidad llena el área cercana con una turbulenta tormenta de fuego y electricidad. Durante tres asaltos, los enemigos en la tormenta sufren 1d10 puntos de daño por fuego y 1d10 puntos de daño eléctrico (salvación con penalizador de -3 para mitad). Además, los destellos radiantes dentro de la tormenta obligan a los enemigos a realizar una tirada de salvación contra petrificación con un penalizador de -3 cada asalto o quedar cegados durante 4 asaltos.
+
+Usar esta habilidad cuesta 12 puntos e incrementa la fatiga del psiónico.~
+//
+@4011  = ~Subidón de adrenalina~
+@4012  = ~Subidón de adrenalina: esta habilidad incrementa temporalmente la Fuerza del psiónico en 2 puntos y añade 8 puntos a sus puntos de golpe máximos; ambos efectos duran tres asaltos. Después, el psiónico queda cansado y debilitado (-4 a Fuerza) durante 2 asaltos mientras recupera el aliento. A nivel 6 el bonificador a Fuerza aumenta a +3 y los puntos de golpe a +10, y los efectos duran cuatro asaltos; a nivel 12 el bonificador a Fuerza aumenta a +4 y los puntos de golpe a +15, y los efectos duran cinco asaltos.
+
+El coste es de 4 puntos, y esta habilidad no puede volver a usarse hasta que la debilidad haya desaparecido.~
+@4021  = ~Aceleración metabólica~
+@4022  = ~Aceleración metabólica: esta habilidad permite al psiónico acelerar drásticamente sus procesos biológicos durante un breve periodo de tiempo. Durante 5 asaltos, su velocidad de movimiento se duplicará y podrá realizar un ataque físico adicional por asalto. Tras ese tiempo, el psiónico vuelve a un ritmo normal.
+
+El coste es de 4 puntos.~
+@4031  = ~Purificación corporal~
+@4032  = ~Purificación corporal: esta habilidad elimina todas las toxinas del cuerpo, tanto de origen natural como mágico. Neutraliza inmediatamente cualquier veneno y también cura cualquier enfermedad que padezca el psiónico, así como ceguera y sordera.
+
+El coste es de 4 puntos.~
+@4041  = ~Bioregeneración~
+@4042  = ~Bioregeneración: esta habilidad activa poderosas respuestas curativas en el sistema inmunitario del psiónico, regenerando 1 punto de golpe por asalto. Es un poder mantenible; el psiónico puede permitir que la curación siga su curso completo, pero debe concentrarse en el poder y no puede participar en combate físico mientras se mantenga. A nivel 6 el psiónico regenera 3 puntos de golpe cada 2 asaltos, y a nivel 12 regenera 3 puntos de golpe por asalto.
+
+El coste de mantener la regeneración durante 10 asaltos es de 4 puntos.~
+@4043  = ~Cancelar Bioregeneración~
+@4051  = ~Simulación química~
+@4052  = ~Simulación química: esta habilidad permite al psiónico segregar un líquido tóxico y dirigirlo contra un enemigo cercano. Este ataque inflige 2d3 puntos de daño por veneno, más 1 punto adicional por asalto durante 5 asaltos (el daño inicial se reduce a la mitad y el daño continuo se evita si el objetivo supera una tirada de salvación contra veneno). A nivel 6 el daño aumenta a 2d4, +2 por asalto; y a nivel 12 aumenta a 2d6, +3 por asalto.
+
+El coste es de 4 puntos.~
+@4071  = ~Transferencia empática~
+@4072  = ~Transferencia empática: esta habilidad permite al psiónico sacrificar su propia salud corporal para curar a un aliado. Si los puntos de golpe actuales del psiónico son mayores que los del aliado, la diferencia se resta del psiónico y se añade al aliado. Además, el aliado puede curarse de afecciones como veneno, enfermedad, ceguera y sordera. El psiónico asume dichas dolencias y realiza inmediatamente una Purificación corporal, eliminándolas de su propio cuerpo.
+
+El coste es de 6 puntos, y el esfuerzo de esta curación incrementa la fatiga del psiónico.~
+@4081  = ~Camuflaje visual~
+@4082  = ~Camuflaje visual: esta habilidad hace que el cuerpo del psiónico se funda con el entorno cercano como un camaleón. El efecto es similar al conjuro Invisibilidad mejorada, aunque no implica invisibilidad real: el psiónico obtiene un bonificador de -4 a la CA, un +40% a Sigilo y no puede ser fijado fácilmente como objetivo por lanzadores de conjuros.
+
+El coste de mantener el Camuflaje durante 10 asaltos es de 6 puntos.~
+@4083  = ~Cancelar Camuflaje~
+@4091  = ~Caparazón dérmico~
+@4092  = ~Caparazón dérmico: esta habilidad hace que la piel del psiónico se endurezca formando una coraza fuerte pero quebradiza que se regenera rápidamente. Otorga un bonificador de -2 a la CA y absorbe inofensivamente un ataque físico por asalto.
+
+El coste de mantener el Caparazón durante 10 asaltos es de 6 puntos.~
+@4093  = ~Cancelar Caparazón~
+@4101  = ~Biorretroalimentación~
+@4102  = ~Biorretroalimentación: mientras se mantenga esta habilidad, el psiónico controla instintivamente el flujo sanguíneo y la respuesta de su cuerpo a las heridas. El resultado es una resistencia del 30% al daño físico y biológico (cortante/contundente/perforante/proyectiles, así como ácido y veneno). A nivel 6 esta resistencia aumenta al 40%, y a nivel 12 al 50%.
+
+El coste de mantener la Biorretroalimentación durante 10 asaltos es de 6 puntos.~
+@4103  = ~Cancelar Biorretroalimentación~
+@4111  = ~Metamorfosis bestial~
+@4112  = ~Metamorfosis bestial: con esta habilidad, el psiónico sufre una transformación radical, adquiriendo fuerza salvaje y otros rasgos bestiales similares a los de un licántropo mayor.
+
+Mantener esta habilidad cuesta 12 puntos; al volver a su forma normal, la fatiga del psiónico aumenta.~
+@4113  = ~Cancelar Metamorfosis bestial~
+//
+@5011  = ~Lectura de objetos~
+@5012  = ~Lectura de objetos: al concentrarse en un objeto, el psiónico puede llegar a comprender su historia y función. Esto resulta especialmente eficaz con objetos encantados, produciendo un efecto similar al conjuro Identificar.
+
+El coste es de 4 puntos. Debido a la intensa concentración requerida, esta habilidad no puede usarse en combate ni en circunstancias similares.~
+@5021  = ~Evaluación de aura~
+@5022  = ~Evaluación de aura: con esta habilidad, el psiónico puede leer el aura de una criatura para determinar sus fortalezas y debilidades. Durante dos turnos, las resistencias físicas del objetivo se reducen en un 10% y todos los ataques contra dicha criatura reciben un bonificador de +2 a la tirada de ataque. Esta habilidad no afecta a criaturas que no emanan auras, como los constructos.
+
+El coste es de 4 puntos.~
+@5031  = ~Golpe perspicaz~
+@5032  = ~Golpe perspicaz: mientras se mantenga, el siguiente ataque realizado por el psiónico será automáticamente un golpe crítico. Tras efectuar dicho ataque, el poder se cancela de forma automática.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 4 puntos.~
+@5033  = ~Cancelar Golpe perspicaz~
+@5041  = ~Precognición instintiva~
+@5042  = ~Precognición instintiva: mientras se mantenga esta habilidad, la previsión e intuición del psiónico le otorgan un bonificador de 1 punto a la Suerte, lo que se traduce en un +5% a las tiradas de ataque, tiradas de salvación, habilidades de pícaro y daño cuerpo a cuerpo, así como un +10% a las pruebas de habilidad.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 4 puntos.~
+@5043  = ~Cancelar Precognición instintiva~
+@5051  = ~Observación remota~
+@5052  = ~Observación remota: al activar esta habilidad, el psiónico puede observar un área distante. Tras usarla, haz clic en una sección del mapa que desees observar. Durante cinco asaltos, el psiónico puede espiar dicha zona, detectando criaturas y fortificaciones.
+
+El coste es de 4 puntos.~
+@5071  = ~Vínculo del destino~
+@5072  = ~Vínculo del destino: al usar esta habilidad, el psiónico extiende su aura y se conecta con otras criaturas cercanas, de una manera especialmente sintonizada con el dolor y la violencia. Siempre que una criatura cercana dañe al psiónico (incluso con armas a distancia), la reacción empática provoca que dicha criatura sufra 1d6 puntos de daño no letal. A nivel 12, cualquiera que sufra este daño debe superar una tirada de salvación o quedará aturdido durante dos asaltos.
+
+El coste de mantener el vínculo durante 10 asaltos es de 6 puntos.~
+@5073  = ~Cancelar Vínculo del destino~
+@5081  = ~Detección de vida~
+@5082  = ~Detección de vida: esta habilidad permite al psiónico detectar pensamiento inteligente a su alrededor. Esto hace visibles y seleccionables para el psiónico a las criaturas invisibles, pero no para los demás (a menos que dispongan de sus propios medios para ver lo invisible). Nota: funciona contra no muertos, gólems y constructos similares; incluso estas criaturas animadas poseen una cognición rudimentaria suficiente para el control motor, y es ese proceso cognitivo el que puede detectarse.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 6 puntos.~
+@5083  = ~Cancelar Detección de vida~
+@5091  = ~Sentido del peligro~
+@5092  = ~Sentido del peligro: mientras se mantenga esta habilidad, el psiónico obtiene un bonificador de 3 puntos a la CA, una bonificación del +50% a la habilidad encontrar trampas y no puede ser apuñalado por la espalda. Además, si el psiónico se enfrenta a ciertos efectos mágicos o ambientales que pueden esquivarse, puede intentar una tirada de salvación contra Arma de aliento para evitar el efecto por completo.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 6 puntos.~
+@5093  = ~Cancelar Sentido del peligro~
+@5101  = ~Evasión del destino~
+@5102  = ~Evasión del destino: esta habilidad impide que el psiónico se vea afectado por cualquier efecto de muerte instantánea. Además, cuando se reduce a cero puntos de golpe por otros medios, el psiónico puede intentar una tirada de salvación cada asalto para evitar la muerte. El psiónico sobrevivirá si recibe curación antes de fallar una tirada.
+
+El coste de mantener esta habilidad durante 10 asaltos es de 6 puntos.~
+@5103  = ~Cancelar Evasión del destino~
+@5111  = ~Proyección mental~
+@5112  = ~Proyección mental: usando esta habilidad, el psiónico puede salir de su cuerpo y explorar mediante una proyección mental fantasmal. Esta proyección no puede interactuar físicamente con el mundo, pero puede usar los poderes psiónicos conocidos por el psiónico, aunque no dispone de medios para recuperar PFP. La proyección cuenta con una reserva de puntos de golpe virtuales que también pueden alimentar poderes psiónicos, pero tampoco se recuperan. La proyección puede ser dañada por magia y armas encantadas; al ser frágil y etérea, dichos ataques suelen infligir el doble de daño normal.
+
+Usar esta habilidad cuesta 12 puntos e incrementa la fatiga del psiónico.~
+//
+@9011  = ~Explosión ultrapotente~
+@9012  = ~Explosión ultrapotente: se trata de una explosión psiónica omnidireccional masiva que ataca salvajemente las mentes de los enemigos del psiónico. Todos los enemigos que se encuentren a menos de 20 pies deben realizar una tirada de salvación con una penalización de -3 o quedarán aturdidos durante tres asaltos. 
+
+El uso de esta habilidad cuesta 12 puntos y aumenta la fatiga del psiónico.~
+@9021  = ~Constructor de energía~
+@9022  = ~Constructor de energía: esta habilidad recoge y concentra energía en forma de un humanoide ardiente, que puede actuar e incluso luchar en nombre del psiónico.
+
+Usar esta habilidad cuesta 12 puntos y aumenta la fatiga del psiónico.~
+@9031  = ~Fisión~
+@9032  = ~Fisión: esta habilidad crea un clon del psiónico totalmente funcional y consciente. El clon tiene aproximadamente la mitad de la experiencia y vitalidad del psiónico, y actúa según la voluntad de este (ya que, en realidad, son la misma persona). Mantener la integridad corporal del clon requiere un acto de voluntad supremo; el clon se desintegra tras 1 turno.
+
+Usar esta habilidad cuesta 12 puntos y aumenta la fatiga del psiónico.~
+@9041  = ~Disrupción atómica~
+@9042  = ~Disrupción atómica: esta habilidad se manifiesta como una violenta intrusión en la energía y la forma del objetivo, desgarrando células y moléculas individuales. Esto inmoviliza al objetivo y le causa 10d10 puntos de daño. (El objetivo puede realizar una tirada de salvación con una penalización de -2 para reducir el daño a la mitad).
+
+Usar esta habilidad cuesta 12 puntos y aumenta la fatiga del psiónico.~
+@9051  = ~Exoesqueleto~
+@9052  = ~Exoesqueleto: este poder permite al psiónico envolver su cuerpo con capas de fuerza telequinética, creando una coraza casi impenetrable de pura voluntad. Visualmente, su cuerpo parece estar recubierto por un brillo metálico mate. 
+
+Mantener esta habilidad cuesta 12 puntos; al liberar el exoesqueleto, aumenta la fatiga del psiónico.~
+@9053  = ~Cancelar exoesqueleto~
+@9061  = ~Composición elemental~
+@9062  = ~Composición elemental: este poder permite al psiónico infundir su propio cuerpo con energía elemental, adoptando la forma de fuego, frío o rayo en estado puro.
+
+Mantener esta habilidad cuesta 12 puntos; al volver a su forma normal, la fatiga del psiónico aumenta.~
+@9063  = ~Cancelar Composición elemental~
+@9066  = ~Composición de rayo~
+@9067  = ~Composición de fuego~
+@9068  = ~Composición de hielo~
+@9071  = ~Canalización clarividente~
+@9072  = ~Canalización clarividente: esta habilidad permite al psiónico manifestar poderes en cualquier lugar que pueda percibir, eludiendo el límite habitual de 30 pies. Esto incluye áreas visibles a través de la visión remota psíquica y la visión mágica a distancia, así como cualquier área que esté siendo explorada actualmente por uno de los compañeros del psiónico.
+
+Mantener esta habilidad cuesta 12 puntos; al finalizar el efecto, aumenta la fatiga del psiónico.~
+@9073  = ~Cancelar Canalización clarividente~ 
+@9081  = ~Ancla dimensional~
+@9082  = ~Ancla dimensional: esta habilidad crea un vínculo psíquico entre la forma física del psiónico y su plano de existencia actual. Esto evita que el psiónico sufra los efectos de cualquier hechizo de fenómeno similar que obstaculice su movimiento de cualquier manera, que lo teletransporte o lo desarraigue de ese plano sin su consentimiento.
+
+Mantener esta habilidad cuesta 12 puntos; al finalizar el efecto, la fatiga del psiónico aumenta.~
+@9083  = ~Cancelar Ancla dimensional~
+@9091  = ~Campo de estasis~
+@9092  = ~Campo de estasis: esta habilidad congela a todas las criaturas de las proximidades a nivel molecular. Durante doce segundos, solo el psiónico puede moverse e interactuar con el mundo atemporal. El campo de estasis impide que el psiónico cause daños físicos durante este tiempo, pero puede iniciar habilidades psiónicas o poderes mágicos, cuyos efectos se producirán una vez que finalice la estasis. Precaución: las criaturas con poderes o características casi divinos pueden ser inmunes a los efectos de un campo de estasis.
+
+Usar esta habilidad cuesta 12 puntos y aumenta la fatiga del psiónico.~
+@9101  = ~Control corporal~
+@9102  = ~Control corporal: esta habilidad representa el control definitivo sobre los propios procesos biológicos. El psiónico puede hacerse completamente inmune al daño ambiental, como el ácido, el fuego, el frío, los rayos o el veneno, o al daño físico, como las lesiones por aplastamiento, corte o perforación/proyectiles. Mientras se mantenga la habilidad, el psiónico puede cambiar la inmunidad a voluntad para adaptarse a las condiciones adversas a las que se enfrente en ese momento.
+
+Mantener esta habilidad cuesta 12 puntos; al finalizar el efecto, aumenta la fatiga del psiónico.~
+@9103  = ~Cancelar control corporal~
+@91001  = ~Inmunidad al ácido~
+@91002  = ~Inmunidad al frío~
+@91003  = ~Inmunidad a la electricidad~
+@91004  = ~Inmunidad al fuego~
+@91005  = ~Inmunidad al aplastamiento~
+@91006  = ~Inmunidad al corte~
+@91007  = ~Inmunidad a perforaciones/proyectiles~
+@91008  = ~Inmunidad al veneno~
+//
+@9991  = ~Evolución monstruosa~
+@9992  = ~Evolución monstruosa: esta habilidad hace que el cuerpo del psiónico crezca rápidamente hasta alcanzar una forma enorme y terriblemente poderosa. La forma monstruosa tiene una CA de -5, un GAC0 de 2 y ataca dos veces por asalto con sus poderosos puños. Estos ataques infligen 3d6 de daño aplastante más 2d4 de daño por veneno. En esta forma, el psiónico es inmune a los efectos de enredo, red y retención, y a todos los venenos.
+
+Al recuperar su forma natural, el psiónico se fatiga y sufre una reducción temporal de 20 puntos en sus puntos de golpe máximos.~
+//
+@10001  = ~Al elegir esta habilidad, podrás elegir otra habilidad psiónica. Además, si has aprendido al menos cuatro habilidades en cualquiera de las cuatro disciplinas psiónicas, podrás aprender uno de los dos poderes de las habilidades de alto nivel de esa disciplina. Las ocho habilidades psiónicas de alto nivel son:
+
+- Telepatía: Explosión ultrapotente. Obliga a todos los enemigos cercanos a realizar una tirada de salvación o quedar aturdidos.
+- Telepatía: Torre de voluntad de hierro. Actúa como el poder Fortaleza del intelecto, pero protege a todos los aliados cercanos mientras se mantiene.
+- Telequinesis: Terremoto. Actúa como el hechizo del sacerdote del mismo nombre.
+- Telequinesis: Campo de estasis. Actúa como el hechizo del mago Detener el tiempo, pero el psiónico no puede atacar físicamente mientras el campo de estasis está activo.
+- Piroquinesis: Destello solar. Actúa como el hechizo del sacerdote Rayo solar, pero no mata automáticamente a las criaturas no muertas.
+- Piroquinesis: Tormenta de energía. Actúa como el hechizo de sacerdote Tormenta de venganza, pero sin daño por ácido o veneno.
+- Bioquinesis: Evolución monstruosa. Esta habilidad transforma al psiónico en una bestia gigantesca, similar en apariencia a un montículo tambaleante.
+- Bioquinesis: Fisión. Actúa como el hechizo de mago Simulacro.
+
+A diferencia de los poderes psiónicos menores, estas habilidades pueden usarse una vez al día. En cada caso, el uso de la habilidad aumenta la fatiga del psiónico y provoca una reducción temporal de 25 puntos de golpe máximos. Nota: solo puedes aprender uno de los dos poderes definitivos de cada disciplina.~
+//
+
+// identificar UI
+@20000 = ~Usos de identificación restantes: ~
